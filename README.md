@@ -84,6 +84,7 @@ Every placeholder is in **`src/config/site.ts`**, and nowhere else. `npm run che
 | 13 | `[JOB PHOTO — PENDING]` | `gallery` | "Our work" before & after on the home and story pages | Only real jobs you have the right to show. Drop photos in `src/assets/photos/`, set `before`/`after` to the file names, fix the caption and town |
 | — | Map coordinates | `geo` | Structured data | Currently empty (left out of the structured data). Add your Google Business Profile pin |
 | — | Legal name | `legalName` | Structured data, footer | Confirm the exact registered name (e.g. "Fortress Siding LLC") |
+| — | Google Business Profile link | `social.googleBusinessProfile` | Structured data (`sameAs`, `hasMap`) | The share link from your GBP (g.page/… or maps.app.goo.gl/…). Empty = left out |
 | — | Review / social links | `reviewsUrl`, `social` | Reviews button, structured data | Optional. Empty values are hidden |
 | — | Owner name, photo, bio, facts | `ownerName`, `owner` | "Meet the owner" (home, Our Story), story signature, structured data | Filled in. Photo is `src/assets/photos/owner-joe.jpg`; bio paragraphs and facts are in the owner's own words |
 
@@ -152,7 +153,10 @@ Each thank-you event fires once per visit, so refreshing the page doesn't double
 ## SEO
 
 - Every page has its own title, description, H1 and canonical URL (all set in the Markdown files).
-- Structured data: every page carries one JSON-LD `@graph` (built in `src/lib/schema.ts` from `src/config/site.ts`) linking the business (RoofingContractor with offer catalog, free-inspection offer, HIC number, owner), the website, the page (WebPage / AboutPage / ContactPage / FAQPage), its breadcrumb and, on service and town pages, a Service node. Values still marked PENDING are left out automatically. `npm run check:schema` validates the built output and runs as part of `npm run build`.
+- Structured data: every page carries one JSON-LD `@graph` (built in `src/lib/schema.ts` from `src/config/site.ts`) linking the business (RoofingContractor with offer catalog, free-inspection offer, HIC registration as a credential, owner), the website, the page (WebPage / AboutPage / ContactPage / CollectionPage / FAQPage), its breadcrumb, one node per town and county served (with Wikipedia `sameAs` links, written from the standard "Town,_Pennsylvania" article names; the sandbox the site was built in could not reach Wikipedia, so click a couple once) and, on service and town pages, a Service node that the page's `about` points at. Values still marked PENDING are left out automatically. `npm run check:schema` validates the built output and runs as part of `npm run build`.
+- FAQ answers in the Markdown front matter may contain `[text](/path/)` links and `**bold**`; they render as links on the page and as plain text in the structured data.
+- The home page's H1 is the small keyworded line above "Call Your Uncle." (set as `h1` in `src/content/pages/home.md`); the tagline is the visual headline but not the H1.
+- Town-page hero photos are Canva stand-ins, so their alt text describes the picture without naming the town. When real local photos go in, put the town back in the alt text.
 - `public/llms.txt` gives AI crawlers a plain-text summary of the business and its pages; keep it in step with the site map.
 - The sitemap is generated automatically at `/sitemap-index.xml` and listed in `public/robots.txt`.
 - Open Graph images (the preview shown when a link is shared) are in `public/og/`, one per page.

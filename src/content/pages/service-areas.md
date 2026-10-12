@@ -5,7 +5,7 @@ h1: "Roofing Service Areas in Montgomery & Chester County, PA"
 ogImage: "/og/service-areas.png"
 image: "town-blue-bell"
 imageAlt: "Two-story colonial homes on a quiet suburban street"
-intro: "We work in Conshohocken, Blue Bell, Malvern, Paoli and the towns around them. Staying close means we can get to you quickly, and we're never far away if you need us after the job."
+intro: "We work in Conshohocken, Blue Bell, Malvern, Paoli and the towns around them. Staying close means we're never far away, during the job and after it."
 ---
 
 ## Roofing contractor for Montgomery County and Chester County, PA

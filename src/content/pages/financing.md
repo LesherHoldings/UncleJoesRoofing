@@ -14,7 +14,7 @@ faqs:
   - q: "Do I have to use financing?"
     a: "Not at all. Many homeowners pay by check or other means. Financing is just an option."
   - q: "Can I finance a new roof in Montgomery or Chester County, PA?"
-    a: "Yes. Financing is available on a [roof replacement](/roof-replacement/) anywhere we work, from Conshohocken and Blue Bell to Malvern and Paoli. Ask at your [free inspection](/free-roof-inspection/)."
+    a: "Yes. Financing is offered through our lending partner on a [roof replacement](/roof-replacement/) anywhere we work, from Conshohocken and Blue Bell to Malvern and Paoli. Ask at your [free inspection](/free-roof-inspection/)."
   - q: "Will checking my options affect my credit?"
     a: "That depends on the lender and the type of check they run. The financing partner will explain this before you apply."
 ---

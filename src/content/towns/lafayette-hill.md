@@ -1,6 +1,6 @@
 ---
 title: "Roofing Contractor in Lafayette Hill, PA | Uncle Joe's Roofing"
-description: "Roof replacement, roof repair and free inspections in Lafayette Hill, PA 19444 and Whitemarsh Township. Colonials, split-levels and older stone homes. Veteran-owned, owner-led."
+description: "Lafayette Hill, PA 19444 roofing contractor for Whitemarsh Township colonials, split-levels and stone homes: shingle replacement, leak repair, free inspections. Veteran-owned."
 h1: "Roof Replacement & Repair in Lafayette Hill, PA"
 ogImage: "/og/lafayette-hill.png"
 image: "town-malvern"
@@ -23,18 +23,18 @@ faqs:
   - q: "Trees hang over my roof. Does that change anything?"
     a: "Shade keeps a roof damp longer, which means moss and faster wear on the north side, and leaves clog the gutters so water backs up under the shingles. We look at all of it at the inspection and tell you what matters and what's cosmetic."
   - q: "Leaves fill my gutters every fall. Can that hurt the roof?"
-    a: "Yes. Gutters packed with leaves hold water against the drip edge and the first course of shingles, and in winter that's where ice dams start. Clear them before the leaves freeze in, and if the fascia behind the gutter is soft or stained, mention it at the inspection. The gutter line is on our checklist for every roof we look at."
+    a: "Yes. Gutters packed with leaves hold water against the drip edge and the first course of shingles, and in winter that trapped water freezes and helps an ice dam get started. Clear them before the leaves freeze in, and if the fascia behind the gutter is soft or stained, mention it at the inspection. The gutter line is on our checklist for every roof we look at."
   - q: "Do you also cover Plymouth Meeting and Conshohocken?"
-    a: "Yes. Lafayette Hill, Plymouth Meeting and Conshohocken are all a few minutes from our office in Blue Bell."
+    a: "Yes. Lafayette Hill, Plymouth Meeting and Conshohocken are all a short drive from our office in Blue Bell."
 ---
 
 ## Wooded lots, older roofs
 
-Lafayette Hill, PA 19444, has more mature trees than most of the towns we work in. That's good for the view and hard on roofs: shaded slopes stay wet, moss takes hold, and gutters fill with leaves until water backs up under the first course of shingles. A [free roof inspection](/free-roof-inspection/) catches that before it becomes a stained ceiling.
+Lafayette Hill, PA 19444, has its share of mature trees and wooded lots. That's good for the view and hard on roofs: shaded slopes stay wet, moss takes hold, and gutters fill with leaves until water backs up under the first course of shingles. A [free roof inspection](/free-roof-inspection/) catches that before it becomes a stained ceiling.
 
 ## Complex rooflines done right
 
-Many homes here have dormers, valleys, skylights and additions tied into the main roof. On a [roof replacement](/roof-replacement/) every one of those gets new flashing and ice and water shield, because reusing old flashing is the quickest way to make a cheap quote and a leaky roof. If the roof is sound and one valley is the problem, a [roof repair](/roof-repair/) is the honest fix.
+It's common to find homes here with dormers, valleys, skylights and additions tied into the main roof. On a [roof replacement](/roof-replacement/) every one of those gets new flashing and ice and water shield, because reusing old flashing is the quickest way to make a cheap quote and a leaky roof. If the roof is sound and one valley is the problem, a [roof repair](/roof-repair/) is the honest fix.
 
 ## Nearby
 

@@ -16,13 +16,13 @@ faqs:
   - q: "What's the difference between a manufacturer warranty and a workmanship warranty?"
     a: "The manufacturer warranty covers defects in the shingles themselves. The workmanship warranty covers how the roof was installed — flashing, nailing, ventilation. Most real-world roof problems are installation problems, so the workmanship warranty is the one to read closely."
   - q: "How long is a roof warranty, and what does it actually cover?"
-    a: "There are two, with different terms. The shingle roof warranty comes from the manufacturer and covers defects in the shingles; its length depends on the shingle line you choose and on registering it after installation. The contractor's workmanship warranty covers the installation itself and comes from us. Both terms are spelled out in your written quote, so you can compare them with any other quote line by line."
+    a: "There are two, with different terms. The shingle roof warranty comes from the manufacturer and covers defects in the shingles; its length depends on the shingle line you choose, and some of the coverage depends on registering it after installation. The contractor's workmanship warranty covers the installation itself and comes from us. Both terms are spelled out in your written quote, so you can compare them with any other quote line by line."
   - q: "Can a new roof's warranty be voided?"
     a: "Yes. Common reasons include installing over old shingles, poor attic ventilation, mixing components from different manufacturers, unregistered warranties, and other trades walking on or cutting into the roof. We install to the manufacturer's specs and tell you what to avoid."
   - q: "Does homeowners insurance cover a roof replacement?"
     a: "Sometimes. Most policies cover sudden damage from wind, hail or a fallen tree, and don't cover a roof that simply wore out. Every policy is different. If you think a storm did the damage, take photos, call your insurer, and ask us for an inspection report — we'll document what we find honestly, whether or not it helps the claim."
   - q: "Will insurance replace a roof that's just old?"
-    a: "Almost never. Homeowners insurance is for sudden damage, not wear, so a roof that has simply reached the end of its life is a maintenance cost. A contractor who promises to get insurance to pay for an old roof is a red flag. If a storm genuinely damaged an older roof, that's a different conversation, and we'll photograph it honestly either way."
+    a: "Almost never. Homeowners insurance generally covers sudden damage, not wear, so a roof that has simply reached the end of its life is a maintenance cost. A contractor who promises to get insurance to pay for an old roof is a red flag. If a storm genuinely damaged an older roof, that's a different conversation, and we'll photograph it honestly either way."
   - q: "Is the quote the same if I finance?"
     a: "Yes. Financing goes through our partner, and the lender sets the rates and terms. Your roof price doesn't change based on how you pay."
 ---
@@ -65,7 +65,7 @@ We'll show you samples at your inspection. Our job is to tell you honestly which
 
 Every new roof comes with two separate warranties, and it pays to know which is which.
 
-**The manufacturer's warranty** covers the shingles and other roofing products themselves — defects in the material. It's issued by the shingle maker, it usually has to be registered after installation, and the best coverage often requires that the whole roof system (underlayment, starter, ridge, vents) be installed to the manufacturer's specifications.
+**The manufacturer's warranty** covers the shingles and other roofing products themselves — defects in the material. It's issued by the shingle maker, it usually has to be registered after installation to get the fuller coverage, and the best coverage often requires that the whole roof system (underlayment, starter, ridge, vents) be installed to the manufacturer's specifications.
 
 **The workmanship warranty** covers how the roof was installed: the flashing, the nailing pattern, the ventilation, the details. It comes from the contractor, not the manufacturer. This is the one that matters most, because most leaks are installation problems, not shingle problems — and it's only as good as the company standing behind it. We're local, and we plan to be here.
 

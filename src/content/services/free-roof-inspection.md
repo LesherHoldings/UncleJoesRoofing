@@ -1,6 +1,6 @@
 ---
 title: "Free Roof Inspection in Montgomery County, PA | Uncle Joe's"
-description: "Book a free, no-pressure roof inspection in Conshohocken, Blue Bell, Malvern, Paoli or nearby on the Main Line. Photos of what we find and a straight answer."
+description: "Book a free, no-pressure roof inspection in Conshohocken, Blue Bell, Malvern, Paoli and nearby towns. Photos of what we find and a straight answer."
 h1: "Free Roof Inspection in Montgomery & Chester County, PA"
 ogImage: "/og/free-roof-inspection.png"
 image: "inspection-ladder"
@@ -38,7 +38,7 @@ Small problems are cheap to fix. Leaks that run for a season are not. A quick lo
 
 ## What we look for on roofs in Montgomery and Chester County
 
-The roofs we inspect in [Conshohocken](/service-areas/conshohocken/) and [Blue Bell](/service-areas/blue-bell/) are mostly asphalt shingle, and they fail the same few ways: worn or lifted shingles, flashing that has pulled away at a chimney or wall, cracked pipe boots, and ice damage at the eaves after a freeze-thaw winter. On the older homes in [Malvern](/service-areas/malvern/) and [Paoli](/service-areas/paoli/) we look hardest at valleys, dormers and old chimneys. After a storm, [check the roof from the ground first](/what-to-expect/#after-the-storm), then call us for the close-up.
+The asphalt shingle roofs we inspect in [Conshohocken](/service-areas/conshohocken/) and [Blue Bell](/service-areas/blue-bell/) tend to fail the same few ways: worn or lifted shingles, flashing that has pulled away at a chimney or wall, cracked pipe boots, and ice damage at the eaves after a freeze-thaw winter. On the older homes in [Malvern](/service-areas/malvern/) and [Paoli](/service-areas/paoli/) we look hardest at valleys, dormers and old chimneys. After a storm, [check the roof from the ground first](/what-to-expect/#after-the-storm), then call us for the close-up.
 
 ## Book in two minutes
 

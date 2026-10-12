@@ -1,6 +1,6 @@
 ---
 title: "Roofing Contractor in West Conshohocken, PA | Uncle Joe's"
-description: "Shingle roof replacement and leak repair for West Conshohocken, PA 19428: hillside twins, rowhomes and riverside townhomes. Free inspections with photos. Veteran-owned, owner-led."
+description: "Shingle roof replacement and leak repair for West Conshohocken, PA 19428: hillside twins, rowhomes and riverside townhomes. Free inspections with photos."
 h1: "Roof Replacement & Repair in West Conshohocken, PA"
 ogImage: "/og/west-conshohocken.png"
 image: "town-conshohocken"

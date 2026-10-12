@@ -1,6 +1,6 @@
 ---
 title: "Roofing Company in Plymouth Meeting, PA | Uncle Joe's Roofing"
-description: "Roofers for Plymouth Meeting, PA 19462, on both sides of Germantown Pike: shingle roof replacement, leak repair and free inspections with photos. Veteran-owned, owner-led."
+description: "Roofers for Plymouth Meeting, PA 19462: shingle roof replacement, leak repair and free inspections with photos on both sides of Germantown Pike. Veteran-owned."
 h1: "Roof Replacement & Repair in Plymouth Meeting, PA"
 ogImage: "/og/plymouth-meeting.png"
 image: "town-blue-bell"

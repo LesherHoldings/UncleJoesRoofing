@@ -1,6 +1,6 @@
 ---
 title: "Roofing Contractor in Lafayette Hill, PA | Uncle Joe's Roofing"
-description: "Lafayette Hill, PA 19444 roofing contractor for Whitemarsh Township colonials, split-levels and stone homes: shingle replacement, leak repair, free inspections. Veteran-owned."
+description: "Lafayette Hill, PA 19444 roofing contractor for Whitemarsh Township colonials, split-levels and stone homes. Shingle replacement, leak repair, free inspections."
 h1: "Roof Replacement & Repair in Lafayette Hill, PA"
 ogImage: "/og/lafayette-hill.png"
 image: "town-malvern"

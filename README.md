@@ -182,7 +182,7 @@ To pull files from a URL into the repo without a local checkout, run the **Impor
 
 ## Deploy to Vercel
 
-The Vercel project is connected to this GitHub repository: every push to `main` builds and goes live on unclejoesroofing.com automatically (Vercel → uncle-joes-roofing → Deployments shows each build). Pushes to other branches get a preview URL.
+The Vercel project is connected to this GitHub repository: every push to `main` builds and goes live on unclejoesroofing.com automatically (Vercel → uncle-joes-roofing → Deployments shows each build). Pushes to other branches get a preview URL. Note: Vercel only builds commits whose author is a member of the Vercel team, so commits made on the owner's behalf are authored as the owner's GitHub account.
 
 The site lives in the `uncle-joes-roofing/` folder of this repository.
 

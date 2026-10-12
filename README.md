@@ -103,7 +103,7 @@ The site never invents reviews, review counts, years in business, job counts, ce
 | `/pricing-and-warranties/` | Plain-English guide: what's in a quote, shingle types, manufacturer vs. workmanship warranty (prints `warranty` and `financing.partner` from the config) |
 | `/what-to-expect/` | Install day start to finish, plus the "Leaking right now?" emergency section (`#leaking-right-now`) |
 | `/financing/`, `/our-story/`, `/contact/` | |
-| `/service-areas/` and `/service-areas/{conshohocken, blue-bell, malvern, paoli, west-conshohocken, plymouth-meeting, lafayette-hill}/` | Town pages, each with the GHL form |
+| `/service-areas/` and `/service-areas/{conshohocken, blue-bell, malvern, paoli, west-conshohocken, plymouth-meeting, lafayette-hill, king-of-prussia, ambler}/` | Town pages, each with the GHL form. To add a town: new file in `src/content/towns/`, add the slug to `serviceAreas` in `site.ts` and to `towns` in `src/lib/schema.ts`, add an OG entry in `scripts/make-og-images.py` |
 | `/privacy/` | Privacy policy, including SMS opt-in wording |
 | `/terms/` | Terms & conditions, including SMS program terms |
 | `/thank-you/`, `/thank-you/booked/` | Confirmation pages after a form or booking. Hidden from search |

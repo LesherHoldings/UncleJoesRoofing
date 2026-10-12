@@ -1,6 +1,6 @@
 ---
 title: "Roofing Contractor in Ambler, PA | Uncle Joe's Roofing"
-description: "Roof replacement, roof repair and free inspections in Ambler, PA 19002: borough twins and Victorians plus Upper Dublin, Lower Gwynedd and Whitpain homes. Veteran-owned, owner-led."
+description: "Roof replacement, repair and free inspections in Ambler, PA 19002, plus Upper Dublin, Lower Gwynedd and Whitpain. Veteran-owned, owner-led, next door to our office."
 h1: "Roof Replacement & Repair in Ambler, PA"
 ogImage: "/og/ambler.png"
 image: "town-conshohocken"

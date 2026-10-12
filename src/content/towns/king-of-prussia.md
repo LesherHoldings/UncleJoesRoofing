@@ -1,6 +1,6 @@
 ---
 title: "Roofer in King of Prussia, PA | Uncle Joe's Roofing"
-description: "Roof replacement, roof repair and free inspections in King of Prussia, PA 19406 and Upper Merion Township. Postwar ranches, colonials and newer townhomes. Veteran-owned, owner-led."
+description: "Roof replacement, repair and free inspections in King of Prussia, PA 19406 and Upper Merion Township. Veteran-owned, owner-led, photos with every quote."
 h1: "Roof Replacement & Repair in King of Prussia, PA"
 ogImage: "/og/king-of-prussia.png"
 image: "town-blue-bell"

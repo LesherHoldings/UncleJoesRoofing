@@ -21,9 +21,9 @@ export const site = {
   ownerName: '[OWNER NAME — PENDING]',
   phone: {
     /** As shown on the site. Must match Google Business Profile exactly. */
-    display: '[PHONE — PENDING]',
+    display: '610-651-3778',
     /** E.164 format for tel: links and schema, e.g. +12155550123 */
-    e164: '+10000000000',
+    e164: '+16106513778',
   },
   email: '[EMAIL — PENDING]',
   address: {

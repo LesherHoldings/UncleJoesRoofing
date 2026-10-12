@@ -29,13 +29,15 @@ export const site = {
   address: {
     /** Must match Google Business Profile exactly. */
     street: '[OFFICE STREET ADDRESS — PENDING]',
-    city: 'Yardley',
+    city: '[OFFICE CITY — PENDING]',
     region: 'PA',
-    postalCode: '19067',
+    postalCode: '[ZIP — PENDING]',
     country: 'US',
   },
-  /** Approximate office location for schema (decimal degrees). Replace with the GBP pin. */
-  geo: { lat: 40.2457, lng: -74.8460 },
+  /** Office map pin for schema (decimal degrees), from Google Business Profile. null = omitted. */
+  geo: null as { lat: number; lng: number } | null,
+  /** How the service area is described in copy. */
+  region: 'Montgomery & Chester County, PA',
   /** PA Home Improvement Contractor registration — legally required in the footer. */
   hicNumber: '[PA HIC # — PENDING]',
   /** Business hours. Used in the footer, contact page and schema. Confirm against GBP. */
@@ -57,9 +59,9 @@ export const site = {
    * Set verified: true on real ones. Never invent reviews, names or counts.
    */
   reviews: [
-    { quote: '[REVIEW PLACEHOLDER] Replace with a real customer review, used with permission.', name: '[CUSTOMER NAME]', town: 'Yardley', service: 'Roof replacement', verified: false },
-    { quote: '[REVIEW PLACEHOLDER] Replace with a real customer review, used with permission.', name: '[CUSTOMER NAME]', town: 'Lower Makefield', service: 'Roof repair', verified: false },
-    { quote: '[REVIEW PLACEHOLDER] Replace with a real customer review, used with permission.', name: '[CUSTOMER NAME]', town: 'Newtown', service: 'Free roof inspection', verified: false },
+    { quote: '[REVIEW PLACEHOLDER] Replace with a real customer review, used with permission.', name: '[CUSTOMER NAME]', town: 'Conshohocken', service: 'Roof replacement', verified: false },
+    { quote: '[REVIEW PLACEHOLDER] Replace with a real customer review, used with permission.', name: '[CUSTOMER NAME]', town: 'Blue Bell', service: 'Roof repair', verified: false },
+    { quote: '[REVIEW PLACEHOLDER] Replace with a real customer review, used with permission.', name: '[CUSTOMER NAME]', town: 'Malvern', service: 'Free roof inspection', verified: false },
   ],
   /** Google Business Profile review link (for the reviews section). '' hides the button. */
   reviewsUrl: '',
@@ -86,7 +88,10 @@ export const site = {
 } as const;
 
 /** Service-area towns, in display order. Each has a markdown file in src/content/towns/. */
-export const serviceAreas = ['yardley', 'lower-makefield', 'newtown', 'langhorne', 'middletown-township'] as const;
+export const serviceAreas = ['conshohocken', 'blue-bell', 'malvern', 'paoli'] as const;
+
+/** Nearby towns we also serve (mentioned in copy and schema, no dedicated page). */
+export const nearbyTowns = ['King of Prussia', 'Plymouth Meeting', 'Wayne', 'Berwyn', 'Devon', 'Ambler', 'Lafayette Hill', 'Exton'];
 
 /** Where every "Book" button goes. */
 export const bookHref = '/book/';

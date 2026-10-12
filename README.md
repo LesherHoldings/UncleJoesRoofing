@@ -1,6 +1,6 @@
 # Uncle Joe's Roofing — unclejoesroofing.com
 
-Marketing website for Uncle Joe's Roofing (a DBA of Fortress Siding), Yardley, PA. *Call Your Uncle.*
+Marketing website for Uncle Joe's Roofing (a DBA of Fortress Siding), serving Conshohocken, Blue Bell, Malvern, Paoli and the surrounding Montgomery & Chester County area. *Call Your Uncle.*
 
 - **Astro 7 + Tailwind CSS 4.** Every page is pre-built static HTML. There's no server code.
 - **GoHighLevel** handles leads: the GHL form sits on the service, town and contact pages, and the GHL calendar is on `/book/`.
@@ -42,14 +42,15 @@ All copy lives in Markdown files. The settings at the top of each file (between 
 | Book page, Privacy, Terms, thank-you pages | `src/content/pages/book.md`, `privacy.md`, `terms.md`, `thank-you.md`, `booked.md` |
 | Home page (hero, why us, story teaser, section headings) | `src/content/pages/home.md` |
 | Roof Replacement / Roof Repair / Free Roof Inspection / Solar-Ready Roofs | `src/content/services/*.md` |
-| Town pages (Yardley, Lower Makefield, Newtown, Langhorne, Middletown) | `src/content/towns/*.md` |
+| Town pages (Conshohocken, Blue Bell, Malvern, Paoli) | `src/content/towns/*.md` |
+| Nearby towns listed without their own page | `src/config/site.ts` → `nearbyTowns` |
 | Our Story, Financing, Contact, Service Areas | `src/content/pages/*.md` |
 | Menu links, where "Book" buttons go | `src/config/site.ts` (`nav`, `bookHref`) |
 | Colors and fonts | `src/styles/global.css` (`@theme` block) |
 
 What the settings at the top of each file mean:
 
-- `title`: the browser tab and Google headline. Aim for 50–60 characters, in the form *"Roof Repair in Newtown, PA \| Uncle Joe's Roofing"*.
+- `title`: the browser tab and Google headline. Aim for 50–60 characters, in the form *"Roof Repair in Malvern, PA \| Uncle Joe's Roofing"*.
 - `description`: the Google snippet. Aim for 140–160 characters.
 - `h1`: the main heading on the page. Use exactly one per page.
 - `faqs`: question/answer pairs. They show on the page and also feed Google's FAQ data.
@@ -69,7 +70,7 @@ Every placeholder is in **`src/config/site.ts`**, and nowhere else. `npm run che
 | --- | --- | --- | --- | --- |
 | 1 | `[PHONE — PENDING]` | `phone.display` | Header, mobile call bar, every Call button, footer, contact page | **Must match Google Business Profile exactly** |
 | 2 | `+10000000000` | `phone.e164` | Every `tel:` link and the structured data for search engines | Same number in `+1XXXXXXXXXX` format |
-| 3 | `[OFFICE STREET ADDRESS — PENDING]` | `address.street` | Footer, contact page, structured data | **Must match Google Business Profile exactly.** Also confirm `city`, `postalCode` |
+| 3 | `[OFFICE STREET ADDRESS — PENDING]`, `[OFFICE CITY — PENDING]`, `[ZIP — PENDING]` | `address` | Footer, contact page, structured data | **Must match Google Business Profile exactly.** Also confirm `city`, `postalCode` |
 | 4 | `[PA HIC # — PENDING]` | `hicNumber` | Footer on every page (required by PA law), credential badge | PA Home Improvement Contractor registration number |
 | 5 | `[FINANCING PARTNER — PENDING]` | `financing.partner` | Financing page | Optionally set `financing.applyUrl` to show an "Apply" button |
 | 6 | `PUBLIC_GA4_ID` | environment variable | Analytics | GA4 measurement ID, `G-XXXXXXXXXX` |
@@ -80,7 +81,7 @@ Every placeholder is in **`src/config/site.ts`**, and nowhere else. `npm run che
 | 11 | `[HOURS — PENDING]` | `hours` | Footer, contact page, structured data | The 8–5 / 9–1 times are stand-ins. **Match Google Business Profile** |
 | 12 | `[EMAIL — PENDING]` | `email` | Contact page, structured data | |
 | 13 | `[OWNER NAME — PENDING]` | `ownerName` | Signs the Our Story page | |
-| — | Map coordinates | `geo` | Structured data | Currently an approximate Yardley location. Replace with your Google Business Profile pin |
+| — | Map coordinates | `geo` | Structured data | Currently empty (left out of the structured data). Add your Google Business Profile pin |
 | — | Legal name | `legalName` | Structured data, footer | Confirm the exact registered name (e.g. "Fortress Siding LLC") |
 | — | Review / social links | `reviewsUrl`, `social` | Reviews button, structured data | Optional. Empty values are hidden |
 
@@ -96,7 +97,7 @@ The site never invents reviews, review counts, years in business, job counts, ce
 | `/book/` | GHL booking calendar. Every "Book" button links here, and so does **discovery.unclejoesroofing.com** |
 | `/roof-replacement/`, `/roof-repair/`, `/free-roof-inspection/`, `/solar-ready-roofs/` | Service pages, each with the GHL form |
 | `/financing/`, `/our-story/`, `/contact/` | |
-| `/service-areas/` and `/service-areas/{yardley, lower-makefield, newtown, langhorne, middletown-township}/` | Town pages, each with the GHL form |
+| `/service-areas/` and `/service-areas/{conshohocken, blue-bell, malvern, paoli}/` | Town pages, each with the GHL form |
 | `/privacy/` | Privacy policy, including SMS opt-in wording |
 | `/terms/` | Terms & conditions, including SMS program terms |
 | `/thank-you/`, `/thank-you/booked/` | Confirmation pages after a form or booking. Hidden from search |

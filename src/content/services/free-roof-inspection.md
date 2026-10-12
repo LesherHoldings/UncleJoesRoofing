@@ -1,7 +1,7 @@
 ---
-title: "Free Roof Inspection in Yardley, PA | Uncle Joe's Roofing"
-description: "Book a free, no-pressure roof inspection in Yardley, Lower Makefield, Newtown, Langhorne or Middletown, PA. Photos of what we find and a straight answer."
-h1: "Free Roof Inspection in Yardley & Lower Bucks County, PA"
+title: "Free Roof Inspection in Conshohocken, Malvern & Paoli, PA"
+description: "Book a free, no-pressure roof inspection in Conshohocken, Blue Bell, Malvern, Paoli or nearby on the Main Line. Photos of what we find and a straight answer."
+h1: "Free Roof Inspection in Montgomery & Chester County, PA"
 ogImage: "/og/free-roof-inspection.png"
 order: 3
 icon: inspect

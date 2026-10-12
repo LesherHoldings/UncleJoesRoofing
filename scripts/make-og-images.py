@@ -17,19 +17,18 @@ YELLOW, INK, WHITE, PAPER = (242, 194, 48), (17, 17, 17), (255, 255, 255), (248,
 
 # file name -> (headline, sub line)
 PAGES = {
-    "default": ("Call Your Uncle.", "Roofing in Yardley & Lower Bucks County, PA"),
-    "roof-replacement": ("Roof Replacement", "Yardley & Lower Bucks County, PA"),
-    "roof-repair": ("Roof Repair", "Yardley & Lower Bucks County, PA"),
-    "free-roof-inspection": ("Free Roof Inspection", "Yardley & Lower Bucks County, PA"),
-    "solar-ready-roofs": ("Solar-Ready Roofs", "Bucks County, PA"),
-    "financing": ("Roof Financing", "Yardley & Lower Bucks County, PA"),
+    "default": ("Call Your Uncle.", "Roofing in Montgomery & Chester County, PA"),
+    "roof-replacement": ("Roof Replacement", "Conshohocken, Blue Bell, Malvern & Paoli"),
+    "roof-repair": ("Roof Repair", "Conshohocken, Blue Bell, Malvern & Paoli"),
+    "free-roof-inspection": ("Free Roof Inspection", "Conshohocken, Blue Bell, Malvern & Paoli"),
+    "solar-ready-roofs": ("Solar-Ready Roofs", "Montgomery & Chester County, PA"),
+    "financing": ("Roof Financing", "Montgomery & Chester County, PA"),
     "our-story": ("Our Story", "The Uncle Joe house"),
-    "service-areas": ("Service Areas", "Lower Bucks County, PA"),
-    "yardley": ("Roofing in Yardley", "Yardley, PA"),
-    "lower-makefield": ("Roofing in Lower Makefield", "Lower Makefield Township, PA"),
-    "newtown": ("Roofing in Newtown", "Newtown, PA"),
-    "langhorne": ("Roofing in Langhorne", "Langhorne, PA"),
-    "middletown-township": ("Roofing in Middletown", "Middletown Township, PA"),
+    "service-areas": ("Service Areas", "Montgomery & Chester County, PA"),
+    "conshohocken": ("Roofing in Conshohocken", "Conshohocken, PA"),
+    "blue-bell": ("Roofing in Blue Bell", "Blue Bell, PA"),
+    "malvern": ("Roofing in Malvern", "Malvern, PA"),
+    "paoli": ("Roofing in Paoli", "Paoli, PA"),
 }
 
 

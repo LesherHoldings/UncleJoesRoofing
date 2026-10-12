@@ -1,7 +1,7 @@
 ---
-title: "Roof Repair in Yardley, PA | Leaks & Shingles | Uncle Joe's Roofing"
-description: "Roof leak and shingle repair in Yardley, Lower Makefield, Newtown, Langhorne and Middletown, PA. Honest diagnosis, fair prices, no upselling. Call your uncle."
-h1: "Roof Repair in Yardley & Lower Bucks County, PA"
+title: "Roof Repair in Conshohocken, Blue Bell & Paoli, PA | Uncle Joe's"
+description: "Roof leak and shingle repair in Conshohocken, Blue Bell, Malvern, Paoli and nearby towns. Honest diagnosis, fair prices, no upselling. Call your uncle."
+h1: "Roof Repair in Montgomery & Chester County, PA"
 ogImage: "/og/roof-repair.png"
 order: 2
 icon: repair

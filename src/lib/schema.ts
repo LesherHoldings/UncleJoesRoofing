@@ -1,6 +1,13 @@
-import { site, fullAddress } from '../config/site';
+import { site, fullAddress, nearbyTowns } from '../config/site';
 
-const townNames = ['Yardley', 'Lower Makefield Township', 'Newtown', 'Langhorne', 'Middletown Township'];
+/** Towns with their own page, and the county each sits in. */
+const towns: { name: string; county: string }[] = [
+  { name: 'Conshohocken', county: 'Montgomery County' },
+  { name: 'Blue Bell', county: 'Montgomery County' },
+  { name: 'Malvern', county: 'Chester County' },
+  { name: 'Paoli', county: 'Chester County' },
+];
+const townNames = [...towns.map((t) => t.name), ...nearbyTowns];
 
 /** RoofingContractor JSON-LD, built entirely from src/config/site.ts. */
 export function businessSchema() {
@@ -24,12 +31,17 @@ export function businessSchema() {
       postalCode: site.address.postalCode,
       addressCountry: site.address.country,
     },
-    geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
-    areaServed: townNames.map((name) => ({
-      '@type': 'City',
-      name: `${name}, PA`,
-      containedInPlace: { '@type': 'AdministrativeArea', name: 'Bucks County, PA' },
-    })),
+    ...(site.geo ? { geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng } } : {}),
+    areaServed: [
+      ...towns.map((t) => ({
+        '@type': 'City',
+        name: `${t.name}, PA`,
+        containedInPlace: { '@type': 'AdministrativeArea', name: `${t.county}, PA` },
+      })),
+      ...nearbyTowns.map((name) => ({ '@type': 'City', name: `${name}, PA` })),
+      { '@type': 'AdministrativeArea', name: 'Montgomery County, PA' },
+      { '@type': 'AdministrativeArea', name: 'Chester County, PA' },
+    ],
     openingHoursSpecification: site.hours.map((h) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: h.schemaDays,

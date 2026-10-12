@@ -1,13 +1,13 @@
 ---
-title: "Roof Replacement in Yardley, PA | Uncle Joe's Roofing"
-description: "Asphalt shingle roof replacement in Yardley, Lower Makefield, Newtown and Langhorne, PA. Owner-led, fair pricing, clean jobsite. Book a free roof inspection."
-h1: "Roof Replacement in Yardley & Lower Bucks County, PA"
+title: "Roof Replacement in Conshohocken, Malvern & Paoli, PA | Uncle Joe's"
+description: "Asphalt shingle roof replacement in Conshohocken, Blue Bell, Malvern, Paoli and the Main Line. Owner-led, fair pricing, clean jobsite. Book a free inspection."
+h1: "Roof Replacement in Montgomery & Chester County, PA"
 ogImage: "/og/roof-replacement.png"
 order: 1
 icon: replace
 cardTitle: "Roof Replacement"
 cardSummary: "A full tear-off and new asphalt shingle roof, done right and cleaned up after."
-intro: "When a roof is worn out, patching it just delays the bill. We replace asphalt shingle roofs on homes across Yardley and Lower Bucks County — one clear price, one person in charge, and a yard that looks like we were never there."
+intro: "When a roof is worn out, patching it just delays the bill. We replace asphalt shingle roofs on homes in Conshohocken, Blue Bell, Malvern, Paoli and across the Main Line — one clear price, one person in charge, and a yard that looks like we were never there."
 highlights:
   - "Full tear-off down to the roof deck — no shingles layered over old ones"
   - "Roof deck checked, and soft or damaged boards replaced"

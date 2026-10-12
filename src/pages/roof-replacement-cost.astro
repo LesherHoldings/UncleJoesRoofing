@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { serviceNode, ids } from '../lib/schema';
 import PageHero from '../components/PageHero.astro';
 import Checklist from '../components/Checklist.astro';
 import GhlForm from '../components/GhlForm.astro';
@@ -18,7 +19,7 @@ const cost = d.cost!;
 const replacement = (await getEntry('services', 'roof-replacement'))!;
 const crumbs = [{ name: 'What a New Roof Costs', path: '/roof-replacement-cost/' }];
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs} schema={[serviceNode('roof-replacement')]} mainEntityId={ids.service('roof-replacement')}>
   <PageHero h1={d.h1} intro={d.intro} kicker="Straight answer" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location="cost_hero" />
 
   <section class="section">

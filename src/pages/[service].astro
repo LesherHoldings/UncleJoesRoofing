@@ -28,7 +28,7 @@ const path = `/${entry.id}/`;
 const isInspection = entry.id === 'free-roof-inspection';
 const isRepair = entry.id === 'roof-repair';
 
-const schema = [serviceNode(entry.id, d.description)];
+const schema = [serviceNode(entry.id)];
 ---
 <Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={[{ name: d.cardTitle, path }]} schema={schema} faqs={d.faqs} mainEntityId={ids.service(entry.id)}>
   <PageHero h1={d.h1} intro={d.intro} kicker={d.cardTitle} breadcrumbs={[{ name: d.cardTitle, path }]} image={d.image} imageAlt={d.imageAlt} ctas={!isInspection} requestLink={!isInspection} location={`${entry.id}_hero`} />

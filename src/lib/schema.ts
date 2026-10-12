@@ -7,26 +7,65 @@
  * so nothing unverified is ever published as fact. `npm run check:schema` validates the output.
  */
 import { site, fullAddress, nearbyTowns, serviceAreas, owner } from '../config/site';
+import { plainText } from './inline';
 
-/** Towns with their own page, and the county each sits in. */
-export const towns: { slug: string; name: string; county: string }[] = [
-  { slug: 'conshohocken', name: 'Conshohocken', county: 'Montgomery County' },
-  { slug: 'blue-bell', name: 'Blue Bell', county: 'Montgomery County' },
-  { slug: 'malvern', name: 'Malvern', county: 'Chester County' },
-  { slug: 'paoli', name: 'Paoli', county: 'Chester County' },
-  { slug: 'west-conshohocken', name: 'West Conshohocken', county: 'Montgomery County' },
-  { slug: 'plymouth-meeting', name: 'Plymouth Meeting', county: 'Montgomery County' },
-  { slug: 'lafayette-hill', name: 'Lafayette Hill', county: 'Montgomery County' },
-  { slug: 'king-of-prussia', name: 'King of Prussia', county: 'Montgomery County' },
-  { slug: 'ambler', name: 'Ambler', county: 'Montgomery County' },
+type County = 'Montgomery County' | 'Chester County';
+
+/** Towns with their own page, the county each sits in, and its English Wikipedia article (for sameAs). */
+export const towns: { slug: string; name: string; county: County; wiki: string }[] = [
+  { slug: 'conshohocken', name: 'Conshohocken', county: 'Montgomery County', wiki: 'Conshohocken,_Pennsylvania' },
+  { slug: 'blue-bell', name: 'Blue Bell', county: 'Montgomery County', wiki: 'Blue_Bell,_Pennsylvania' },
+  { slug: 'malvern', name: 'Malvern', county: 'Chester County', wiki: 'Malvern,_Pennsylvania' },
+  { slug: 'paoli', name: 'Paoli', county: 'Chester County', wiki: 'Paoli,_Pennsylvania' },
+  { slug: 'west-conshohocken', name: 'West Conshohocken', county: 'Montgomery County', wiki: 'West_Conshohocken,_Pennsylvania' },
+  { slug: 'plymouth-meeting', name: 'Plymouth Meeting', county: 'Montgomery County', wiki: 'Plymouth_Meeting,_Pennsylvania' },
+  { slug: 'lafayette-hill', name: 'Lafayette Hill', county: 'Montgomery County', wiki: 'Lafayette_Hill,_Pennsylvania' },
+  { slug: 'king-of-prussia', name: 'King of Prussia', county: 'Montgomery County', wiki: 'King_of_Prussia,_Pennsylvania' },
+  { slug: 'ambler', name: 'Ambler', county: 'Montgomery County', wiki: 'Ambler,_Pennsylvania' },
 ];
+
+/** Nearby towns without a page (from site.ts), with a county where it is unambiguous. Wayne spans three counties. */
+const nearbyCounty: Record<string, County> = {
+  Berwyn: 'Chester County',
+  Devon: 'Chester County',
+  Exton: 'Chester County',
+  'Gulph Mills': 'Montgomery County',
+  Norristown: 'Montgomery County',
+  'Fort Washington': 'Montgomery County',
+  Lansdale: 'Montgomery County',
+};
+const counties: { name: County; wiki: string }[] = [
+  { name: 'Montgomery County', wiki: 'Montgomery_County,_Pennsylvania' },
+  { name: 'Chester County', wiki: 'Chester_County,_Pennsylvania' },
+];
+const slugify = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, '-');
 
 /** The four services, in the order they appear on the site. */
 const services = [
-  { slug: 'roof-replacement', name: 'Roof Replacement', serviceType: 'Roof replacement' },
-  { slug: 'roof-repair', name: 'Roof Repair', serviceType: 'Roof repair' },
-  { slug: 'free-roof-inspection', name: 'Free Roof Inspection', serviceType: 'Roof inspection' },
-  { slug: 'solar-ready-roofs', name: 'Solar-Ready Roofs', serviceType: 'Solar-ready roof replacement' },
+  {
+    slug: 'roof-replacement',
+    name: 'Roof Replacement',
+    serviceType: 'Roof replacement',
+    description: 'Full tear-off asphalt shingle roof replacement for homes in Montgomery and Chester County, PA.',
+  },
+  {
+    slug: 'roof-repair',
+    name: 'Roof Repair',
+    serviceType: 'Roof repair',
+    description: 'Roof leak repair, storm damage repair and emergency tarping for asphalt shingle roofs in Montgomery and Chester County, PA.',
+  },
+  {
+    slug: 'free-roof-inspection',
+    name: 'Free Roof Inspection',
+    serviceType: 'Roof inspection',
+    description: 'A free, no-obligation roof inspection with photos of what we find, for homes in Montgomery and Chester County, PA.',
+  },
+  {
+    slug: 'solar-ready-roofs',
+    name: 'Solar-Ready Roofs',
+    serviceType: 'Solar-ready roof replacement',
+    description: 'Asphalt shingle roof replacement prepared for future solar panels. Panels are installed by a solar company, not by us.',
+  },
 ];
 
 /** True for config values that still carry a placeholder; those are kept out of structured data. */
@@ -40,20 +79,46 @@ export const ids = {
   logo: `${site.url}/#logo`,
   service: (slug: string) => `${abs(`/${slug}/`)}#service`,
   townService: (slug: string) => `${abs(`/service-areas/${slug}/`)}#service`,
+  /** A town or county, by slug ("conshohocken", "montgomery-county"). */
+  place: (slug: string) => `${site.url}/#place-${slug}`,
 };
 
-const city = (name: string, county?: string) => ({
-  '@type': 'City',
-  name: `${name}, PA`,
-  ...(county ? { containedInPlace: { '@type': 'AdministrativeArea', name: `${county}, PA` } } : {}),
-});
+const WIKI = 'https://en.wikipedia.org/wiki/';
 
-/** Everywhere the business works, as schema.org places. */
+/**
+ * One node per place the business serves: the two counties and every town, each with an @id so
+ * areaServed, spatialCoverage and containedInPlace can reference them instead of repeating inline
+ * copies. Wikipedia sameAs links are the standard "<Town>,_Pennsylvania" articles.
+ */
+export function placeNodes() {
+  const countyNodes = counties.map((c) => ({
+    '@type': 'AdministrativeArea',
+    '@id': ids.place(slugify(c.name)),
+    name: `${c.name}, PA`,
+    alternateName: c.name,
+    sameAs: WIKI + c.wiki,
+    containedInPlace: { '@type': 'State', name: 'Pennsylvania' },
+  }));
+  const cityNode = (name: string, county?: County, wiki?: string) => ({
+    '@type': 'City',
+    '@id': ids.place(slugify(name)),
+    name: `${name}, PA`,
+    alternateName: name,
+    ...(wiki ? { sameAs: WIKI + wiki } : {}),
+    ...(county ? { containedInPlace: { '@id': ids.place(slugify(county)) } } : {}),
+  });
+  return [
+    ...countyNodes,
+    ...towns.map((t) => cityNode(t.name, t.county, t.wiki)),
+    ...nearbyTowns.map((n) => cityNode(n, nearbyCounty[n])),
+  ];
+}
+
+/** Everywhere the business works, as references to the place nodes above. */
 export const areaServed = [
-  ...towns.map((t) => city(t.name, t.county)),
-  ...nearbyTowns.map((n) => city(n)),
-  { '@type': 'AdministrativeArea', name: 'Montgomery County, PA' },
-  { '@type': 'AdministrativeArea', name: 'Chester County, PA' },
+  ...towns.map((t) => ({ '@id': ids.place(t.slug) })),
+  ...nearbyTowns.map((n) => ({ '@id': ids.place(slugify(n)) })),
+  ...counties.map((c) => ({ '@id': ids.place(slugify(c.name)) })),
 ];
 
 /** The business itself (RoofingContractor is a LocalBusiness subtype). Same on every page. */
@@ -102,14 +167,20 @@ export function businessNode() {
       },
     ],
     logo: { '@id': ids.logo },
-    image: [abs('/og/default.png')],
+    image: [abs('/og/default.png'), abs('/icon-512.png')],
     identifier: {
       '@type': 'PropertyValue',
       propertyID: 'PA Home Improvement Contractor Registration',
       value: site.hicNumber,
     },
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'registration',
+      name: `Pennsylvania Home Improvement Contractor Registration ${site.hicNumber}`,
+      identifier: site.hicNumber,
+      recognizedBy: { '@type': 'GovernmentOrganization', name: 'Pennsylvania Office of Attorney General' },
+    },
     naics: '238160',
-    priceRange: '$$',
     ...(pending(site.ownerName) ? {} : { founder: { '@id': ids.owner } }),
     knowsAbout: ['Roof replacement', 'Roof repair', 'Roof inspection', 'Asphalt shingle roofing', 'Roof leak repair', 'Solar-ready roofing'],
     hasOfferCatalog: {
@@ -131,6 +202,7 @@ export function businessNode() {
       areaServed,
     },
     ...(social.length ? { sameAs: social } : {}),
+    ...(site.social.googleBusinessProfile ? { hasMap: site.social.googleBusinessProfile } : {}),
   };
 }
 
@@ -169,7 +241,6 @@ export function ownerNode() {
     description: 'U.S. Army veteran with more than ten years in home improvement, including six years owning and running a roofing company.',
     image: abs('/people/joe-lesher.jpg'),
     knowsAbout: ['Asphalt shingle roofing', 'Roof replacement', 'Roof repair'],
-    homeLocation: { '@type': 'Place', name: 'Conshohocken, PA' },
     url: abs('/our-story/'),
   };
 }
@@ -189,6 +260,7 @@ export function webPageNode(opts: {
   const url = abs(opts.path);
   const types: string[] = [opts.type ?? 'WebPage'];
   if (opts.faqs?.length) types.push('FAQPage');
+  const town = towns.find((t) => opts.path === `/service-areas/${t.slug}/`);
   return {
     '@type': types.length === 1 ? types[0] : types,
     '@id': `${url}#webpage`,
@@ -197,15 +269,28 @@ export function webPageNode(opts: {
     description: opts.description,
     inLanguage: 'en-US',
     isPartOf: { '@id': ids.website },
-    about: { '@id': ids.business },
+    /** What the page is about: its Service when it has one, otherwise the business. */
+    about: { '@id': opts.mainEntityId ?? ids.business },
+    ...(town ? { spatialCoverage: { '@id': ids.place(town.slug) } } : {}),
     primaryImageOfPage: { '@type': 'ImageObject', url: abs(opts.ogImage), width: 1200, height: 630 },
     ...(opts.hasBreadcrumb ? { breadcrumb: { '@id': `${url}#breadcrumb` } } : {}),
+    ...(opts.type === 'CollectionPage'
+      ? {
+          hasPart: towns.map((t) => ({
+            '@type': 'WebPage',
+            '@id': `${abs(`/service-areas/${t.slug}/`)}#webpage`,
+            url: abs(`/service-areas/${t.slug}/`),
+            name: `Roofing in ${t.name}, PA`,
+          })),
+        }
+      : {}),
+    ...(opts.type === 'AboutPage' && !pending(site.ownerName) ? { mentions: { '@id': ids.owner } } : {}),
     ...(opts.faqs?.length
       ? {
           mainEntity: opts.faqs.map((f) => ({
             '@type': 'Question',
             name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
+            acceptedAnswer: { '@type': 'Answer', text: plainText(f.a) },
           })),
         }
       : opts.mainEntityId
@@ -230,7 +315,7 @@ export function breadcrumbNode(path: string, items: { name: string; path: string
 }
 
 /** A service page's Service node (roof replacement, repair, inspection, solar-ready). */
-export function serviceNode(slug: string, description: string) {
+export function serviceNode(slug: string) {
   const s = services.find((x) => x.slug === slug);
   if (!s) throw new Error(`Unknown service "${slug}"`);
   const free = slug === 'free-roof-inspection';
@@ -239,8 +324,9 @@ export function serviceNode(slug: string, description: string) {
     '@id': ids.service(slug),
     name: s.name,
     serviceType: s.serviceType,
-    description,
+    description: s.description,
     url: abs(`/${slug}/`),
+    mainEntityOfPage: abs(`/${slug}/`),
     provider: { '@id': ids.business },
     areaServed,
     ...(free
@@ -250,7 +336,7 @@ export function serviceNode(slug: string, description: string) {
 }
 
 /** A town page's Service node: roofing services offered in that town. */
-export function townServiceNode(slug: string, description: string) {
+export function townServiceNode(slug: string) {
   const t = towns.find((x) => x.slug === slug);
   if (!t) throw new Error(`Unknown town "${slug}"`);
   return {
@@ -258,10 +344,11 @@ export function townServiceNode(slug: string, description: string) {
     '@id': ids.townService(slug),
     name: `Roofing services in ${t.name}, PA`,
     serviceType: 'Roofing',
-    description,
+    description: `Asphalt shingle roof replacement, roof repair and free roof inspections for homes in ${t.name}, PA.`,
     url: abs(`/service-areas/${slug}/`),
+    mainEntityOfPage: abs(`/service-areas/${slug}/`),
     provider: { '@id': ids.business },
-    areaServed: city(t.name, t.county),
+    areaServed: { '@id': ids.place(slug) },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: `Roofing services in ${t.name}`,
@@ -283,7 +370,7 @@ export function pageGraph(opts: {
   extra?: object[];
 }) {
   const crumbs = opts.breadcrumbs?.length ? [{ name: 'Home', path: '/' }, ...opts.breadcrumbs] : null;
-  const nodes: object[] = [businessNode(), logoNode(), websiteNode()];
+  const nodes: object[] = [businessNode(), logoNode(), websiteNode(), ...placeNodes()];
   const o = ownerNode();
   if (o) nodes.push(o);
   nodes.push(

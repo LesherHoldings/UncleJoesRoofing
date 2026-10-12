@@ -4,11 +4,11 @@ description: "Roof replacement, roof repair and free inspections in Lafayette Hi
 h1: "Roof Replacement & Repair in Lafayette Hill, PA"
 ogImage: "/og/lafayette-hill.png"
 image: "town-malvern"
-imageAlt: "Homes along a tree-lined street in Lafayette Hill, PA"
+imageAlt: "Homes along a tree-lined street"
 name: "Lafayette Hill"
 order: 7
 summary: "Whitemarsh Township colonials, split-levels and older stone homes along Germantown and Ridge Pikes."
-intro: "Lafayette Hill is the Whitemarsh Township community along Germantown Pike and Ridge Pike, just outside the Philadelphia line. It mixes 1950s–1970s split-levels and colonials with older stone houses and wooded lots, and those trees are part of the roofing story here: shade, leaves in the gutters and the occasional limb."
+intro: "Lafayette Hill is the Whitemarsh Township community in Montgomery County along Germantown Pike and Ridge Pike, just outside the Philadelphia line. It mixes 1950s–1970s split-levels and colonials with older stone houses and wooded lots, and those trees are part of the roofing story here: shade, leaves in the gutters and the occasional limb."
 housing:
   - "1950s–1970s split-levels and ranches"
   - "Two-story colonials, many with additions and skylights"
@@ -22,8 +22,8 @@ landmarks:
 faqs:
   - q: "Trees hang over my roof. Does that change anything?"
     a: "Shade keeps a roof damp longer, which means moss and faster wear on the north side, and leaves clog the gutters so water backs up under the shingles. We look at all of it at the inspection and tell you what matters and what's cosmetic."
-  - q: "My house has dormers and a lot of valleys. Is that harder?"
-    a: "It's more detail work. Valleys, dormers and wall flashing are where most leaks start on older homes, so that's where we slow down on a replacement."
+  - q: "Leaves fill my gutters every fall. Can that hurt the roof?"
+    a: "Yes. Gutters packed with leaves hold water against the drip edge and the first course of shingles, and in winter that's where ice dams start. Clear them before the leaves freeze in, and if the fascia behind the gutter is soft or stained, mention it at the inspection. The gutter line is on our checklist for every roof we look at."
   - q: "Do you also cover Plymouth Meeting and Conshohocken?"
     a: "Yes. Lafayette Hill, Plymouth Meeting and Conshohocken are all a few minutes from our office in Blue Bell."
 ---

@@ -4,7 +4,7 @@ description: "Local roofer for Conshohocken and West Conshohocken, PA 19428. Shi
 h1: "Roofing Contractor in Conshohocken, PA"
 ogImage: "/og/conshohocken.png"
 image: "town-conshohocken"
-imageAlt: "Rowhomes and twins on a hillside street in Conshohocken, PA"
+imageAlt: "Brick rowhomes and twins on a hillside street"
 name: "Conshohocken"
 order: 1
 summary: "Hillside twins, rowhomes and new townhomes along the Schuylkill."

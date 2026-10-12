@@ -71,7 +71,7 @@ const jsonLd = pageGraph({ path: Astro.url.pathname, title, description, ogImage
     <!-- Lets CSS know JS is available (the scroll-reveal only hides content when it can reveal it) -->
     <script is:inline>document.documentElement.classList.add('js');</script>
 
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />
     <Analytics />
   </head>
   <body class="flex min-h-screen flex-col">

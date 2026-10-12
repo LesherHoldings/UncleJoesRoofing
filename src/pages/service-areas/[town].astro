@@ -25,7 +25,7 @@ const crumbs = [
   { name: 'Service Areas', path: '/service-areas/' },
   { name: `${d.name}, PA`, path },
 ];
-const schema = [townServiceNode(entry.id, d.description)];
+const schema = [townServiceNode(entry.id)];
 ---
 <Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={schema} faqs={d.faqs} mainEntityId={ids.townService(entry.id)}>
   <PageHero h1={d.h1} intro={d.intro} kicker={`Serving ${d.name}`} breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location={`town_${entry.id}_hero`}>

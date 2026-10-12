@@ -70,13 +70,22 @@ for (const file of pages(out)) {
     for (const k of ['name', 'telephone', 'url', 'address', 'image', 'logo', 'areaServed']) if (!biz[k]) err(page, `business missing ${k}`);
     if (biz.address && !biz.address.addressLocality) err(page, 'business address missing addressLocality');
     if (biz.sameAs && !biz.sameAs.length) err(page, 'business has an empty sameAs array');
+    if (biz.priceRange) err(page, 'business publishes an unconfirmed priceRange');
   }
+  if (/"homeLocation"/.test(scripts[0])) err(page, 'owner homeLocation is published');
+  for (const svc of graph.filter((n) => n['@type'] === 'Service')) {
+    if (!svc.mainEntityOfPage) err(page, `Service ${svc['@id']} has no mainEntityOfPage`);
+    if (!svc.provider) err(page, `Service ${svc['@id']} has no provider`);
+  }
+  for (const c of graph.filter((n) => n['@type'] === 'City')) if (!c.containedInPlace && !/wayne/.test(c['@id'])) err(page, `City ${c.name} has no containedInPlace`);
   const webpage = graph.find((n) => String(n['@id']).endsWith('#webpage'));
   if (!webpage) err(page, 'no WebPage node');
   else {
     const expected = new URL(page, 'https://unclejoesroofing.com').href;
     if (webpage.url !== expected) err(page, `WebPage url ${webpage.url} != ${expected}`);
     const types = [].concat(webpage['@type']);
+    const hasService = graph.some((n) => n['@type'] === 'Service' && n.mainEntityOfPage === expected);
+    if (hasService && !String(webpage.about?.['@id']).endsWith('#service')) err(page, 'WebPage.about does not reference the page Service');
     if (types.includes('FAQPage')) {
       const qs = Array.isArray(webpage.mainEntity) ? webpage.mainEntity : [];
       if (!qs.length) err(page, 'FAQPage without questions');

@@ -16,7 +16,7 @@ The name comes from my great-great-uncle Joe, the first Catholic Bishop of Allen
 
 ## Your neighbors
 
-My family and I make our home here in the Conshohocken area, and these are our neighbors. We're a roofing-only company with our office in Blue Bell, working in Conshohocken, Malvern, Paoli and the towns around them. No storm-chasing. No pressure. Just good roofs, done right.
+My family and I make our home here in the [Conshohocken area](/service-areas/conshohocken/), and these are our neighbors. We're a roofing-only company with our office in [Blue Bell](/service-areas/blue-bell/), working in Conshohocken, [Malvern](/service-areas/malvern/), [Paoli](/service-areas/paoli/) and [the towns around them](/service-areas/). No storm-chasing. No pressure. Just [good roofs](/roof-replacement/), done right.
 
 One note on the fine print: on paperwork you'll see Fortress Siding. That's the company Uncle Joe's Roofing operates under — same owner, same office. We gave the roofing work its own name because that's all it does.
 

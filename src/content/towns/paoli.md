@@ -4,7 +4,7 @@ description: "Roofer for Paoli, PA 19301 on the Main Line in Chester County. Shi
 h1: "Roof Repair & Replacement in Paoli, PA"
 ogImage: "/og/paoli.png"
 image: "town-paoli"
-imageAlt: "Suburban homes near the train line in Paoli, PA"
+imageAlt: "Suburban homes near a commuter rail line"
 name: "Paoli"
 order: 4
 summary: "Main Line homes in Chester County: stone colonials, mid-century houses and newer builds."

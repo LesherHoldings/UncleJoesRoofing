@@ -1,5 +1,5 @@
 ---
-import { getEntry } from 'astro:content';
+import { getEntry, render } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import TownGrid from '../../components/TownGrid.astro';
@@ -8,6 +8,7 @@ import CallButton from '../../components/CallButton.astro';
 import { nearbyTowns } from '../../config/site';
 
 const page = (await getEntry('pages', 'service-areas'))!;
+const { Content } = await render(page);
 const d = page.data;
 const crumbs = [{ name: 'Service Areas', path: '/service-areas/' }];
 ---
@@ -15,6 +16,7 @@ const crumbs = [{ name: 'Service Areas', path: '/service-areas/' }];
   <PageHero h1={d.h1} intro={d.intro} kicker="Where we work" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} location="service_areas_hero" />
   <section class="section">
     <div class="container-site">
+      <div class="prose prose-lg prose-site mb-12 max-w-3xl"><Content /></div>
       <p class="kicker">Towns</p>
       <h2 class="heading-lg">Towns with their own page</h2>
       <div class="mt-8"><TownGrid /></div>

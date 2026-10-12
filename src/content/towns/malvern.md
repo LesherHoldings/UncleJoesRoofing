@@ -4,7 +4,7 @@ description: "Roofing company for Malvern, PA 19355 and the Great Valley in Ches
 h1: "Roofing Contractor in Malvern, PA"
 ogImage: "/og/malvern.png"
 image: "town-malvern"
-imageAlt: "Homes along a tree-lined street in Malvern, PA"
+imageAlt: "Homes along a tree-lined street"
 name: "Malvern"
 order: 3
 summary: "Historic homes in the borough and newer neighborhoods in the Great Valley."

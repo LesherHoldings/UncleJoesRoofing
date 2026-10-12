@@ -30,7 +30,7 @@ steps:
     text: "Tear-off, deck repairs if needed, new roof, a magnetic nail sweep and a walkthrough with you."
 faqs:
   - q: "How do I know if I need a new roof or just a repair?"
-    a: "Age, how widespread the damage is, and whether leaks keep coming back all matter. We'll show you photos from your roof and tell you honestly. If a repair will do the job, we'll say so."
+    a: "Age, how widespread the damage is, and whether leaks keep coming back all matter. We'll show you photos from your roof and tell you honestly. If a [roof repair](/roof-repair/) will do the job, we'll say so."
   - q: "How long does a roof replacement take?"
     a: "Most homes take one to two days. Bigger or steeper roofs can take longer, and weather can move the schedule. We'll give you a timeline before we start."
   - q: "Do you install roofs over the old shingles?"
@@ -38,17 +38,30 @@ faqs:
   - q: "Do you work with slate, metal or flat roofs?"
     a: "We specialize in asphalt shingle roofs. If your home needs something else, we'll tell you up front instead of selling you the wrong roof."
   - q: "Architectural shingles or 3-tab: which should I choose?"
-    a: "Architectural (dimensional) shingles are thicker, look better and usually carry a longer manufacturer warranty, which is why most homeowners choose them. 3-tab shingles cost less and suit a tight budget or a rental. We'll show you both at your inspection. Our pricing and warranties guide explains the differences."
+    a: "Architectural (dimensional) shingles are thicker, look better and usually carry a longer manufacturer warranty, which is why most homeowners choose them. 3-tab shingles cost less and suit a tight budget or a rental. We'll show you both at your inspection. Our [pricing and warranties guide](/pricing-and-warranties/) explains the differences."
   - q: "How long does an asphalt shingle roof last in Pennsylvania?"
     a: "It depends on the shingle, the attic ventilation and how well it was installed. Our freeze-thaw winters and hot, humid summers are hard on roofs, so a roof here often wears out before the number on the warranty. A free inspection will tell you where yours stands."
   - q: "Can I make my new roof ready for solar panels?"
-    a: "Yes. If solar might be in your future, we can prepare the roof for it during the replacement. See our solar-ready roofs page for details."
+    a: "Yes. If solar might be in your future, we can prepare the roof for it during the replacement. See our [solar-ready roofs page](/solar-ready-roofs/) for details."
 ---
 
 ## What a replacement with us looks like
 
 If we find hidden damage once the old roof is off, like rotted boards, we show you before we fix it, at the per-sheet price already in your quote. We protect your landscaping, siding and driveway before the first shingle comes off, and when we're done you'll know exactly who to call if anything ever comes up.
 
+We do this work across Montgomery and Chester County: [Conshohocken](/service-areas/conshohocken/), [Blue Bell](/service-areas/blue-bell/), [Malvern](/service-areas/malvern/), [Paoli](/service-areas/paoli/), [King of Prussia](/service-areas/king-of-prussia/) and [the towns around them](/service-areas/).
+
 ## Shingle choices
 
 We install quality architectural asphalt shingles in a range of colors. We'll bring samples to your house so you can see them against your siding and trim, in your own light. If you're in an HOA or a historic district, we'll check the rules with you before you choose.
+
+## Architectural shingles vs 3-tab shingles
+
+This is the question we get asked most, so here's the short version.
+
+- **How to tell them apart from the driveway.** 3-tab shingles are flat strips with slots cut every few inches, so the roof reads as a neat, uniform grid. Architectural shingles (also called dimensional or laminate) are built in two layers with staggered tabs, so the roof has shadow lines and a thicker, more textured look.
+- **How long they last.** Architectural shingles are heavier and thicker, and they generally outlast 3-tab. Pennsylvania's freeze-thaw winters tend to widen that gap, which is why most of the roofs we install are architectural.
+- **Wind.** The extra weight and the way the two layers bond help architectural shingles hold on in wind. 3-tab tabs lift more easily once the seal strips age.
+- **Can you put new shingles over old ones?** No. Whichever shingle you choose, we tear off to the deck first. A second layer hides rotted decking, adds weight and commonly voids the manufacturer's warranty.
+
+The [pricing and warranties guide](/pricing-and-warranties/) covers what each choice does to the quote and the warranty, without pushing you up a tier.

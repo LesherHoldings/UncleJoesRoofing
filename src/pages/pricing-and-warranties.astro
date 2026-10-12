@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { serviceNode, ids } from '../lib/schema';
 import PageHero from '../components/PageHero.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -16,7 +17,7 @@ const { Content } = await render(page);
 const d = page.data;
 const crumbs = [{ name: 'Pricing & Warranties', path: '/pricing-and-warranties/' }];
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs} schema={[serviceNode('roof-replacement')]} mainEntityId={ids.service('roof-replacement')}>
   <PageHero h1={d.h1} intro={d.intro} kicker="Plain talk" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location="pricing_hero" />
   <section class="section">
     <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,24rem)]">

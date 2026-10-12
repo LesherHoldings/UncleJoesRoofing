@@ -26,11 +26,19 @@ faqs:
     a: "Usually under an hour, depending on the size of the roof and whether we check the attic."
   - q: "Will you try to sell me a new roof?"
     a: "No. If your roof is in good shape, we'll tell you that. If it needs a repair, we'll quote a repair."
+  - q: "Are free roof inspections legit, or a sales pitch?"
+    a: "Some are a sales pitch. Ours is an inspection: we photograph what we find, tell you whether to leave it, [repair it](/roof-repair/) or [replace it](/roof-replacement/), and leave you the photos. If the roof is fine, we say so and go. Get other opinions if you like; we'd rather you did than feel pushed."
+  - q: "Can I use the inspection for an insurance claim?"
+    a: "You can send your insurer what we give you: photos of the damage and a written description of what we found. We don't decide what your policy covers, and we won't invent damage to fit a claim."
 ---
 
 ## Why get your roof checked
 
 Small problems are cheap to fix. Leaks that run for a season are not. A quick look before winter, after a big storm or before you buy or sell a house can save you a lot of money and stress.
+
+## What we look for on roofs in Montgomery and Chester County
+
+The roofs we inspect in [Conshohocken](/service-areas/conshohocken/) and [Blue Bell](/service-areas/blue-bell/) are mostly asphalt shingle, and they fail the same few ways: worn or lifted shingles, flashing that has pulled away at a chimney or wall, cracked pipe boots, and ice damage at the eaves after a freeze-thaw winter. On the older homes in [Malvern](/service-areas/malvern/) and [Paoli](/service-areas/paoli/) we look hardest at valleys, dormers and old chimneys. After a storm, [check the roof from the ground first](/what-to-expect/#after-the-storm), then call us for the close-up.
 
 ## Book in two minutes
 

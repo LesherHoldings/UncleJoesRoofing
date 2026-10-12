@@ -2,6 +2,7 @@
 import { getEntry, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import { serviceNode, ids } from '../lib/schema';
 import PageHero from '../components/PageHero.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -23,7 +24,7 @@ const steps = [
   { n: '!', title: 'Leaking right now?', href: '#leaking-right-now' },
 ];
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs} schema={[serviceNode('roof-replacement')]} mainEntityId={ids.service('roof-replacement')}>
   <PageHero h1={d.h1} intro={d.intro} kicker="Install day" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location="expect_hero" />
 
   <nav aria-label="On this page" class="border-b border-line bg-white">

@@ -26,11 +26,13 @@ faqs:
     a: "They can, if the installer cuts into the roof without following the shingle manufacturer's rules or the roof wasn't in shape for panels. That's the point of a solar-ready roof: we install to spec and document it, so a careful solar crew can mount panels without putting your warranty at risk. Ask your solar company how they flash their mounts."
   - q: "Does a solar-ready roof cost more?"
     a: "Usually only a little, depending on what your roof needs. We'll show you the difference in your quote so you can decide."
+  - q: "What if panels are already on my roof?"
+    a: "Panels have to come off before a roof can be replaced, and that's a job for a solar installer, not a roofer. Line that up with your solar company first, then book the roof. Not sure the roof needs replacing yet? A [free inspection](/free-roof-inspection/) will tell you."
 ---
 
 ## Why it matters
 
-Solar panels are typically expected to last for decades. If the roof underneath is already halfway through its life, you could end up paying to remove and reinstall panels just to replace the shingles. Doing the roof first means one job, done once.
+Solar panels are typically expected to last for decades. If the roof underneath is already halfway through its life, you could end up paying to remove and reinstall panels just to replace the shingles. Doing the roof first means one job, done once. We do solar-ready [roof replacements](/roof-replacement/) in [Conshohocken](/service-areas/conshohocken/), [Blue Bell](/service-areas/blue-bell/), [Malvern](/service-areas/malvern/), [Paoli](/service-areas/paoli/) and the towns around them.
 
 ## What "solar-ready" means with us
 

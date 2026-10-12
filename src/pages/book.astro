@@ -7,12 +7,13 @@ import GhlCalendar from '../components/GhlCalendar.astro';
 import Checklist from '../components/Checklist.astro';
 import CallButton from '../components/CallButton.astro';
 import { site } from '../config/site';
+import { serviceNode, ids } from '../lib/schema';
 
 const page = (await getEntry('pages', 'book'))!;
 const d = page.data;
 const crumbs = [{ name: 'Book an Inspection', path: '/book/' }];
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={[serviceNode('free-roof-inspection')]} mainEntityId={ids.service('free-roof-inspection')}>
   <PageHero h1={d.h1} intro={d.intro} kicker={site.tagline} breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} ctas={false} />
   <section class="py-10 sm:py-14">
     <div class="container-site grid gap-10 lg:grid-cols-[1fr_20rem]">

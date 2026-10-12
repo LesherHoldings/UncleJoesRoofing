@@ -4,7 +4,7 @@ description: "Uncle Joe's Roofing is an owner-led roofing contractor in Blue Bel
 h1: "Blue Bell Roofing Contractor: Roof Replacement & Repair"
 ogImage: "/og/blue-bell.png"
 image: "town-blue-bell"
-imageAlt: "Two-story colonial homes on a quiet street in Blue Bell, PA"
+imageAlt: "Two-story colonial homes on a quiet suburban street"
 name: "Blue Bell"
 order: 2
 summary: "Our home base in Whitpain Township. Big colonials, split-levels and established neighborhoods."

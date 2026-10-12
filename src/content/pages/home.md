@@ -1,7 +1,7 @@
 ---
 title: "Roofer in Conshohocken, Blue Bell & Malvern PA | Uncle Joe's"
 description: "Veteran-owned roofing company in Blue Bell, PA. Shingle roof replacement, roof repair and free inspections for Conshohocken, Malvern, Paoli and the Main Line."
-h1: "Call Your Uncle."
+h1: "Roof Replacement & Repair in Conshohocken, Blue Bell, Malvern & Paoli, PA"
 ogImage: "/og/default.png"
 image: "hero-colonial"
 imageAlt: "A two-story colonial home with a new architectural shingle roof"

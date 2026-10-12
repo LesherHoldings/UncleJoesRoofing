@@ -66,6 +66,8 @@ export const site = {
   /** Google Business Profile review link (for the reviews section). '' hides the button. */
   reviewsUrl: '',
   social: {
+    /** Google Business Profile share link (https://g.page/… or maps.app.goo.gl/…). Feeds sameAs and hasMap in the schema. */
+    googleBusinessProfile: '',
     facebook: '',
     instagram: '',
   },

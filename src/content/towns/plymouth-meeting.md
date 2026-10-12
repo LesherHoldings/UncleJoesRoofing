@@ -4,11 +4,11 @@ description: "Roof replacement, roof repair and free inspections in Plymouth Mee
 h1: "Roof Replacement & Repair in Plymouth Meeting, PA"
 ogImage: "/og/plymouth-meeting.png"
 image: "town-blue-bell"
-imageAlt: "Two-story colonial homes on a quiet street in Plymouth Meeting, PA"
+imageAlt: "Two-story colonial homes on a quiet suburban street"
 name: "Plymouth Meeting"
 order: 6
-summary: "Postwar ranches, split-levels and colonials in Plymouth and Whitemarsh Townships, many on their second roof."
-intro: "Plymouth Meeting spreads across Plymouth and Whitemarsh Townships around Germantown Pike and the Turnpike interchange. Most of the housing went up between the 1950s and the 1980s, which means a lot of roofs are on their second or third set of shingles, and some of those were laid right over the last."
+summary: "Postwar ranches, split-levels and colonials in Plymouth and Whitemarsh Townships."
+intro: "Plymouth Meeting spreads across Plymouth and Whitemarsh Townships around Germantown Pike and the Turnpike interchange. Most of the housing went up between the 1950s and the 1980s, so it's common to find roofs that have been replaced before, sometimes with the new shingles laid right over the old."
 housing:
   - "1950s–1970s ranches and split-levels with low-slope sections"
   - "Two-story colonials from the 1970s and 1980s"
@@ -28,9 +28,9 @@ faqs:
     a: "Yes. Plymouth Meeting addresses fall in both Plymouth Township and Whitemarsh Township, and we cover both, along with Lafayette Hill and Conshohocken next door."
 ---
 
-## Roofs built in waves
+## Roofers in Plymouth Meeting, PA 19462
 
-Neighborhoods in Plymouth Meeting, PA 19462, went up in waves, so roofs on the same street tend to wear out around the same time. When the neighbors start getting new roofs, it's worth a [free roof inspection](/free-roof-inspection/), not because you have to replace yours, but so you know where you stand before a storm decides for you.
+Plymouth Meeting isn't a borough. It's a Montgomery County community split between Plymouth Township and Whitemarsh Township, with Germantown Pike through the middle and the Turnpike and Blue Route interchange on its edge. Roofs with little tree cover, like the streets near the interchange and the shopping centers, take more wind, and lifted shingles along ridges and edges are the usual result. If you've noticed shingle pieces in the yard or a stain on a top-floor ceiling, a [free roof inspection](/free-roof-inspection/) with photos will tell you where you stand before a storm decides for you.
 
 ## Ranches, split-levels and the low-slope problem
 

@@ -29,9 +29,9 @@ export const site = {
   address: {
     /** Must match Google Business Profile exactly. */
     street: '[OFFICE STREET ADDRESS — PENDING]',
-    city: '[OFFICE CITY — PENDING]',
+    city: 'Blue Bell',
     region: 'PA',
-    postalCode: '[ZIP — PENDING]',
+    postalCode: '19422',
     country: 'US',
   },
   /** Office map pin for schema (decimal degrees), from Google Business Profile. null = omitted. */
@@ -39,7 +39,7 @@ export const site = {
   /** How the service area is described in copy. */
   region: 'Montgomery & Chester County, PA',
   /** PA Home Improvement Contractor registration — legally required in the footer. */
-  hicNumber: '[PA HIC # — PENDING]',
+  hicNumber: 'PA203681',
   /** Business hours. Used in the footer, contact page and schema. Confirm against GBP. */
   hours: [
     { days: 'Monday–Friday', schemaDays: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:00', label: '[HOURS — PENDING] 8am–5pm' },

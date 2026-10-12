@@ -5,8 +5,8 @@ h1: "Roof Replacement & Repair in Blue Bell, PA"
 ogImage: "/og/blue-bell.png"
 name: "Blue Bell"
 order: 2
-summary: "Larger colonials and established neighborhoods with roofs coming due."
-intro: "Blue Bell is mostly neighborhoods of larger single-family homes in Whitpain Township, many built from the 1960s through the early 2000s. A lot of them are on their first or second roof — and plenty of those are near the end of their life."
+summary: "Our home base. Larger colonials and established neighborhoods with roofs coming due."
+intro: "Blue Bell is home for us — our office is here. It's mostly neighborhoods of larger single-family homes in Whitpain Township, many built from the 1960s through the early 2000s. A lot of them are on their first or second roof — and plenty of those are near the end of their life."
 housing:
   - "Two-story colonials with multiple gables, valleys and dormers"
   - "Homes from the 1960s through the early 2000s"

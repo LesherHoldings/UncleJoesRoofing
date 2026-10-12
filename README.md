@@ -230,6 +230,7 @@ uncle-joes-roofing/
 │  ├─ scripts/motion.ts       ← turns the background animations on/off as you scroll
 │  └─ styles/global.css       ← colors, fonts, buttons, animations
 ├─ public/                    ← favicons, robots.txt, og/ images
+├─ .github/workflows/         ← import-assets (pull files into the repo), upload-asset (send a file to a URL)
 ├─ scripts/                   ← placeholder checker, image generators
 └─ brand-originals/           ← original logo files
 ```

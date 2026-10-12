@@ -1,5 +1,5 @@
 ---
-title: "Roof Financing in Montgomery & Chester County, PA | Uncle Joe's"
+title: "Roof Financing in Montgomery County, PA | Uncle Joe's"
 description: "Roof replacement financing for homeowners in Conshohocken, Blue Bell, Malvern and Paoli, PA. Ask about payment options at your free inspection."
 h1: "Roof Financing in Montgomery & Chester County, PA"
 ogImage: "/og/financing.png"

@@ -1,5 +1,5 @@
 ---
-title: "Roof Replacement in Conshohocken, Malvern & Paoli, PA | Uncle Joe's"
+title: "Roof Replacement in Montgomery County, PA | Uncle Joe's"
 description: "Asphalt shingle roof replacement in Conshohocken, Blue Bell, Malvern, Paoli and the Main Line. Owner-led, fair pricing, clean jobsite. Book a free inspection."
 h1: "Roof Replacement in Montgomery & Chester County, PA"
 ogImage: "/og/roof-replacement.png"
@@ -26,6 +26,10 @@ faqs:
     a: "No. We tear off down to the deck. That's the only way to see and fix what's underneath."
   - q: "Do you work with slate, metal or flat roofs?"
     a: "We specialize in asphalt shingle roofs. If your home needs something else, we'll tell you up front instead of selling you the wrong roof."
+  - q: "Architectural shingles or 3-tab: which should I choose?"
+    a: "Architectural (dimensional) shingles are thicker, look better and usually carry a longer manufacturer warranty, which is why most homeowners choose them. 3-tab shingles cost less and suit a tight budget or a rental. We'll show you both at your inspection. Our pricing and warranties guide explains the differences."
+  - q: "How long does an asphalt shingle roof last in Pennsylvania?"
+    a: "It depends on the shingle, the attic ventilation and how well it was installed. Our freeze-thaw winters and hot, humid summers are hard on roofs, so a roof here often wears out before the number on the warranty. A free inspection will tell you where yours stands."
   - q: "Can I make my new roof ready for solar panels?"
     a: "Yes. If solar might be in your future, we can prepare the roof for it during the replacement. See our solar-ready roofs page for details."
 ---

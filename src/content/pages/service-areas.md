@@ -1,6 +1,6 @@
 ---
-title: "Roofing Service Areas: Main Line & Montgomery County | Uncle Joe's"
-description: "Uncle Joe's Roofing serves Conshohocken, Blue Bell, Malvern, Paoli and nearby towns like King of Prussia, Wayne and Plymouth Meeting with roofing and free inspections."
+title: "Service Areas: Main Line & Montgomery County | Uncle Joe's"
+description: "Uncle Joe's Roofing serves Conshohocken, Blue Bell, Malvern, Paoli, King of Prussia, Plymouth Meeting, Wayne, Ambler and nearby Main Line towns in PA."
 h1: "Roofing Service Areas in Montgomery & Chester County, PA"
 ogImage: "/og/service-areas.png"
 image: "town-blue-bell"

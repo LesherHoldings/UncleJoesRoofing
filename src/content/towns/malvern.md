@@ -1,5 +1,5 @@
 ---
-title: "Roofing Contractor in Malvern, PA | Roof Replacement & Repair"
+title: "Roofing Company in Malvern, PA | Uncle Joe's Roofing"
 description: "Roof replacement, repair and free inspections in Malvern, PA and the Great Valley — historic homes in the borough and newer neighborhoods around it."
 h1: "Roofing Contractor in Malvern, PA"
 ogImage: "/og/malvern.png"

@@ -1,6 +1,6 @@
 ---
-title: "Roof Pricing & Warranties Explained | Uncle Joe's Roofing"
-description: "What goes into a roof quote, how 3-tab, architectural and designer shingles differ, and what a manufacturer warranty covers vs. a workmanship warranty. Plain talk from a Blue Bell, PA roofer."
+title: "Roof Replacement Cost & Warranties in PA | Uncle Joe's"
+description: "What goes into a roof replacement quote in Pennsylvania, how shingle types differ, and what a manufacturer warranty covers vs. a workmanship warranty."
 h1: "How Roof Pricing & Warranties Work"
 ogImage: "/og/pricing-and-warranties.png"
 image: "shingle-samples"
@@ -17,6 +17,8 @@ faqs:
     a: "The manufacturer warranty covers defects in the shingles themselves. The workmanship warranty covers how the roof was installed — flashing, nailing, ventilation. Most real-world roof problems are installation problems, so the workmanship warranty is the one to read closely."
   - q: "Can a new roof's warranty be voided?"
     a: "Yes. Common reasons include installing over old shingles, poor attic ventilation, mixing components from different manufacturers, unregistered warranties, and other trades walking on or cutting into the roof. We install to the manufacturer's specs and tell you what to avoid."
+  - q: "Does homeowners insurance cover a roof replacement?"
+    a: "Sometimes. Most policies cover sudden damage from wind, hail or a fallen tree, and don't cover a roof that simply wore out. Every policy is different. If you think a storm did the damage, take photos, call your insurer, and ask us for an inspection report — we'll document what we find honestly, whether or not it helps the claim."
   - q: "Is the quote the same if I finance?"
     a: "Yes. Financing goes through our partner, and the lender sets the rates and terms. Your roof price doesn't change based on how you pay."
 ---

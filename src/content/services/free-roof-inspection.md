@@ -1,5 +1,5 @@
 ---
-title: "Free Roof Inspection in Conshohocken, Malvern & Paoli, PA"
+title: "Free Roof Inspection in Montgomery County, PA | Uncle Joe's"
 description: "Book a free, no-pressure roof inspection in Conshohocken, Blue Bell, Malvern, Paoli or nearby on the Main Line. Photos of what we find and a straight answer."
 h1: "Free Roof Inspection in Montgomery & Chester County, PA"
 ogImage: "/og/free-roof-inspection.png"

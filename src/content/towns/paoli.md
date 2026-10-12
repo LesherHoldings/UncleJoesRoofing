@@ -1,5 +1,5 @@
 ---
-title: "Roof Repair & Replacement in Paoli, PA | Uncle Joe's Roofing"
+title: "Roofing Company in Paoli, PA | Uncle Joe's Roofing"
 description: "Roof repair and replacement in Paoli, PA and the Main Line — stone colonials, mid-century homes and everything in between. Honest advice and free inspections."
 h1: "Roof Repair & Replacement in Paoli, PA"
 ogImage: "/og/paoli.png"

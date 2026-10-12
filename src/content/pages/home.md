@@ -1,6 +1,6 @@
 ---
-title: "Roofer in Conshohocken, Blue Bell, Malvern & Paoli, PA | Uncle Joe's"
-description: "Owner-led roof replacement, repair and free inspections in Conshohocken, Blue Bell, Malvern, Paoli and the Main Line. Fair price, no pressure. Call your uncle."
+title: "Roofer in Conshohocken, Blue Bell & Malvern PA | Uncle Joe's"
+description: "Owner-led roofing company in Blue Bell, PA. Shingle roof replacement, roof repair and free inspections for Conshohocken, Malvern, Paoli and the Main Line."
 h1: "Call Your Uncle."
 ogImage: "/og/default.png"
 image: "hero-colonial"

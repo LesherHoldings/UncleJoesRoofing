@@ -1,5 +1,5 @@
 ---
-title: "Contact Uncle Joe's Roofing | Main Line & Montgomery County Roofer"
+title: "Contact Uncle Joe's Roofing | Blue Bell, PA Roofer"
 description: "Call or message Uncle Joe's Roofing for roof replacement, repair or a free roof inspection. Serving Conshohocken, Blue Bell, Malvern, Paoli and nearby towns."
 h1: "Contact Uncle Joe's Roofing"
 ogImage: "/og/default.png"

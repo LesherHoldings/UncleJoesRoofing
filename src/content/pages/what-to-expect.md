@@ -1,6 +1,6 @@
 ---
-title: "What to Expect on Roof Install Day | Uncle Joe's Roofing"
-description: "How to get your home ready for a new roof, what happens on install day, how we clean up, and what to do if your roof is leaking right now. Serving Blue Bell, Conshohocken, Malvern and Paoli."
+title: "Roof Install Day & Emergency Leak Help | Uncle Joe's"
+description: "How a roof replacement day goes from tear-off to cleanup, how to get ready, and what to do right now if your roof is leaking in Montgomery or Chester County."
 h1: "What to Expect on Install Day"
 ogImage: "/og/what-to-expect.png"
 image: "install-day"

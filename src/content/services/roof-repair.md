@@ -1,7 +1,7 @@
 ---
-title: "Roof Repair in Conshohocken, Blue Bell & Paoli, PA | Uncle Joe's"
+title: "Roof Repair & Leak Repair in Blue Bell, PA | Uncle Joe's"
 description: "Roof leak and shingle repair in Conshohocken, Blue Bell, Malvern, Paoli and nearby towns. Honest diagnosis, fair prices, no upselling. Call your uncle."
-h1: "Roof Repair in Montgomery & Chester County, PA"
+h1: "Roof Leak Repair in Montgomery & Chester County, PA"
 ogImage: "/og/roof-repair.png"
 image: "repair-flashing"
 imageAlt: "Roofer replacing flashing around a chimney"
@@ -23,6 +23,8 @@ faqs:
     a: "We match as closely as we can. Shingles fade over time, so an exact match on an older roof isn't always possible. We'll tell you what to expect before we start."
   - q: "When is a repair not worth it?"
     a: "If the shingles are near the end of their life, or leaks keep showing up in new places, repairs stop being a good deal. We'll give you an honest opinion either way."
+  - q: "Should I repair my roof or replace it?"
+    a: "If the damage is in one spot and the rest of the roof has life left, repair it. If leaks keep coming back, shingles are failing across the whole roof, or it's near the end of its life, a repair is money spent twice. We'll show you photos and tell you which it is, even when the answer is the cheaper one."
   - q: "Do you handle emergency leaks?"
     a: "Call us. If water is coming in, we'll do what we can to get the roof covered quickly and then plan a proper repair."
 ---

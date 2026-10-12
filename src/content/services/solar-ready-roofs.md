@@ -1,7 +1,7 @@
 ---
-title: "Solar-Ready Roof Replacement in Montgomery & Chester County, PA"
+title: "Solar-Ready Roof Replacement in PA | Uncle Joe's Roofing"
 description: "Thinking about solar someday? Get a new roof in Conshohocken, Blue Bell, Malvern or Paoli, PA that's prepared for future solar panels — so you only do it once."
-h1: "Solar-Ready Roof Replacement in Montgomery & Chester County, PA"
+h1: "Solar-Ready Roofs: Replace the Roof Before the Panels Go On"
 ogImage: "/og/solar-ready-roofs.png"
 image: "solar-ready"
 imageAlt: "New shingle roof prepared for future solar panels"
@@ -22,6 +22,8 @@ faqs:
     a: "No. We're roofers. We prepare the roof so it's ready when you decide on solar, and you can work with the solar installer of your choice."
   - q: "Why replace the roof before going solar?"
     a: "Removing and reinstalling panels to replace a roof later costs extra. If your roof is getting older, it often makes sense to replace it first."
+  - q: "Do solar panels void a roof warranty?"
+    a: "They can, if the installer cuts into the roof without following the shingle manufacturer's rules or the roof wasn't in shape for panels. That's the point of a solar-ready roof: we install to spec and document it, so a careful solar crew can mount panels without putting your warranty at risk. Ask your solar company how they flash their mounts."
   - q: "Does a solar-ready roof cost more?"
     a: "Usually only a little, depending on what your roof needs. We'll show you the difference in your quote so you can decide."
 ---

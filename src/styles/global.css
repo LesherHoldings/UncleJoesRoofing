@@ -95,6 +95,12 @@
   .on-dark :where(h1, h2, h3, h4) { @apply text-white; }
   .on-dark :where(p) { color: color-mix(in srgb, var(--color-white) 86%, var(--color-navy)); }
 
+  /* A white card placed inside an .on-dark section (e.g. the form beside a hero) */
+  .on-dark .on-light :where(h1, h2, h3, h4) { @apply text-navy; }
+  .on-dark .on-light :where(p) { color: var(--color-ink-soft); }
+  .on-dark .on-light .kicker { @apply text-navy; }
+  .on-dark .on-light .link { @apply text-navy decoration-navy hover:bg-shutter-soft hover:decoration-shutter-dark; }
+
   /* Yellow highlight stroke under a word (hero) */
   .underline-sign { position: relative; display: inline-block; }
   .underline-sign::after {

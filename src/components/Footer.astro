@@ -3,7 +3,8 @@ import { Image } from 'astro:assets';
 import icon from '../assets/brand/logo-icon.png';
 import { getCollection } from 'astro:content';
 import Icon from './Icon.astro';
-import { site, telHref, footerServices, nearbyTowns } from '../config/site';
+import { site, telHref, footerServices, nearbyTowns, isPlaceholder } from '../config/site';
+const hoursReady = !site.hours.some((h) => isPlaceholder(h.label));
 
 const towns = (await getCollection('towns')).sort((a, b) => a.data.order - b.data.order);
 const year = new Date().getFullYear();
@@ -18,11 +19,11 @@ const year = new Date().getFullYear();
       </div>
       <p class="mt-3 font-display text-xl text-shutter">{site.tagline}</p>
       <address class="mt-5 space-y-1 not-italic">
-        <a href={telHref} data-call-location="footer" class="inline-flex items-center gap-2 text-lg font-semibold text-white underline decoration-shutter decoration-2 underline-offset-4"><Icon name="phone" class="h-5 w-5" />{site.phone.display}</a>
-        <span class="block">{site.address.street}</span>
-        <span class="block">{site.address.city}, {site.address.region} {site.address.postalCode}</span>
+        <a href={telHref} data-call-location="footer" data-phone-number={site.phone.display} class="inline-flex items-center gap-2 text-lg font-semibold text-white underline decoration-shutter decoration-2 underline-offset-4"><Icon name="phone" class="h-5 w-5" />{site.phone.display}</a>
+        {site.address.street && <span class="block">{site.address.street}</span>}
+        <span class="block">Based in {site.address.city}, {site.address.region} {site.address.postalCode}</span>
       </address>
-      <p class="mt-5 max-w-xs text-sm">Veteran-owned and owner-led. Roofing only. Serving Montgomery &amp; Chester County from our office in {site.address.city}.</p>
+      <p class="mt-5 max-w-xs text-sm">Veteran-owned and owner-led. Roofing only. We come to you across Montgomery &amp; Chester County.</p>
     </div>
 
     <div>
@@ -49,10 +50,14 @@ const year = new Date().getFullYear();
         <li><a href="/privacy/" class="inline-block py-1 hover:text-white hover:underline">Privacy Policy</a></li>
         <li><a href="/terms/" class="inline-block py-1 hover:text-white hover:underline">Terms &amp; Conditions</a></li>
       </ul>
-      <h2 class="mt-6 font-sans text-sm font-bold tracking-[0.15em] text-shutter uppercase">Hours</h2>
-      <ul class="mt-3 space-y-1 text-sm">
-        {site.hours.map((h) => <li><span class="text-white">{h.days}:</span> {h.label}</li>)}
-      </ul>
+      {hoursReady && (
+        <>
+          <h2 class="mt-6 font-sans text-sm font-bold tracking-[0.15em] text-shutter uppercase">Hours</h2>
+          <ul class="mt-3 space-y-1 text-sm">
+            {site.hours.map((h) => <li><span class="text-white">{h.days}:</span> {h.label}</li>)}
+          </ul>
+        </>
+      )}
     </div>
   </div>
 

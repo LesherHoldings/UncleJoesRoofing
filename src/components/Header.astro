@@ -6,7 +6,7 @@ import { nav, site, telHref, bookHref, serviceAreas } from '../config/site';
 
 const path = Astro.url.pathname;
 const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
-const towns = serviceAreas.map((t) => t.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' '));
+const towns = serviceAreas.slice(0, 4).map((t) => t.split('-').map((w) => w[0].toUpperCase() + w.slice(1)).join(' '));
 ---
 <!-- Top strip: where we work + phone -->
 <div class="bg-navy text-sm text-navy-mist">
@@ -14,7 +14,7 @@ const towns = serviceAreas.map((t) => t.split('-').map((w) => w[0].toUpperCase()
     <p class="truncate">
       <span class="font-semibold text-white">Serving</span> {towns.join(' · ')} <span class="hidden sm:inline">&amp; nearby</span>
     </p>
-    <a href={telHref} data-call-location="top_strip" class="flex shrink-0 items-center gap-1.5 font-semibold text-shutter no-underline hover:text-white">
+    <a href={telHref} data-call-location="top_strip" data-phone-number={site.phone.display} class="flex shrink-0 items-center gap-1.5 font-semibold text-shutter no-underline hover:text-white">
       <Icon name="phone" class="h-4 w-4" />{site.phone.display}
     </a>
   </div>
@@ -68,7 +68,7 @@ const towns = serviceAreas.map((t) => t.split('-').map((w) => w[0].toUpperCase()
       ))}
       <li class="flex flex-col gap-2 py-4 sm:flex-row">
         <a href={bookHref} class="btn btn-primary w-full">Book a Free Roof Inspection</a>
-        <a href={telHref} data-call-location="mobile_menu" class="btn btn-outline w-full"><Icon name="phone" class="h-5 w-5" /> Call {site.phone.display}</a>
+        <a href={telHref} data-call-location="mobile_menu" data-phone-number={site.phone.display} class="btn btn-outline w-full"><Icon name="phone" class="h-5 w-5" /> Call {site.phone.display}</a>
       </li>
     </ul>
   </nav>

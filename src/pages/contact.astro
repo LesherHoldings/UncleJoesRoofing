@@ -4,7 +4,8 @@ import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
 import GhlForm from '../components/GhlForm.astro';
 import Icon from '../components/Icon.astro';
-import { site, telHref, fullAddress } from '../config/site';
+import { site, telHref, fullAddress, isPlaceholder } from '../config/site';
+const hoursReady = !site.hours.some((h) => isPlaceholder(h.label));
 
 const page = (await getEntry('pages', 'contact'))!;
 const d = page.data;
@@ -16,7 +17,7 @@ const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIC
   <section class="section">
     <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,30rem)]">
       <div class="space-y-8">
-        <a href={telHref} data-call-location="contact_page" class="group flex items-center gap-4 rounded-xl border-2 border-navy bg-shutter p-5 text-navy no-underline shadow-sign">
+        <a href={telHref} data-call-location="contact_page" data-phone-number={site.phone.display} class="group flex items-center gap-4 rounded-xl border-2 border-navy bg-shutter p-5 text-navy no-underline shadow-sign">
           <span class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-navy text-shutter"><Icon name="phone" class="h-6 w-6" /></span>
           <span>
             <span class="block text-sm font-bold tracking-[0.15em] uppercase">Call your uncle</span>
@@ -27,16 +28,20 @@ const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIC
           <div class="flex gap-4">
             <dt><Icon name="pin" class="h-6 w-6 text-navy" label="Address" /></dt>
             <dd>
-              <address class="not-italic text-ink-soft">{site.address.street}<br />{site.address.city}, {site.address.region} {site.address.postalCode}</address>
-              <a href={directions} class="link mt-1 inline-block" rel="noopener" target="_blank">Get directions <span class="sr-only">(opens in a new tab)</span></a>
+              <address class="not-italic text-ink-soft">
+                {site.address.street ? <>{site.address.street}<br /></> : <span class="block">Service-area business — we come to you.</span>}
+                Based in {site.address.city}, {site.address.region} {site.address.postalCode}
+              </address>
+              {site.address.street && <a href={directions} class="link mt-1 inline-block" rel="noopener" target="_blank">Get directions <span class="sr-only">(opens in a new tab)</span></a>}
             </dd>
           </div>
-          {!site.email.includes('PENDING') && (
+          {!isPlaceholder(site.email) && (
             <div class="flex gap-4">
               <dt><Icon name="mail" class="h-6 w-6 text-navy" label="Email" /></dt>
               <dd><a href={`mailto:${site.email}`} class="link">{site.email}</a></dd>
             </div>
           )}
+          {hoursReady && (
           <div class="flex gap-4">
             <dt><Icon name="clock" class="h-6 w-6 text-navy" label="Hours" /></dt>
             <dd>
@@ -45,6 +50,7 @@ const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIC
               </ul>
             </dd>
           </div>
+          )}
         </dl>
         <div class="rounded-xl border-2 border-line bg-white p-6">
           <h2 class="text-2xl">What happens when you call</h2>

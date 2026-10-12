@@ -70,11 +70,12 @@ Every placeholder is in **`src/config/site.ts`**, and nowhere else. `npm run che
 | --- | --- | --- | --- | --- |
 | 1 | `[PHONE — PENDING]` | `phone.display` | Header, mobile call bar, every Call button, footer, contact page | **Must match Google Business Profile exactly** |
 | 2 | `+10000000000` | `phone.e164` | Every `tel:` link and the structured data for search engines | Same number in `+1XXXXXXXXXX` format |
-| 3 | `[OFFICE STREET ADDRESS — PENDING]`, `[OFFICE CITY — PENDING]`, `[ZIP — PENDING]` | `address` | Footer, contact page, structured data | **Must match Google Business Profile exactly.** Also confirm `city`, `postalCode` |
+| 3 | — | `address` | Footer, contact page, structured data | Service-area business: `street` stays empty and no street address is published. `city`/`postalCode` (Blue Bell 19422) must match Google Business Profile |
 | 4 | `[PA HIC # — PENDING]` | `hicNumber` | Footer on every page (required by PA law), credential badge | PA Home Improvement Contractor registration number |
 | 5 | `[FINANCING PARTNER — PENDING]` | `financing.partner` | Financing page | Optionally set `financing.applyUrl` to show an "Apply" button |
 | 6 | `PUBLIC_GA4_ID` | environment variable | Analytics | GA4 measurement ID, `G-XXXXXXXXXX` |
-| 7 | `[REVIEW PLACEHOLDER]` / `[CUSTOMER NAME]` | `reviews` | Home page reviews | Real reviews only, with permission. Set `verified: true` on real ones |
+| 6b | `PUBLIC_GOOGLE_ADS_ID`, `PUBLIC_GOOGLE_ADS_FORM_LABEL`, `PUBLIC_GOOGLE_ADS_CALL_LABEL` | environment variables | Google Ads tag, form conversion on `/thank-you/`, website call conversions (number swap) | `AW-XXXXXXXXX` plus the two conversion labels from Google Ads |
+| 7 | `[REVIEW PLACEHOLDER]` / `[CUSTOMER NAME]` | `reviews` | Reviews section (home page, ads landing page) | **Hidden until at least one review has `verified: true`.** Real reviews only, with permission |
 | 8 | `[CERTIFICATION — PENDING]` | `credentials` | Badges on home and service pages | Replace with a real credential (e.g. a shingle manufacturer program), or delete it |
 | 9 | `[INSURANCE DETAILS — PENDING]` | `credentials` | Same badges | e.g. "Fully insured" — only once that's confirmed |
 | 10 | `[WARRANTY TERMS — PENDING]` | `warranty` | Roof Replacement page | Manufacturer and workmanship warranty terms |
@@ -97,10 +98,12 @@ The site never invents reviews, review counts, years in business, job counts, ce
 | `/` | Home |
 | `/book/` | GHL booking calendar. Every "Book" button links here, and so does **discovery.unclejoesroofing.com** |
 | `/roof-replacement/`, `/roof-repair/`, `/free-roof-inspection/`, `/solar-ready-roofs/` | Service pages, each with the GHL form |
+| `/roof-replacement-cost/` | Price-shopper page: typical ranges by home type (numbers live in `src/scripts/estimator.js`), what moves the price, a client-side estimator, the seasonal offer |
+| `/lp/roof-replacement/` | **Ads landing page** (Replacement / Contractor / Shingle ad groups): no navigation, noindex, phone first. Copy in `src/content/pages/lp-roof-replacement.md`; offer text in `site.ts → offer` |
 | `/pricing-and-warranties/` | Plain-English guide: what's in a quote, shingle types, manufacturer vs. workmanship warranty (prints `warranty` and `financing.partner` from the config) |
 | `/what-to-expect/` | Install day start to finish, plus the "Leaking right now?" emergency section (`#leaking-right-now`) |
 | `/financing/`, `/our-story/`, `/contact/` | |
-| `/service-areas/` and `/service-areas/{conshohocken, blue-bell, malvern, paoli}/` | Town pages, each with the GHL form |
+| `/service-areas/` and `/service-areas/{conshohocken, blue-bell, malvern, paoli, west-conshohocken, plymouth-meeting, lafayette-hill}/` | Town pages, each with the GHL form |
 | `/privacy/` | Privacy policy, including SMS opt-in wording |
 | `/terms/` | Terms & conditions, including SMS program terms |
 | `/thank-you/`, `/thank-you/booked/` | Confirmation pages after a form or booking. Hidden from search |

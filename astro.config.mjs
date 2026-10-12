@@ -15,12 +15,18 @@ export default defineConfig({
     schema: {
       // GA4 measurement ID (G-XXXXXXXXXX). Empty disables analytics.
       PUBLIC_GA4_ID: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
+      // Google Ads tag (AW-XXXXXXXXX). Empty disables it.
+      PUBLIC_GOOGLE_ADS_ID: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
+      // Conversion label for the form conversion fired on /thank-you/ (the part after "AW-…/").
+      PUBLIC_GOOGLE_ADS_FORM_LABEL: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
+      // Conversion label for website call conversions (Google swaps the phone number on the page).
+      PUBLIC_GOOGLE_ADS_CALL_LABEL: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
     },
   },
   integrations: [
     sitemap({
       // Thank-you pages are only reached after a form/booking — keep them out of search.
-      filter: (page) => !page.includes('/thank-you/'),
+      filter: (page) => !page.includes('/thank-you/') && !page.includes('/lp/'),
     }),
   ],
   vite: {

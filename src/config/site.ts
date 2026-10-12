@@ -26,9 +26,9 @@ export const site = {
     e164: '+16106513778',
   },
   email: '[EMAIL — PENDING]',
+  /** Service-area business: no street address is published anywhere. Leave `street` empty. */
   address: {
-    /** Must match Google Business Profile exactly. */
-    street: '[OFFICE STREET ADDRESS — PENDING]',
+    street: '',
     city: 'Blue Bell',
     region: 'PA',
     postalCode: '19422',
@@ -88,10 +88,10 @@ export const site = {
 } as const;
 
 /** Service-area towns, in display order. Each has a markdown file in src/content/towns/. */
-export const serviceAreas = ['conshohocken', 'blue-bell', 'malvern', 'paoli'] as const;
+export const serviceAreas = ['conshohocken', 'blue-bell', 'malvern', 'paoli', 'west-conshohocken', 'plymouth-meeting', 'lafayette-hill'] as const;
 
 /** Nearby towns we also serve (mentioned in copy and schema, no dedicated page). */
-export const nearbyTowns = ['King of Prussia', 'Plymouth Meeting', 'Wayne', 'Berwyn', 'Devon', 'Ambler', 'Lafayette Hill', 'Exton'];
+export const nearbyTowns = ['King of Prussia', 'Wayne', 'Berwyn', 'Devon', 'Ambler', 'Exton', 'Gulph Mills', 'Norristown'];
 
 /** Where every "Book" button goes. */
 export const bookHref = '/book/';
@@ -115,6 +115,7 @@ export const footerServices = [
   { label: 'Solar-Ready Roofs', href: '/solar-ready-roofs/' },
   { label: 'What to Expect on Install Day', href: '/what-to-expect/' },
   { label: 'Pricing & Warranties', href: '/pricing-and-warranties/' },
+  { label: 'What a New Roof Costs', href: '/roof-replacement-cost/' },
   { label: 'Financing', href: '/financing/' },
 ];
 
@@ -145,3 +146,26 @@ export const owner = {
 
 export const telHref = `tel:${site.phone.e164}`;
 export const fullAddress = `${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`;
+
+/**
+ * True while a config value still carries a placeholder ([… — PENDING], [REVIEW PLACEHOLDER], [CUSTOMER NAME]).
+ * Components use this to hide a section until the real content is filled in here.
+ */
+export const isPlaceholder = (v: string | undefined | null) => !v || /PENDING|PLACEHOLDER|\[CUSTOMER NAME\]/.test(v);
+
+/**
+ * Seasonal campaign copy, used by /lp/roof-replacement/ and /roof-replacement-cost/.
+ * Set `enabled: false` to turn the whole thing off in one place, or edit the text and date here.
+ */
+export const offer = {
+  enabled: true,
+  /** Landing page H1 while the offer runs */
+  headline: 'New Roof Before Winter.',
+  /** First sentence of the landing page sub-heading (the deadline) */
+  deadlineText: 'Book by Nov 15 to get on the schedule before the holidays.',
+  /** Fallback box for people who can't make the deadline */
+  fallbackHeading: 'Missed the winter window?',
+  fallbackText: "Book now to lock in today's price and get first spot in spring.",
+  /** Used when enabled is false */
+  offHeadline: 'Roof Replacement Done Right.',
+};

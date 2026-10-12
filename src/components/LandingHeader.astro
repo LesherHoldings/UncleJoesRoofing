@@ -1,0 +1,20 @@
+---
+/** Ads landing page header: logo + phone + one button. No navigation, so there are no exits. */
+import { Image } from 'astro:assets';
+import logo from '../assets/brand/logo-horizontal.png';
+import Icon from './Icon.astro';
+import { site, telHref } from '../config/site';
+---
+<header class="border-b-4 border-shutter bg-white">
+  <div class="container-site flex h-16 items-center justify-between gap-4 sm:h-20">
+    <a href="/" class="shrink-0" aria-label={`${site.name} home`}>
+      <Image src={logo} alt={`${site.name} — ${site.tagline}`} height={52} widths={[160, 320]} sizes="(min-width: 640px) 181px, 154px" class="h-11 w-auto sm:h-[52px]" loading="eager" fetchpriority="high" />
+    </a>
+    <div class="flex items-center gap-3">
+      <a href={telHref} data-call-location="landing_header" data-phone-number={site.phone.display} class="inline-flex items-center gap-2 font-display text-xl font-bold text-navy no-underline sm:text-2xl">
+        <Icon name="phone" class="h-5 w-5 text-shutter-dark" /><span>{site.phone.display}</span>
+      </a>
+      <a href="#quote" class="btn btn-primary hidden min-h-11 px-4 py-2 text-sm md:inline-flex">Free Roof Inspection</a>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,15 @@
+---
+/** Slim footer for ads landing pages: the legal bits only. */
+import { site, telHref } from '../config/site';
+const year = new Date().getFullYear();
+---
+<footer class="on-dark bg-navy-deep pb-24 md:pb-0">
+  <div class="h-2 bg-shutter"></div>
+  <div class="container-site flex flex-col gap-3 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <p><strong class="text-white">{site.name}</strong> · <a href={telHref} data-call-location="landing_footer" data-phone-number={site.phone.display} class="text-white underline decoration-shutter underline-offset-4">{site.phone.display}</a> · Based in {site.address.city}, PA</p>
+      <p class="mt-1"><strong class="text-white">PA Home Improvement Contractor Registration: {site.hicNumber}</strong></p>
+    </div>
+    <p>&copy; {year} {site.name}. {site.dbaLine} <a href="/privacy/" class="underline">Privacy</a> · <a href="/terms/" class="underline">Terms</a></p>
+  </div>
+</footer>

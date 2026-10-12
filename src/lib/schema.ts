@@ -14,6 +14,9 @@ export const towns: { slug: string; name: string; county: string }[] = [
   { slug: 'blue-bell', name: 'Blue Bell', county: 'Montgomery County' },
   { slug: 'malvern', name: 'Malvern', county: 'Chester County' },
   { slug: 'paoli', name: 'Paoli', county: 'Chester County' },
+  { slug: 'west-conshohocken', name: 'West Conshohocken', county: 'Montgomery County' },
+  { slug: 'plymouth-meeting', name: 'Plymouth Meeting', county: 'Montgomery County' },
+  { slug: 'lafayette-hill', name: 'Lafayette Hill', county: 'Montgomery County' },
 ];
 
 /** The four services, in the order they appear on the site. */
@@ -25,7 +28,7 @@ const services = [
 ];
 
 /** True for config values that still carry a placeholder; those are kept out of structured data. */
-const pending = (v: string) => /PENDING|PLACEHOLDER/.test(v);
+const pending = (v: string) => !v || /PENDING|PLACEHOLDER/.test(v);
 const abs = (path: string) => new URL(path, site.url).href;
 
 export const ids = {

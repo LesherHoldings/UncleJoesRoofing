@@ -19,7 +19,7 @@ const { heading = 'Request your free roof inspection', text = "Tell us a little 
 const { id, name, height } = site.ghl.form;
 const src = `https://api.leadconnectorhq.com/widget/form/${id}`;
 ---
-<div class="rounded-xl border-2 border-navy bg-white p-5 shadow-sign sm:p-6">
+<div class="on-light rounded-xl border-2 border-navy bg-white p-5 shadow-sign sm:p-6">
   <p class="kicker">Free inspection</p>
   <h2 class="text-2xl sm:text-3xl">{heading}</h2>
   {text && <p class="mt-1 text-sm text-muted">{text}</p>}
@@ -54,7 +54,7 @@ const src = `https://api.leadconnectorhq.com/widget/form/${id}`;
 
   <p class="mt-4 border-t border-line pt-4 text-sm text-ink-soft">
     Rather pick a time yourself? <a href={bookHref} class="link">Book online</a>{' '}
-    or <a href={telHref} data-call-location="form_footer" class="link">call {site.phone.display}</a>.
+    or <a href={telHref} data-call-location="form_footer" data-phone-number={site.phone.display} class="link">call {site.phone.display}</a>.
   </p>
 </div>
 

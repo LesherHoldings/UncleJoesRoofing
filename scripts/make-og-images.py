@@ -30,6 +30,10 @@ PAGES = {
     "malvern": ("Roofing in Malvern", "Malvern, PA"),
     "paoli": ("Roofing in Paoli", "Paoli, PA"),
     "pricing-and-warranties": ("Pricing & Warranties", "How roof quotes and warranties work"),
+    "roof-replacement-cost": ("What a New Roof Costs", "Typical ranges in Montgomery County, PA"),
+    "west-conshohocken": ("Roofing in West Conshohocken", "West Conshohocken, PA"),
+    "plymouth-meeting": ("Roofing in Plymouth Meeting", "Plymouth Meeting, PA"),
+    "lafayette-hill": ("Roofing in Lafayette Hill", "Lafayette Hill, PA"),
     "what-to-expect": ("What to Expect", "Install day, start to finish"),
 }
 

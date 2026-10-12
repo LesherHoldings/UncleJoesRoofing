@@ -3,6 +3,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import MobileCallBar from '../components/MobileCallBar.astro';
+import LandingHeader from '../components/LandingHeader.astro';
+import LandingFooter from '../components/LandingFooter.astro';
 import Analytics from '../components/Analytics.astro';
 import { site } from '../config/site';
 import { pageGraph, type PageType } from '../lib/schema';
@@ -22,9 +24,14 @@ interface Props {
   /** @id of the node this page is mainly about (e.g. its Service). */
   mainEntityId?: string;
   noindex?: boolean;
+  /** Full robots directive, e.g. "noindex, nofollow" (overrides noindex). */
+  robots?: string;
+  /** 'landing' = ads landing page: logo + phone header, slim footer, call bar points at #quote. */
+  variant?: 'default' | 'landing';
 }
 
-const { title, description, ogImage = '/og/default.png', breadcrumbs, schema = [], pageType, faqs, mainEntityId, noindex = false } = Astro.props;
+const { title, description, ogImage = '/og/default.png', breadcrumbs, schema = [], pageType, faqs, mainEntityId, noindex = false, robots, variant = 'default' } = Astro.props;
+const robotsContent = robots ?? (noindex ? 'noindex' : '');
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogUrl = new URL(ogImage, site.url).href;
 
@@ -38,7 +45,7 @@ const jsonLd = pageGraph({ path: Astro.url.pathname, title, description, ogImage
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {noindex && <meta name="robots" content="noindex" />}
+    {robotsContent && <meta name="robots" content={robotsContent} />}
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
@@ -69,11 +76,11 @@ const jsonLd = pageGraph({ path: Astro.url.pathname, title, description, ogImage
   </head>
   <body class="flex min-h-screen flex-col">
     <a href="#main" class="sr-only z-50 rounded bg-white px-4 py-2 text-navy focus:not-sr-only focus:fixed focus:top-3 focus:left-3">Skip to content</a>
-    <Header />
+    {variant === 'landing' ? <LandingHeader /> : <Header />}
     <main id="main" class="flex-1 outline-none" tabindex="-1">
       <slot />
     </main>
-    <Footer />
+    {variant === 'landing' ? <LandingFooter /> : <Footer />}
     <MobileCallBar />
     <script>
       import '../scripts/motion.ts';

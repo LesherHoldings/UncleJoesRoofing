@@ -7,11 +7,13 @@ import { getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import CallButton from './CallButton.astro';
 import Icon from './Icon.astro';
+import { PUBLIC_GOOGLE_ADS_ID, PUBLIC_GOOGLE_ADS_FORM_LABEL } from 'astro:env/client';
 
 interface Props { id: 'thank-you' | 'booked'; event: 'generate_lead' | 'book_appointment'; method: string }
 const { id, event, method } = Astro.props;
 const page = (await getEntry('pages', id))!;
 const d = page.data;
+const adsSendTo = PUBLIC_GOOGLE_ADS_ID && PUBLIC_GOOGLE_ADS_FORM_LABEL && event === 'generate_lead' ? `${PUBLIC_GOOGLE_ADS_ID}/${PUBLIC_GOOGLE_ADS_FORM_LABEL}` : '';
 ---
 <Layout title={d.title} description={d.description} noindex>
   <section class="section">
@@ -27,7 +29,7 @@ const d = page.data;
       </div>
     </div>
   </section>
-  <script is:inline define:vars={{ event, method }}>
+  <script is:inline define:vars={{ event, method, adsSendTo }}>
     // Fire the conversion once per visit, even if the page is refreshed.
     (function () {
       var key = 'ujr_conv_' + event;
@@ -35,6 +37,7 @@ const d = page.data;
       window.dataLayer = window.dataLayer || [];
       if (typeof window.gtag === 'function') {
         window.gtag('event', event, { method: method, page_path: location.pathname });
+        if (adsSendTo) window.gtag('event', 'conversion', { send_to: adsSendTo });
       }
     })();
   </script>

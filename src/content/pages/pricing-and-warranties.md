@@ -67,8 +67,8 @@ Every new roof comes with two separate warranties, and it pays to know which is 
 
 Things that commonly void a warranty: installing over old shingles, poor attic ventilation, mixing products from different manufacturers, unregistered warranties, and other trades (satellite installers, solar crews, chimney work) cutting into or walking the roof. We'll tell you what to watch out for.
 
-Our specific warranty terms are below, and you get them in writing with your quote.
+You get our specific warranty terms in writing with your quote.
 
 ## Paying for it
 
-A roof is one of the bigger bills a house sends you. We offer [financing through our partner](/financing/) so you can spread it out, and the price is the same whether you finance or pay up front. When you're ready, [book a free inspection](/book/) — and if you want to know how install day goes, read [what to expect](/what-to-expect/).
+Want ballpark numbers for our area first? See [what a new roof costs](/roof-replacement-cost/). A roof is one of the bigger bills a house sends you. We offer [financing through our partner](/financing/) so you can spread it out, and the price is the same whether you finance or pay up front. When you're ready, [book a free inspection](/book/) — and if you want to know how install day goes, read [what to expect](/what-to-expect/).

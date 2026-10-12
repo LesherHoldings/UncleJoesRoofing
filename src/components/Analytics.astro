@@ -1,31 +1,40 @@
 ---
 /**
- * Google Analytics 4 + conversion tracking.
- * - Loads gtag only when PUBLIC_GA4_ID is set, and only after the page has loaded (keeps Lighthouse fast).
- * - Sends `click_to_call` for every tel: link click (with the link's data-call-location).
- * - /thank-you/ sends `generate_lead` and /thank-you/booked/ sends `book_appointment`
- *   (GHL form and calendar redirect there after a submission).
- * Mark all three as Key Events in GA4 → Admin → Events.
+ * Google tag: GA4 + Google Ads from one loader.
+ * - Loads gtag only when PUBLIC_GA4_ID or PUBLIC_GOOGLE_ADS_ID is set, after the page has loaded.
+ * - Sends GA4 `click_to_call` for every tel: link click (with the link's data-call-location).
+ * - /thank-you/ sends GA4 `generate_lead` plus the Google Ads form conversion
+ *   (PUBLIC_GOOGLE_ADS_ID + PUBLIC_GOOGLE_ADS_FORM_LABEL); /thank-you/booked/ sends `book_appointment`.
+ * - Website call conversions: set PUBLIC_GOOGLE_ADS_CALL_LABEL and Google swaps the number on the page.
+ *   Every phone link carries data-phone-number so the swap and any future scripts can find it.
+ * Mark the GA4 events as Key Events in GA4 → Admin → Events.
  */
-import { PUBLIC_GA4_ID } from 'astro:env/client';
-const id = PUBLIC_GA4_ID?.trim() ?? '';
+import { PUBLIC_GA4_ID, PUBLIC_GOOGLE_ADS_ID, PUBLIC_GOOGLE_ADS_CALL_LABEL } from 'astro:env/client';
+import { site } from '../config/site';
+const ga = PUBLIC_GA4_ID?.trim() ?? '';
+const ads = PUBLIC_GOOGLE_ADS_ID?.trim() ?? '';
+const callLabel = PUBLIC_GOOGLE_ADS_CALL_LABEL?.trim() ?? '';
+const phone = site.phone.display;
+const first = ga || ads;
 ---
-{id && (
-  <script is:inline define:vars={{ id }}>
+{first && (
+  <script is:inline define:vars={{ ga, ads, callLabel, phone, first }}>
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag('js', new Date());
-    window.gtag('config', id);
+    if (ga) window.gtag('config', ga);
+    if (ads) window.gtag('config', ads);
+    if (ads && callLabel) window.gtag('config', ads + '/' + callLabel, { phone_conversion_number: phone });
     window.addEventListener('load', function () {
       var s = document.createElement('script');
       s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(first);
       document.head.appendChild(s);
     });
   </script>
 )}
 <script>
-  // Works with or without GA configured: events queue in dataLayer if gtag exists.
+  // Works with or without the tag configured: events queue in dataLayer if gtag exists.
   document.addEventListener('click', (event) => {
     const link = (event.target as Element | null)?.closest?.('a[href^="tel:"]') as HTMLAnchorElement | null;
     if (!link || typeof window.gtag !== 'function') return;

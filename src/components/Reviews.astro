@@ -3,8 +3,10 @@ import { site } from '../config/site';
 
 interface Props { heading?: string; text?: string }
 const { heading = 'What our neighbors say', text } = Astro.props;
-const reviews = site.reviews;
+/** Only real reviews (verified: true in site.ts) are shown; with none, the section does not render at all. */
+const reviews = site.reviews.filter((r) => r.verified);
 ---
+{reviews.length > 0 && (
 <section class="section bg-paper" aria-labelledby="reviews-heading">
   <div class="container-site">
     <p class="kicker">Reviews</p>
@@ -28,3 +30,4 @@ const reviews = site.reviews;
     )}
   </div>
 </section>
+)}

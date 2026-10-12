@@ -1,17 +1,23 @@
 ---
 import Icon from './Icon.astro';
-import { telHref, bookHref } from '../config/site';
-const onBookPage = Astro.url.pathname === bookHref;
+import { site, telHref, bookHref } from '../config/site';
+
+interface Props {
+  /** Second button. Defaults to the booking page; the ads landing page points it at its form. */
+  secondary?: { href: string; label: string; icon?: 'calendar' | 'mail' };
+}
+const { secondary = { href: bookHref, label: 'Book Inspection', icon: 'calendar' } } = Astro.props;
+const onSecondaryPage = Astro.url.pathname === secondary.href;
 ---
 <!-- Sticky bottom bar on phones: the two things most visitors want. -->
 <div class="fixed inset-x-0 bottom-0 z-50 border-t-2 border-shutter bg-navy p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] md:hidden">
-  <div class:list={["grid gap-2", onBookPage ? "grid-cols-1" : "grid-cols-2"]}>
-    <a href={telHref} data-call-location="mobile_call_bar" class="btn btn-outline-light min-h-12 px-2">
+  <div class:list={['grid gap-2', onSecondaryPage ? 'grid-cols-1' : 'grid-cols-2']}>
+    <a href={telHref} data-call-location="mobile_call_bar" data-phone-number={site.phone.display} class="btn btn-outline-light min-h-12 px-2">
       <Icon name="phone" class="h-5 w-5" /> Call Now
     </a>
-    {!onBookPage && (
-      <a href={bookHref} class="btn btn-yellow-dark min-h-12 px-2">
-        <Icon name="calendar" class="h-5 w-5" /> Book Inspection
+    {!onSecondaryPage && (
+      <a href={secondary.href} class="btn btn-yellow-dark min-h-12 px-2">
+        <Icon name={secondary.icon ?? 'calendar'} class="h-5 w-5" /> {secondary.label}
       </a>
     )}
   </div>

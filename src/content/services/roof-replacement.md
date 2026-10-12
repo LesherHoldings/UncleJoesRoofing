@@ -12,11 +12,22 @@ cardSummary: "A full tear-off and new asphalt shingle roof, done right and clean
 intro: "When a roof is worn out, patching it just delays the bill. We replace asphalt shingle roofs on homes in Conshohocken, Blue Bell, Malvern, Paoli and across the Main Line — one clear price, one person in charge, and a yard that looks like we were never there."
 highlights:
   - "Full tear-off down to the roof deck — no shingles layered over old ones"
-  - "Roof deck checked, and soft or damaged boards replaced"
-  - "Ice and water barrier at eaves, valleys and other leak-prone spots"
-  - "New flashing at chimneys, walls and pipes"
-  - "Roof ventilation checked and corrected"
-  - "Magnetic sweep for nails and a full cleanup, every day"
+  - "Deck inspection, with rotted wood replaced and priced up front"
+  - "Ice and water shield at eaves, valleys and other leak-prone spots"
+  - "Synthetic underlayment over the whole deck"
+  - "New drip edge and flashing at chimneys, walls and pipes"
+  - "Ridge ventilation so the attic can breathe"
+  - "Full cleanup with a magnetic nail sweep, every day"
+  - "Final walkthrough with you before we call it done"
+steps:
+  - title: "Call or request a quote"
+    text: "Takes a minute. We'll ask a few questions about the roof and set a time."
+  - title: "Free inspection and written quote"
+    text: "We get on the roof, take photos and walk you through what we found. One itemized price, no \"sign today\" pressure."
+  - title: "We schedule your install"
+    text: "You pick the date. We handle materials, permits where required, and the dumpster."
+  - title: "Most roofs done in 1–2 days"
+    text: "Tear-off, deck repairs if needed, new roof, a magnetic nail sweep and a walkthrough with you."
 faqs:
   - q: "How do I know if I need a new roof or just a repair?"
     a: "Age, how widespread the damage is, and whether leaks keep coming back all matter. We'll show you photos from your roof and tell you honestly. If a repair will do the job, we'll say so."
@@ -36,13 +47,7 @@ faqs:
 
 ## What a replacement with us looks like
 
-**1. Free inspection.** We get on the roof, take photos and walk you through what we found. No pressure, no "sign today" pricing.
-
-**2. One clear quote.** You get a written, itemized price. If we find hidden damage once the old roof is off, like rotted boards, we show you before we fix it.
-
-**3. Install day.** We protect your landscaping, siding and driveway before the first shingle comes off. The crew tears off, repairs the deck if needed and installs the new roof.
-
-**4. Cleanup and walkthrough.** We sweep the yard and driveway for nails, haul everything away, and walk the job with you. You'll know exactly who to call if anything ever comes up.
+If we find hidden damage once the old roof is off, like rotted boards, we show you before we fix it, at the per-sheet price already in your quote. We protect your landscaping, siding and driveway before the first shingle comes off, and when we're done you'll know exactly who to call if anything ever comes up.
 
 ## Shingle choices
 

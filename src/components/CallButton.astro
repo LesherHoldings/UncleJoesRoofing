@@ -12,7 +12,7 @@ interface Props {
 }
 const { location, variant = 'dark', class: className = '', label } = Astro.props;
 ---
-<a href={telHref} class:list={['btn', `btn-${variant}`, className]} data-call-location={location}>
+<a href={telHref} data-phone-number={site.phone.display} class:list={['btn', `btn-${variant}`, className]} data-call-location={location}>
   <Icon name="phone" class="h-5 w-5" />
   <span>{label ?? `Call ${site.phone.display}`}</span>
 </a>

@@ -33,6 +33,8 @@ const services = defineCollection({
     intro: z.string(),
     /** "What's included" checklist */
     highlights: z.array(z.string()).default([]),
+    /** "How it works" steps, shown on the service page and reused on the ads landing page */
+    steps: z.array(z.object({ title: z.string(), text: z.string() })).default([]),
     /** Shown in the nav-less card grid; set false to hide from the home page */
     showOnHome: z.boolean().default(true),
     faqs: z.array(faq).default([]),
@@ -77,6 +79,25 @@ const pages = defineCollection({
     reviews: z.object({ heading: z.string(), text: z.string() }).optional(),
     finalCta: z.object({ heading: z.string(), text: z.string() }).optional(),
     lastUpdated: z.string().optional(),
+    // Ads landing page sections (lp-roof-replacement.md)
+    lp: z
+      .object({
+        /** Sub-heading after the seasonal deadline sentence */
+        subheading: z.string(),
+        trust: z.array(z.string()),
+        /** Questions (by exact text) to reuse from the roof-replacement service FAQs */
+        faqFrom: z.array(z.string()),
+        ownerText: z.string(),
+      })
+      .optional(),
+    // Cost page sections (roof-replacement-cost.md)
+    cost: z
+      .object({
+        drivers: z.array(z.object({ title: z.string(), text: z.string() })),
+        whyHeading: z.string(),
+        why: z.array(z.string()),
+      })
+      .optional(),
   }),
 });
 

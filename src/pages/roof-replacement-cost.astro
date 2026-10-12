@@ -1,0 +1,136 @@
+---
+import { getEntry, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Checklist from '../components/Checklist.astro';
+import GhlForm from '../components/GhlForm.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import CallButton from '../components/CallButton.astro';
+import Icon from '../components/Icon.astro';
+import { bookHref, offer } from '../config/site';
+import { HOME_TYPES, range } from '../scripts/estimator.js';
+
+const page = (await getEntry('pages', 'roof-replacement-cost'))!;
+const { Content } = await render(page);
+const d = page.data;
+const cost = d.cost!;
+const replacement = (await getEntry('services', 'roof-replacement'))!;
+const crumbs = [{ name: 'What a New Roof Costs', path: '/roof-replacement-cost/' }];
+---
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs}>
+  <PageHero h1={d.h1} intro={d.intro} kicker="Straight answer" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location="cost_hero" />
+
+  <section class="section">
+    <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,24rem)]">
+      <div>
+        <!-- Typical ranges -->
+        <p class="kicker">Typical ranges</p>
+        <h2 class="heading-md">What a full replacement runs by home type</h2>
+        <p class="mt-2 text-ink-soft">Typical ranges for homes around here, not quotes. Your written price comes after we measure the roof.</p>
+        <div class="mt-5 overflow-hidden rounded-xl border-2 border-navy shadow-sign">
+          <table class="w-full text-left">
+            <thead class="bg-navy text-white">
+              <tr><th scope="col" class="px-4 py-3 font-semibold">Home type</th><th scope="col" class="px-4 py-3 font-semibold">Typical range</th></tr>
+            </thead>
+            <tbody class="divide-y divide-line bg-white">
+              {HOME_TYPES.map((t) => (
+                <tr><td class="px-4 py-3">{t.label}</td><td class="px-4 py-3 font-display text-xl font-bold text-navy whitespace-nowrap">~{range(t)}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Price drivers -->
+        <div class="prose prose-lg prose-site mt-12 max-w-none"><Content /></div>
+        <ul class="mt-6 grid gap-4 sm:grid-cols-2">
+          {cost.drivers.map((x) => (
+            <li class="rounded-xl border-2 border-line bg-white p-5">
+              <h3 class="text-xl">{x.title}</h3>
+              <p class="mt-1 text-ink-soft">{x.text}</p>
+            </li>
+          ))}
+        </ul>
+
+        <!-- Why not the cheapest -->
+        <div class="mt-12 rounded-xl border-l-8 border-shutter bg-navy-mist p-6 sm:p-8">
+          <h2 class="heading-md">{cost.whyHeading}</h2>
+          {cost.why.map((p) => <p class="mt-3 text-ink-soft">{p}</p>)}
+        </div>
+
+        <!-- What's included (shared with the roof replacement page) -->
+        <div class="mt-12 rounded-xl border-2 border-navy bg-white p-6 shadow-sign sm:p-8">
+          <p class="kicker">Included</p>
+          <h2 class="text-2xl sm:text-3xl">What's in every Uncle Joe's roof</h2>
+          <Checklist items={replacement.data.highlights} class="mt-5" />
+          <a href="/roof-replacement/" class="link mt-5 inline-block">More about roof replacement</a>
+        </div>
+
+        <!-- Estimator -->
+        <div id="estimator" class="mt-12 scroll-mt-28 rounded-xl border-2 border-navy bg-navy p-6 text-white sm:p-8 on-dark">
+          <p class="kicker">Quick estimator</p>
+          <h2 class="text-2xl sm:text-3xl">Where does your house probably land?</h2>
+          <form class="mt-5 grid gap-4 sm:grid-cols-3" data-estimator>
+            <label class="block text-sm font-semibold">Home type
+              <select name="homeType" class="mt-1 w-full rounded-md border-2 border-white/30 bg-navy-deep px-3 py-2.5 text-base text-white">
+                {HOME_TYPES.map((t, i) => <option value={t.id} selected={i === 1}>{t.label}</option>)}
+              </select>
+            </label>
+            <label class="block text-sm font-semibold">Stories
+              <select name="stories" class="mt-1 w-full rounded-md border-2 border-white/30 bg-navy-deep px-3 py-2.5 text-base text-white">
+                <option value="1">1 story</option><option value="2" selected>2 stories</option><option value="3">3 stories</option>
+              </select>
+            </label>
+            <label class="block text-sm font-semibold">Steep roof?
+              <select name="steep" class="mt-1 w-full rounded-md border-2 border-white/30 bg-navy-deep px-3 py-2.5 text-base text-white">
+                <option value="no" selected>No</option><option value="yes">Yes</option>
+              </select>
+            </label>
+          </form>
+          <p class="mt-5 text-sm text-navy-mist">Your estimated range</p>
+          <p class="font-display text-3xl font-bold text-shutter sm:text-4xl" data-estimate aria-live="polite">{range(HOME_TYPES[1])}</p>
+          <p class="mt-2 text-sm">Every roof is measured before a written quote. No email required.</p>
+        </div>
+
+        {offer.enabled && (
+          <div class="mt-10 flex flex-col gap-4 rounded-xl border-2 border-line bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p class="font-display text-xl font-bold text-navy">{offer.headline} {offer.deadlineText}</p>
+              <p class="mt-1 text-ink-soft">{offer.fallbackHeading} {offer.fallbackText}</p>
+            </div>
+            <a href={bookHref} class="btn btn-primary shrink-0">Get your exact price</a>
+          </div>
+        )}
+      </div>
+
+      <aside id="request" class="scroll-mt-24 lg:sticky lg:top-28 lg:self-start">
+        <div class="mb-6 rounded-xl border-2 border-navy bg-shutter p-5 text-navy shadow-sign">
+          <p class="font-display text-2xl font-bold">Get your exact price</p>
+          <p class="mt-1">Free inspection, written quote, no pressure.</p>
+          <div class="mt-4 flex flex-col gap-2">
+            <a href={bookHref} class="btn btn-dark">Book a free inspection</a>
+            <CallButton location="cost_sidebar" variant="outline" />
+          </div>
+        </div>
+        <GhlForm heading="Or request a call back" text="Tell us a little about your roof and we'll call you to set a time." />
+      </aside>
+    </div>
+  </section>
+
+  <Faq faqs={d.faqs} heading="Cost questions" />
+  <CtaBand heading="Get your exact price — free inspection, written quote." text="Call, or book a time and we'll measure the roof and give you one itemized number." location="cost_cta" />
+</Layout>
+
+<script>
+  import { estimate, range } from '../scripts/estimator.js';
+  const form = document.querySelector<HTMLFormElement>('[data-estimator]');
+  const out = document.querySelector<HTMLElement>('[data-estimate]');
+  if (form && out) {
+    const update = () => {
+      const f = new FormData(form);
+      out.textContent = range(estimate({ homeType: String(f.get('homeType')), stories: Number(f.get('stories')), steep: f.get('steep') === 'yes' }));
+    };
+    form.addEventListener('change', update);
+    update();
+  }
+</script>

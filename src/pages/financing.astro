@@ -6,7 +6,8 @@ import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import CallButton from '../components/CallButton.astro';
 import GuideCards from '../components/GuideCards.astro';
-import { site, bookHref } from '../config/site';
+import { site, bookHref, isPlaceholder } from '../config/site';
+const partner = isPlaceholder(site.financing.partner) ? '' : site.financing.partner;
 
 const page = (await getEntry('pages', 'financing'))!;
 const { Content } = await render(page);
@@ -21,8 +22,8 @@ const crumbs = [{ name: 'Financing', path: '/financing/' }];
         <Content />
       </div>
       <aside class="self-start rounded-xl border-2 border-navy bg-white p-6 shadow-sign lg:sticky lg:top-28">
-        <p class="kicker">Financing partner</p>
-        <p class="mt-2 font-display text-2xl text-navy">{site.financing.partner}</p>
+        <p class="kicker">Financing</p>
+        {partner ? <p class="mt-2 font-display text-2xl text-navy">{partner}</p> : <p class="mt-2 font-display text-2xl text-navy">Ask us about options</p>}
         <p class="mt-3 text-sm text-ink-soft">All financing is subject to credit approval. Rates and terms are set by the lender.</p>
         <div class="mt-5 flex flex-col gap-3">
           {site.financing.applyUrl && <a href={site.financing.applyUrl} class="btn btn-primary" rel="noopener" target="_blank">Apply with our partner</a>}

@@ -134,7 +134,7 @@ export function businessNode() {
     slogan: site.tagline,
     description:
       'Veteran-owned, owner-led roofing company in Blue Bell, PA. Asphalt shingle roof replacement, roof repair and free roof inspections for Conshohocken, Blue Bell, Malvern, Paoli and nearby Montgomery and Chester County towns.',
-    url: site.url,
+    url: abs('/'),
     telephone: site.phone.e164,
     ...(pending(site.email) ? {} : { email: site.email }),
     address: {
@@ -157,17 +157,10 @@ export function businessNode() {
           })),
         }
       : {}),
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        telephone: site.phone.e164,
-        contactType: 'customer service',
-        areaServed: 'US',
-        availableLanguage: 'English',
-      },
-    ],
+    contactPoint: [{ '@type': 'ContactPoint', telephone: site.phone.e164, contactType: 'customer service' }],
     logo: { '@id': ids.logo },
-    image: [abs('/og/default.png'), abs('/icon-512.png')],
+    /** Representative photos (not the logo, which is `logo`). Swap in real job photos when there are some. */
+    image: [abs('/og/default.png'), abs('/people/joe-lesher.jpg')],
     identifier: {
       '@type': 'PropertyValue',
       propertyID: 'PA Home Improvement Contractor Registration',
@@ -199,7 +192,6 @@ export function businessNode() {
       priceCurrency: 'USD',
       url: abs('/book/'),
       itemOffered: { '@id': ids.service('free-roof-inspection') },
-      areaServed,
     },
     ...(social.length ? { sameAs: social } : {}),
     ...(site.social.googleBusinessProfile ? { hasMap: site.social.googleBusinessProfile } : {}),
@@ -223,7 +215,7 @@ export function websiteNode() {
     '@type': 'WebSite',
     '@id': ids.website,
     name: site.name,
-    url: site.url,
+    url: abs('/'),
     inLanguage: 'en-US',
     publisher: { '@id': ids.business },
   };
@@ -293,7 +285,7 @@ export function webPageNode(opts: {
             acceptedAnswer: { '@type': 'Answer', text: plainText(f.a) },
           })),
         }
-      : opts.mainEntityId
+      : opts.mainEntityId?.startsWith(url) // only when the Service belongs to this page (not /book/)
         ? { mainEntity: { '@id': opts.mainEntityId } }
         : opts.type === 'AboutPage'
           ? { mainEntity: { '@id': ids.business } }

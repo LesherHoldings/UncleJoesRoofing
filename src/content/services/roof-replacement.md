@@ -38,7 +38,7 @@ faqs:
   - q: "Do you work with slate, metal or flat roofs?"
     a: "We specialize in asphalt shingle roofs. If your home needs something else, we'll tell you up front instead of selling you the wrong roof."
   - q: "Architectural shingles or 3-tab: which should I choose?"
-    a: "Architectural (dimensional) shingles are thicker, look better and usually carry a longer manufacturer warranty, which is why most homeowners choose them. 3-tab shingles cost less and suit a tight budget or a rental. We'll show you both at your inspection. Our [pricing and warranties guide](/pricing-and-warranties/) explains the differences."
+    a: "Architectural (dimensional) shingles are thicker, have a more textured look and usually carry a longer manufacturer warranty, which is why they're the more common choice. 3-tab shingles cost less and suit a tight budget or a rental. We'll show you samples at your inspection. Our [pricing and warranties guide](/pricing-and-warranties/) explains the differences."
   - q: "How long does an asphalt shingle roof last in Pennsylvania?"
     a: "It depends on the shingle, the attic ventilation and how well it was installed. Our freeze-thaw winters and hot, humid summers are hard on roofs, so a roof here often wears out before the number on the warranty. A free inspection will tell you where yours stands."
   - q: "Can I make my new roof ready for solar panels?"
@@ -57,11 +57,11 @@ We install quality architectural asphalt shingles in a range of colors. We'll br
 
 ## Architectural shingles vs 3-tab shingles
 
-This is the question we get asked most, so here's the short version.
+This is a common question, so here's the short version.
 
-- **How to tell them apart from the driveway.** 3-tab shingles are flat strips with slots cut every few inches, so the roof reads as a neat, uniform grid. Architectural shingles (also called dimensional or laminate) are built in two layers with staggered tabs, so the roof has shadow lines and a thicker, more textured look.
-- **How long they last.** Architectural shingles are heavier and thicker, and they generally outlast 3-tab. Pennsylvania's freeze-thaw winters tend to widen that gap, which is why most of the roofs we install are architectural.
-- **Wind.** The extra weight and the way the two layers bond help architectural shingles hold on in wind. 3-tab tabs lift more easily once the seal strips age.
+- **How to tell them apart from the driveway.** 3-tab shingles are flat strips with two slots cut in each one, making three tabs, so the roof reads as a neat, uniform grid. Architectural shingles (also called dimensional or laminate) are built in two or more layers with staggered tabs, so the roof has shadow lines and a thicker, more textured look.
+- **How long they last.** Architectural shingles are heavier and thicker, and they generally outlast 3-tab. Pennsylvania's freeze-thaw winters are hard on any roof, which is why architectural shingles are our usual recommendation.
+- **Wind.** The extra weight and the way the two layers bond help architectural shingles hold on in wind. 3-tab tabs tend to lift more easily once the seal strips age.
 - **Can you put new shingles over old ones?** No. Whichever shingle you choose, we tear off to the deck first. A second layer hides rotted decking, adds weight and commonly voids the manufacturer's warranty.
 
 The [pricing and warranties guide](/pricing-and-warranties/) covers what each choice does to the quote and the warranty, without pushing you up a tier.

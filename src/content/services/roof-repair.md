@@ -26,25 +26,25 @@ faqs:
   - q: "Should I repair my roof or replace it?"
     a: "If the damage is in one spot and the rest of the roof has life left, repair it. If leaks keep coming back, shingles are failing across the whole roof, or it's near the end of its life, a repair is money spent twice. We'll show you photos and tell you which it is, even when the answer is the cheaper one."
   - q: "Do you handle emergency leaks?"
-    a: "Call us. If water is coming in, we'll do what we can to get the roof covered quickly and then plan a proper repair."
+    a: "Call us. If water is coming in, we'll do what we can to get the roof covered and then plan a proper repair."
   - q: "Do roof patches work?"
-    a: "For one specific failure, yes: a cracked pipe boot, a lifted shingle, a bad piece of flashing. A patch on a roof that's worn out everywhere just moves the leak to the next weak spot. At the inspection we'll tell you which one you have, with photos."
+    a: "For one specific failure, yes: a cracked pipe boot, a lifted shingle, a bad piece of flashing. A patch on a roof that's worn out everywhere usually just moves the leak to the next weak spot. At the inspection we'll tell you which one you have, with photos."
   - q: "Can you fix a roof leak in winter?"
-    a: "Yes. Cold weather changes how we work, not whether we work. Shingle seal strips don't bond in the cold, so cold-weather repairs are hand-sealed, and if there's snow or ice on the roof we may tarp first and finish the permanent repair once the roof is clear. If the whole roof is due, see [roof replacement](/roof-replacement/)."
+    a: "Usually, yes. Cold weather changes how a repair is done more than whether it can be done. Shingle seal strips don't bond well in the cold, so shingles installed in cold weather need to be hand-sealed, and if there's snow or ice on the roof we may tarp first and finish the permanent repair once the roof is clear. If the whole roof is due, see [roof replacement](/roof-replacement/)."
   - q: "Can you replace just one slope of my roof?"
-    a: "Sometimes. If one slope took storm damage and the rest of the roof is sound, replacing that slope can make sense. The catch is matching: new shingles next to faded ones rarely match exactly, and if the other slopes are near the end of their life you'll be back up there soon. We'll put both options in writing."
+    a: "Sometimes. If one slope took storm damage and the rest of the roof is sound, replacing that slope can make sense. The catch is matching: new shingles next to faded ones rarely match exactly, and if the other slopes are near the end of their life you'll be back up there soon. We'll lay out both options so you can decide."
   - q: "Does homeowners insurance cover roof leaks?"
     a: "It depends on what caused the leak. Policies generally cover sudden damage, like wind lifting shingles or a tree limb coming through, and generally don't cover a roof that wore out. Your policy and your adjuster decide, not us. We'll photograph and write up what we find so you have something solid to send your insurer. More in [how pricing and warranties work](/pricing-and-warranties/)."
 ---
 ## Emergency tarping and temporary leak repair
 
-If water is coming in right now, the first job is stopping it, not selling you a roof. We do emergency roof repairs and temporary tarping across Montgomery and Chester County, from [Conshohocken](/service-areas/conshohocken/) and [Blue Bell](/service-areas/blue-bell/) to [Malvern](/service-areas/malvern/) and [Paoli](/service-areas/paoli/). Call us, put a bucket under the drip, stay off the roof, and we'll get the roof covered. The permanent fix comes after, once things are dry and we can see what actually happened. Here's [what to do while you wait](/what-to-expect/#leaking-right-now).
+If water is coming in right now, the first job is stopping it, not selling you a roof. We do emergency roof repairs and temporary tarping across Montgomery and Chester County, from [Conshohocken](/service-areas/conshohocken/) and [Blue Bell](/service-areas/blue-bell/) to [Malvern](/service-areas/malvern/) and [Paoli](/service-areas/paoli/). Call us, put a bucket under the drip, stay off the roof, and we'll do what we can to get the roof covered. The permanent fix comes after, once things are dry and we can see what actually happened. Here's [what to do while you wait](/what-to-expect/#leaking-right-now).
 
 
 ## Common repairs we handle
 
-- **Leaks around chimneys.** Flashing is the most common leak point on older roofs. We replace it the right way, not with a tube of caulk.
-- **Wind damage.** Missing or creased shingles after a windy night — we replace them before water gets under the next row.
+- **Leaks around chimneys.** Flashing is one of the most common leak points on older roofs. We replace it the right way, not with a tube of caulk.
+- **Wind damage.** Missing or creased shingles after a windy night — we replace them so water doesn't get under the next row.
 - **Pipe boots and vents.** Rubber boots around plumbing vents crack in the sun. It's a small part that causes a lot of ceiling stains.
 - **Skylight leaks.** Often it's the flashing, not the skylight. We'll tell you which.
 - **Valleys.** Where two roof slopes meet, water concentrates. Worn valleys are a common source of leaks.

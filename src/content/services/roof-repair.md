@@ -3,6 +3,8 @@ title: "Roof Repair in Conshohocken, Blue Bell & Paoli, PA | Uncle Joe's"
 description: "Roof leak and shingle repair in Conshohocken, Blue Bell, Malvern, Paoli and nearby towns. Honest diagnosis, fair prices, no upselling. Call your uncle."
 h1: "Roof Repair in Montgomery & Chester County, PA"
 ogImage: "/og/roof-repair.png"
+image: "repair-flashing"
+imageAlt: "Roofer replacing flashing around a chimney"
 order: 2
 icon: repair
 cardTitle: "Roof Repair"

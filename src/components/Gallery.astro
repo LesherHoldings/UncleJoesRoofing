@@ -1,0 +1,57 @@
+---
+/**
+ * "Our work" before & after grid. Photos come from src/config/site.ts → gallery
+ * (keys into src/assets/photos/). Slots without photos render as marked placeholders
+ * so nothing is ever passed off as a real job that isn't.
+ */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { gallery } from '../config/site';
+import { photo } from '../lib/photos';
+
+interface Props { heading?: string; text?: string; limit?: number }
+const { heading = 'Our work', text = 'Before and after, on real roofs around Montgomery and Chester County.', limit } = Astro.props;
+const items = (limit ? gallery.slice(0, limit) : gallery).map((g) => ({ ...g, beforeImg: photo(g.before), afterImg: photo(g.after) }));
+---
+<section class="section bg-paper" aria-labelledby="gallery-heading">
+  <div class="container-site">
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="kicker">Before &amp; after</p>
+        <h2 id="gallery-heading" class="heading-lg">{heading}</h2>
+        <p class="mt-3 max-w-2xl text-lg text-ink-soft">{text}</p>
+      </div>
+    </div>
+    <ul class="mt-8 grid gap-5 sm:grid-cols-2">
+      {items.map((g) => (
+        <li class="overflow-hidden rounded-xl border-2 border-line bg-white">
+          {g.beforeImg && g.afterImg ? (
+            <div class="grid grid-cols-2">
+              <figure class="relative">
+                <Image src={g.beforeImg} alt={`Before: ${g.caption} in ${g.town}, PA`} widths={[320, 640]} sizes="(min-width: 640px) 25vw, 50vw" class="aspect-[4/3] w-full object-cover" loading="lazy" />
+                <figcaption class="absolute top-2 left-2 rounded bg-navy px-2 py-0.5 text-xs font-bold tracking-wider text-white uppercase">Before</figcaption>
+              </figure>
+              <figure class="relative">
+                <Image src={g.afterImg} alt={`After: ${g.caption} in ${g.town}, PA`} widths={[320, 640]} sizes="(min-width: 640px) 25vw, 50vw" class="aspect-[4/3] w-full object-cover" loading="lazy" />
+                <figcaption class="absolute top-2 left-2 rounded bg-shutter px-2 py-0.5 text-xs font-bold tracking-wider text-navy uppercase">After</figcaption>
+              </figure>
+            </div>
+          ) : (
+            <div class="grid grid-cols-2 gap-px bg-line" aria-hidden="true">
+              {['Before', 'After'].map((label) => (
+                <div class="flex aspect-[4/3] flex-col items-center justify-center gap-2 bg-navy-mist text-navy-text">
+                  <Icon name="camera" class="h-8 w-8" />
+                  <span class="text-xs font-bold tracking-wider uppercase">{label}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          <p class="flex items-center justify-between gap-3 px-4 py-3 text-sm">
+            <span class="font-semibold text-navy">{g.caption}</span>
+            <span class="inline-flex items-center gap-1 text-muted"><Icon name="pin" class="h-4 w-4 text-shutter-dark" />{g.town}, PA</span>
+          </p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

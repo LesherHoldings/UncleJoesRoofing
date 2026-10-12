@@ -3,6 +3,8 @@ title: "Roof Replacement in Blue Bell, PA | Uncle Joe's Roofing"
 description: "Roof replacement and repair in Blue Bell and Whitpain Township, PA. Many original roofs on larger colonials are coming due. Owner-led, fair price, clean jobsite."
 h1: "Roof Replacement & Repair in Blue Bell, PA"
 ogImage: "/og/blue-bell.png"
+image: "town-blue-bell"
+imageAlt: "Two-story colonial homes on a quiet street in Blue Bell, PA"
 name: "Blue Bell"
 order: 2
 summary: "Our home base. Larger colonials and established neighborhoods with roofs coming due."

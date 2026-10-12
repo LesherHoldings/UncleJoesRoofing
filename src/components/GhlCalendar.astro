@@ -9,7 +9,7 @@ import { site } from '../config/site';
 const { id } = site.ghl.calendar;
 const src = `https://api.leadconnectorhq.com/widget/booking/${id}`;
 ---
-<div class="min-h-[640px]">
+<div class="min-h-[640px] rounded-lg bg-white">
   <iframe
     src={src}
     allow="payment"

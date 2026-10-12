@@ -13,10 +13,11 @@ const reviews = site.reviews;
     <ul class="mt-8 grid gap-5 md:grid-cols-3">
       {reviews.map((r) => (
         <li>
-          <figure class:list={['h-full rounded-xl border-2 bg-white p-6', r.verified ? 'border-line' : 'border-dashed border-ink/40']}>
-            <blockquote class="text-lg leading-relaxed text-ink">“{r.quote}”</blockquote>
+          <figure class:list={['relative h-full rounded-xl border-2 bg-white p-6 pt-8', r.verified ? 'border-line' : 'border-dashed border-navy/40']}>
+            <span aria-hidden="true" class="absolute -top-4 left-5 font-display text-5xl leading-none text-shutter">&ldquo;</span>
+            <blockquote class="text-lg leading-relaxed text-navy">{r.quote}</blockquote>
             <figcaption class="mt-4 text-sm text-muted">
-              <span class="font-semibold text-ink">{r.name}</span> · {r.town}{r.service && <> · {r.service}</>}
+              <span class="font-semibold text-navy">{r.name}</span> · {r.town}{r.service && <> · {r.service}</>}
             </figcaption>
           </figure>
         </li>

@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import Icon from './Icon.astro';
+import { photo } from '../lib/photos';
 
 interface Props { onlyHome?: boolean; exclude?: string }
 const { onlyHome = false, exclude } = Astro.props;
@@ -9,18 +11,26 @@ const services = (await getCollection('services'))
   .sort((a, b) => a.data.order - b.data.order);
 ---
 <ul class:list={['grid gap-5', services.length === 3 ? 'md:grid-cols-3' : 'sm:grid-cols-2 lg:grid-cols-4']}>
-  {services.map((s) => (
-    <li class="group relative flex flex-col rounded-xl border-2 border-line bg-white p-6 transition hover:border-ink hover:shadow-[6px_6px_0_0_#111]">
-      <span class="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-ink bg-shutter text-ink">
-        <Icon name={s.data.icon} class="h-6 w-6" />
-      </span>
-      <h3 class="mt-5 text-2xl">
-        <a href={`/${s.id}/`} class="no-underline after:absolute after:inset-0 after:content-['']">{s.data.cardTitle}</a>
-      </h3>
-      <p class="mt-2 flex-1 text-ink-soft">{s.data.cardSummary}</p>
-      <span class="mt-5 inline-flex items-center gap-1.5 font-semibold text-ink underline decoration-shutter-dark decoration-2 underline-offset-4" aria-hidden="true">
-        Learn more <Icon name="arrow" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </span>
-    </li>
-  ))}
+  {services.map((s) => {
+    const img = photo(s.data.image);
+    return (
+      <li class="card-lift group relative flex flex-col overflow-hidden rounded-xl border-2 border-line bg-white">
+        {img && (
+          <Image src={img} alt={s.data.imageAlt ?? ''} widths={[400, 800]} sizes="(min-width: 768px) 33vw, 100vw" class="aspect-[16/10] w-full object-cover" loading="lazy" />
+        )}
+        <div class="flex flex-1 flex-col p-6">
+          <span class="-mt-12 mb-3 flex h-12 w-12 items-center justify-center rounded-lg border-2 border-navy bg-shutter text-navy shadow-sign-sm">
+            <Icon name={s.data.icon} class="h-6 w-6" />
+          </span>
+          <h3 class="text-2xl">
+            <a href={`/${s.id}/`} class="no-underline after:absolute after:inset-0 after:content-['']">{s.data.cardTitle}</a>
+          </h3>
+          <p class="mt-2 flex-1 text-ink-soft">{s.data.cardSummary}</p>
+          <span class="mt-5 inline-flex items-center gap-1.5 font-semibold text-navy underline decoration-shutter-dark decoration-2 underline-offset-4" aria-hidden="true">
+            Learn more <Icon name="arrow" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </span>
+        </div>
+      </li>
+    );
+  })}
 </ul>

@@ -12,6 +12,10 @@ const seo = {
   h1: z.string(),
   /** Open Graph image in /public/og/, e.g. "/og/roof-replacement.png" */
   ogImage: z.string().default('/og/default.png'),
+  /** Photo key from src/assets/photos/ (file name without extension), used in the page hero. */
+  image: z.string().optional(),
+  /** Alt text for that photo. */
+  imageAlt: z.string().optional(),
 };
 
 const faq = z.object({ q: z.string(), a: z.string() });

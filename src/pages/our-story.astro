@@ -3,33 +3,51 @@ import { getEntry, render } from 'astro:content';
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import PageHero from '../components/PageHero.astro';
-import ShutterArt from '../components/ShutterArt.astro';
 import CtaBand from '../components/CtaBand.astro';
+import MeetOwner from '../components/MeetOwner.astro';
+import Gallery from '../components/Gallery.astro';
 import logo from '../assets/brand/logo-stacked.png';
 import { site } from '../config/site';
+import { photo } from '../lib/photos';
 
 const page = (await getEntry('pages', 'our-story'))!;
 const { Content } = await render(page);
 const d = page.data;
 const crumbs = [{ name: 'Our Story', path: '/our-story/' }];
+const house = photo(d.image);
+const shutters = photo('shutter-detail');
 ---
 <Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs}>
-  <PageHero h1={d.h1} intro={d.intro} kicker="The Uncle Joe house" breadcrumbs={crumbs} ctas={false} />
+  <PageHero h1={d.h1} intro={d.intro} kicker="Why Uncle Joe's" breadcrumbs={crumbs} ctas={false} />
   <section class="section">
-    <div class="container-site grid gap-12 lg:grid-cols-[1fr_24rem]">
+    <div class="container-site grid gap-12 lg:grid-cols-[1fr_22rem] lg:gap-16">
       <div class="max-w-2xl">
+        {house && (
+          <figure class="mb-10">
+            <Image src={house} alt={d.imageAlt ?? ''} widths={[640, 960, 1280]} sizes="(min-width: 1024px) 42rem, 100vw" class="aspect-[3/2] w-full rounded-2xl border-2 border-navy object-cover shadow-sign" loading="eager" />
+            <figcaption class="mt-3 text-sm text-muted">The kind of place Uncle Joe kept: small, plain, and known for its shutters.</figcaption>
+          </figure>
+        )}
         <div class="prose prose-xl prose-site max-w-none">
           <Content />
         </div>
-        <p class="mt-8 font-display text-2xl text-ink">— {site.ownerName}, Owner</p>
+        <p class="mt-8 font-display text-2xl text-navy">— {site.ownerName}, Owner</p>
       </div>
-      <div class="space-y-8">
-        <div class="overflow-hidden rounded-2xl border-2 border-ink shadow-[6px_6px_0_0_#111]">
-          <ShutterArt class="block h-auto w-full" />
-        </div>
-        <Image src={logo} alt={`${site.name} logo: an anchor with a roofline, and the words "Call your uncle."`} width={384} widths={[320, 640]} sizes="(min-width: 1024px) 384px, 90vw" class="mx-auto h-auto w-full max-w-xs" loading="lazy" />
-      </div>
+      <aside class="space-y-8 lg:sticky lg:top-28 lg:self-start">
+        {shutters && (
+          <figure>
+            <div class="relative">
+              <span aria-hidden="true" class="absolute -top-3 -right-3 h-full w-full rounded-2xl bg-shutter"></span>
+              <Image src={shutters} alt="A yellow wooden shutter with a white anchor cut into it" widths={[400, 800]} sizes="(min-width: 1024px) 352px, 90vw" class="relative aspect-[4/5] w-full rounded-2xl border-2 border-navy object-cover" loading="lazy" />
+            </div>
+            <figcaption class="mt-3 text-sm text-muted">The shutters: yellow, with a white anchor cut into each one.</figcaption>
+          </figure>
+        )}
+        <Image src={logo} alt={`${site.name} logo: an anchor with a roofline, and the words "Call your uncle."`} width={352} widths={[320, 640]} sizes="(min-width: 1024px) 352px, 90vw" class="mx-auto h-auto w-full max-w-xs" loading="lazy" />
+      </aside>
     </div>
   </section>
+  <MeetOwner />
+  <Gallery heading="The work" text="Before and after, on roofs around Montgomery and Chester County." limit={2} />
   <CtaBand location="our_story_cta" />
 </Layout>

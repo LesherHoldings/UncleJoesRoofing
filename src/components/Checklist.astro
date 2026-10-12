@@ -6,8 +6,8 @@ const { items, class: className = '' } = Astro.props;
 <ul class:list={['space-y-3', className]}>
   {items.map((item) => (
     <li class="flex gap-3">
-      <span class="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full border-2 border-ink bg-shutter text-ink"><Icon name="check" class="h-3.5 w-3.5" /></span>
-      <span class="text-ink-soft">{item}</span>
+      <span class="mt-0.5 flex h-6 w-6 flex-none items-center justify-center rounded-full border-2 border-navy bg-shutter text-navy"><Icon name="check" class="h-3.5 w-3.5" /></span>
+      <span>{item}</span>
     </li>
   ))}
 </ul>

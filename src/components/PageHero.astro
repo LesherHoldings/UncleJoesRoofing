@@ -1,33 +1,74 @@
 ---
+/**
+ * Inner-page hero. With `image` it becomes a full-bleed photo with a navy overlay;
+ * without, a pale navy-mist panel.
+ */
+import { Image } from 'astro:assets';
 import Breadcrumbs from './Breadcrumbs.astro';
 import CallButton from './CallButton.astro';
 import { bookHref } from '../config/site';
+import { photo } from '../lib/photos';
 
 interface Props {
   h1: string;
   intro?: string;
   kicker?: string;
   breadcrumbs: { name: string; path: string }[];
-  /** Show the call / book buttons */
+  /** Photo key from src/assets/photos/ */
+  image?: string;
+  imageAlt?: string;
+  /** Show the book / call buttons */
   ctas?: boolean;
   location?: string;
 }
-const { h1, intro, kicker, breadcrumbs, ctas = true, location = 'page_hero' } = Astro.props;
+const { h1, intro, kicker, breadcrumbs, image, imageAlt = '', ctas = true, location = 'page_hero' } = Astro.props;
+const img = photo(image);
 ---
-<section class="border-b border-line bg-paper">
-  <div class="container-site py-10 sm:py-14">
-    <Breadcrumbs items={breadcrumbs} />
-    <div class="mt-6 max-w-3xl">
-      {kicker && <p class="kicker">{kicker}</p>}
-      <h1 class="heading-lg sm:text-5xl">{h1}</h1>
-      {intro && <p class="mt-4 text-lg leading-relaxed text-ink-soft sm:text-xl">{intro}</p>}
-      {ctas && (
-        <div class="mt-7 flex flex-col gap-3 sm:flex-row">
-          <a href={bookHref} class="btn btn-primary">Book a Free Roof Inspection</a>
-          <CallButton location={location} variant="outline" />
-        </div>
-      )}
-      <slot />
+{img ? (
+  <section class="on-dark relative isolate overflow-hidden bg-navy" data-motion>
+    <Image
+      src={img}
+      alt={imageAlt}
+      widths={[640, 960, 1280, 1920]}
+      sizes="100vw"
+      class="absolute inset-0 -z-20 h-full w-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 -z-10 bg-gradient-to-r from-navy via-navy/85 to-navy/35" aria-hidden="true"></div>
+    <div class="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-navy/70 to-transparent lg:hidden" aria-hidden="true"></div>
+    <div class="container-site py-12 sm:py-16 lg:py-24">
+      <Breadcrumbs items={breadcrumbs} light />
+      <div class="mt-6 max-w-2xl">
+        {kicker && <p class="kicker">{kicker}</p>}
+        <h1 class="heading-lg text-white drop-shadow-sm sm:text-5xl">{h1}</h1>
+        {intro && <p class="mt-4 text-lg leading-relaxed sm:text-xl">{intro}</p>}
+        {ctas && (
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a href={bookHref} class="btn btn-yellow-dark">Book a Free Roof Inspection</a>
+            <CallButton location={location} variant="outline-light" />
+          </div>
+        )}
+        <slot />
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+) : (
+  <section class="border-b border-line bg-navy-mist">
+    <div class="container-site py-10 sm:py-14">
+      <Breadcrumbs items={breadcrumbs} />
+      <div class="mt-6 max-w-3xl">
+        {kicker && <p class="kicker">{kicker}</p>}
+        <h1 class="heading-lg sm:text-5xl">{h1}</h1>
+        {intro && <p class="mt-4 text-lg leading-relaxed text-ink-soft sm:text-xl">{intro}</p>}
+        {ctas && (
+          <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+            <a href={bookHref} class="btn btn-primary">Book a Free Roof Inspection</a>
+            <CallButton location={location} variant="outline" />
+          </div>
+        )}
+        <slot />
+      </div>
+    </div>
+  </section>
+)}

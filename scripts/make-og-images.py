@@ -13,7 +13,7 @@ SLAB = FONTS / "zilla-slab" / "files" / "zilla-slab-latin-700-normal.woff"
 SLAB_SEMI = FONTS / "zilla-slab" / "files" / "zilla-slab-latin-600-normal.woff"
 LOGO = ROOT / "src" / "assets" / "brand" / "logo-stacked.png"
 
-YELLOW, INK, WHITE, PAPER = (242, 194, 48), (17, 17, 17), (255, 255, 255), (248, 246, 241)
+YELLOW, INK, WHITE, PAPER = (242, 194, 48), (15, 42, 74), (255, 255, 255), (238, 243, 249)
 
 # file name -> (headline, sub line)
 PAGES = {
@@ -29,6 +29,8 @@ PAGES = {
     "blue-bell": ("Roofing in Blue Bell", "Blue Bell, PA"),
     "malvern": ("Roofing in Malvern", "Malvern, PA"),
     "paoli": ("Roofing in Paoli", "Paoli, PA"),
+    "pricing-and-warranties": ("Pricing & Warranties", "How roof quotes and warranties work"),
+    "what-to-expect": ("What to Expect", "Install day, start to finish"),
 }
 
 
@@ -70,7 +72,7 @@ def make(name, headline, sub):
         d.text((x, y), ln, font=font, fill=INK)
         y += line_h
     d.rectangle([x, y + 8, x + 120, y + 18], fill=YELLOW)
-    d.text((x, y + 36), sub, font=sub_font, fill=(61, 61, 61))
+    d.text((x, y + 36), sub, font=sub_font, fill=(47, 74, 107))
     # bottom band
     d.rectangle([0, 560, 1200, 630], fill=YELLOW)
     d.line([(0, 560), (1200, 560)], fill=INK, width=4)

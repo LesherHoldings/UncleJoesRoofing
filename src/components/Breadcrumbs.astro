@@ -1,16 +1,17 @@
 ---
-interface Props { items: { name: string; path: string }[] }
-const { items } = Astro.props;
+interface Props { items: { name: string; path: string }[]; light?: boolean }
+const { items, light = false } = Astro.props;
+const link = 'inline-block py-1 ' + (light ? 'underline decoration-white/40 underline-offset-2 hover:text-white' : 'underline decoration-line underline-offset-2 hover:text-navy');
 ---
-<nav aria-label="Breadcrumb" class="text-sm text-muted">
+<nav aria-label="Breadcrumb" class:list={['text-sm', light ? 'text-navy-mist' : 'text-muted']}>
   <ol class="flex flex-wrap items-center gap-1.5">
-    <li><a href="/" class="underline decoration-line underline-offset-2 hover:text-ink">Home</a></li>
+    <li><a href="/" class={link}>Home</a></li>
     {items.map((item, i) => (
       <li class="flex items-center gap-1.5">
         <span aria-hidden="true">/</span>
         {i === items.length - 1
-          ? <span aria-current="page" class="text-ink">{item.name}</span>
-          : <a href={item.path} class="underline decoration-line underline-offset-2 hover:text-ink">{item.name}</a>}
+          ? <span aria-current="page" class={light ? 'text-white' : 'text-navy'}>{item.name}</span>
+          : <a href={item.path} class={link}>{item.name}</a>}
       </li>
     ))}
   </ol>

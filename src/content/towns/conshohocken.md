@@ -3,6 +3,8 @@ title: "Roofing Contractor in Conshohocken, PA | Roof Replacement & Repair"
 description: "Roof replacement, repair and free inspections in Conshohocken and West Conshohocken, PA — from hillside twins and rowhomes to new townhomes by the river."
 h1: "Roofing Contractor in Conshohocken, PA"
 ogImage: "/og/conshohocken.png"
+image: "town-conshohocken"
+imageAlt: "Rowhomes and twins on a hillside street in Conshohocken, PA"
 name: "Conshohocken"
 order: 1
 summary: "Hillside twins, rowhomes and new townhomes along the Schuylkill."

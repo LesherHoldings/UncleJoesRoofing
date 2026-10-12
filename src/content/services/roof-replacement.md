@@ -3,6 +3,8 @@ title: "Roof Replacement in Conshohocken, Malvern & Paoli, PA | Uncle Joe's"
 description: "Asphalt shingle roof replacement in Conshohocken, Blue Bell, Malvern, Paoli and the Main Line. Owner-led, fair pricing, clean jobsite. Book a free inspection."
 h1: "Roof Replacement in Montgomery & Chester County, PA"
 ogImage: "/og/roof-replacement.png"
+image: "replacement-crew"
+imageAlt: "Roofing crew tearing off and replacing an asphalt shingle roof"
 order: 1
 icon: replace
 cardTitle: "Roof Replacement"

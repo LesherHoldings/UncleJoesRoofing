@@ -96,15 +96,44 @@ export const nearbyTowns = ['King of Prussia', 'Plymouth Meeting', 'Wayne', 'Ber
 /** Where every "Book" button goes. */
 export const bookHref = '/book/';
 
+/** Main menu. Keep it short — the rest lives in the footer and in-page links. */
 export const nav = [
   { label: 'Roof Replacement', href: '/roof-replacement/' },
   { label: 'Roof Repair', href: '/roof-repair/' },
-  { label: 'Solar-Ready Roofs', href: '/solar-ready-roofs/' },
-  { label: 'Financing', href: '/financing/' },
+  { label: 'Pricing & Warranties', href: '/pricing-and-warranties/' },
   { label: 'Service Areas', href: '/service-areas/' },
   { label: 'Our Story', href: '/our-story/' },
   { label: 'Contact', href: '/contact/' },
 ];
+
+/** Footer "Services" column, in order. */
+export const footerServices = [
+  { label: 'Book a Free Inspection', href: '/book/' },
+  { label: 'Roof Replacement', href: '/roof-replacement/' },
+  { label: 'Roof Repair', href: '/roof-repair/' },
+  { label: 'Free Roof Inspection', href: '/free-roof-inspection/' },
+  { label: 'Solar-Ready Roofs', href: '/solar-ready-roofs/' },
+  { label: 'What to Expect on Install Day', href: '/what-to-expect/' },
+  { label: 'Pricing & Warranties', href: '/pricing-and-warranties/' },
+  { label: 'Financing', href: '/financing/' },
+];
+
+/** Our Work gallery (home page + Our Story). Use ONLY real job photos you have the right to use.
+ *  before/after are photo keys from src/assets/photos/. Leave '' to show a "coming soon" slot. */
+export const gallery: { before: string; after: string; caption: string; town: string }[] = [
+  { before: '', after: '', caption: '[JOB PHOTO — PENDING] Roof replacement', town: 'Blue Bell' },
+  { before: '', after: '', caption: '[JOB PHOTO — PENDING] Roof replacement', town: 'Conshohocken' },
+  { before: '', after: '', caption: '[JOB PHOTO — PENDING] Roof repair', town: 'Malvern' },
+  { before: '', after: '', caption: '[JOB PHOTO — PENDING] Roof replacement', town: 'Paoli' },
+];
+
+/** "Meet the owner" section. Add a real photo key (src/assets/photos/) and a short, true bio. */
+export const owner = {
+  name: site.ownerName,
+  role: 'Owner, Uncle Joe\'s Roofing',
+  photo: '',
+  blurb: '[OWNER BIO — PENDING] Two or three plain sentences: how long you have been roofing, where you grew up, why you started Uncle Joe\'s.',
+};
 
 export const telHref = `tel:${site.phone.e164}`;
 export const fullAddress = `${site.address.street}, ${site.address.city}, ${site.address.region} ${site.address.postalCode}`;

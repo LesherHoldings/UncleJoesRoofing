@@ -1,0 +1,72 @@
+---
+import { getEntry, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import GhlForm from '../components/GhlForm.astro';
+import GuideCards from '../components/GuideCards.astro';
+import CallButton from '../components/CallButton.astro';
+import Icon from '../components/Icon.astro';
+import { faqSchema } from '../lib/schema';
+import { photo } from '../lib/photos';
+
+const page = (await getEntry('pages', 'what-to-expect'))!;
+const { Content } = await render(page);
+const d = page.data;
+const crumbs = [{ name: 'What to Expect', path: '/what-to-expect/' }];
+const tarp = photo('storm-tarp');
+const steps = [
+  { n: '1', title: 'Before we arrive', href: '#before-we-arrive' },
+  { n: '2', title: 'On the day', href: '#on-the-day' },
+  { n: '3', title: "When we're done", href: '#when-were-done' },
+  { n: '!', title: 'Leaking right now?', href: '#leaking-right-now' },
+];
+---
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={d.faqs.length ? [faqSchema(d.faqs)] : []}>
+  <PageHero h1={d.h1} intro={d.intro} kicker="Install day" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} location="expect_hero" />
+
+  <nav aria-label="On this page" class="border-b border-line bg-white">
+    <ol class="container-site flex flex-wrap gap-x-6 gap-y-1 py-3 text-sm font-semibold">
+      {steps.map((s) => (
+        <li>
+          <a href={s.href} class="inline-flex items-center gap-2 py-1.5 text-navy no-underline hover:underline">
+            <span class:list={['flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold', s.n === '!' ? 'bg-navy text-shutter' : 'bg-shutter text-navy']}>{s.n}</span>{s.title}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <section class="section">
+    <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,24rem)]">
+      <div>
+        <div class="prose prose-lg prose-site max-w-none [&_h2]:scroll-mt-28">
+          <Content />
+        </div>
+      </div>
+      <aside class="space-y-6 lg:sticky lg:top-28 lg:self-start">
+        <div class="on-dark overflow-hidden rounded-xl border-2 border-navy">
+          {tarp && <Image src={tarp} alt="A blue tarp secured over a damaged section of roof after a storm" widths={[400, 800]} sizes="(min-width: 1024px) 384px, 100vw" class="aspect-[3/2] w-full object-cover" loading="lazy" />}
+          <div class="p-5">
+            <p class="kicker">Emergency</p>
+            <h2 class="flex items-center gap-2 text-2xl"><Icon name="alert" class="h-6 w-6 text-shutter" /> Leaking right now?</h2>
+            <p class="mt-2 text-sm">Bucket under it, stay off the roof, and call. We do emergency repairs and temporary tarps.</p>
+            <CallButton location="expect_emergency" variant="yellow-dark" class="mt-4 w-full" label="Call your uncle now" />
+          </div>
+        </div>
+        <GhlForm heading="Request a free inspection" />
+      </aside>
+    </div>
+  </section>
+
+  <Faq faqs={d.faqs} heading="Install day questions" />
+  <section class="section border-t border-line bg-paper">
+    <div class="container-site">
+      <h2 class="heading-lg">Next, read</h2>
+      <div class="mt-8"><GuideCards exclude="expect" /></div>
+    </div>
+  </section>
+  <CtaBand location="expect_cta" />
+</Layout>

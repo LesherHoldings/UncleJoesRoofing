@@ -3,6 +3,8 @@ title: "Solar-Ready Roof Replacement in Montgomery & Chester County, PA"
 description: "Thinking about solar someday? Get a new roof in Conshohocken, Blue Bell, Malvern or Paoli, PA that's prepared for future solar panels — so you only do it once."
 h1: "Solar-Ready Roof Replacement in Montgomery & Chester County, PA"
 ogImage: "/og/solar-ready-roofs.png"
+image: "solar-ready"
+imageAlt: "New shingle roof prepared for future solar panels"
 order: 4
 icon: solar
 cardTitle: "Solar-Ready Roofs"

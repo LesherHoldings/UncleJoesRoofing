@@ -1,0 +1,17 @@
+---
+/** "Leaking right now?" strip — links to the emergency section of /what-to-expect/. */
+import Icon from './Icon.astro';
+import CallButton from './CallButton.astro';
+---
+<section class="border-y border-line bg-white" aria-labelledby="leak-heading">
+  <div class="container-site flex flex-col gap-5 border-l-8 border-shutter py-6 pl-5 sm:pl-6 lg:flex-row lg:items-center lg:justify-between">
+    <div class="flex gap-4">
+      <span class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-navy text-shutter"><Icon name="alert" class="h-6 w-6" /></span>
+      <div>
+        <h2 id="leak-heading" class="text-2xl">Leaking right now?</h2>
+        <p class="mt-1 text-ink-soft">Get a bucket under it, stay off the roof, and call. We do emergency repairs and temporary tarps. <a href="/what-to-expect/#leaking-right-now" class="link">What to do in the meantime</a>.</p>
+      </div>
+    </div>
+    <CallButton location="emergency_strip" variant="dark" class="lg:flex-none" label="Call your uncle now" />
+  </div>
+</section>

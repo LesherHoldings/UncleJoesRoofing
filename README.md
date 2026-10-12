@@ -80,7 +80,9 @@ Every placeholder is in **`src/config/site.ts`**, and nowhere else. `npm run che
 | 10 | `[WARRANTY TERMS — PENDING]` | `warranty` | Roof Replacement page | Manufacturer and workmanship warranty terms |
 | 11 | `[HOURS — PENDING]` | `hours` | Footer, contact page, structured data | The 8–5 / 9–1 times are stand-ins. **Match Google Business Profile** |
 | 12 | `[EMAIL — PENDING]` | `email` | Contact page, structured data | |
-| 13 | `[OWNER NAME — PENDING]` | `ownerName` | Signs the Our Story page | |
+| 13 | `[OWNER NAME — PENDING]` | `ownerName` | Signs the Our Story page; "Meet the owner" on the home and story pages | |
+| 14 | `[OWNER BIO — PENDING]` | `owner.blurb` / `owner.photo` | "Meet the owner" section | Two or three true sentences. `owner.photo` is a file name (without extension) from `src/assets/photos/`; empty shows a "photo coming soon" tile |
+| 15 | `[JOB PHOTO — PENDING]` | `gallery` | "Our work" before & after on the home and story pages | Only real jobs you have the right to show. Drop photos in `src/assets/photos/`, set `before`/`after` to the file names, fix the caption and town |
 | — | Map coordinates | `geo` | Structured data | Currently empty (left out of the structured data). Add your Google Business Profile pin |
 | — | Legal name | `legalName` | Structured data, footer | Confirm the exact registered name (e.g. "Fortress Siding LLC") |
 | — | Review / social links | `reviewsUrl`, `social` | Reviews button, structured data | Optional. Empty values are hidden |
@@ -96,6 +98,8 @@ The site never invents reviews, review counts, years in business, job counts, ce
 | `/` | Home |
 | `/book/` | GHL booking calendar. Every "Book" button links here, and so does **discovery.unclejoesroofing.com** |
 | `/roof-replacement/`, `/roof-repair/`, `/free-roof-inspection/`, `/solar-ready-roofs/` | Service pages, each with the GHL form |
+| `/pricing-and-warranties/` | Plain-English guide: what's in a quote, shingle types, manufacturer vs. workmanship warranty (prints `warranty` and `financing.partner` from the config) |
+| `/what-to-expect/` | Install day start to finish, plus the "Leaking right now?" emergency section (`#leaking-right-now`) |
 | `/financing/`, `/our-story/`, `/contact/` | |
 | `/service-areas/` and `/service-areas/{conshohocken, blue-bell, malvern, paoli}/` | Town pages, each with the GHL form |
 | `/privacy/` | Privacy policy, including SMS opt-in wording |
@@ -164,6 +168,17 @@ python3 scripts/prepare-logos.py brand-originals
 
 Both need Python 3 with Pillow (`pip install pillow`). The OG script also needs `npm install` first, for the font files. The original logo files are in `brand-originals/`.
 
+### Site photos
+
+Photos live in `src/assets/photos/` and are referenced by file name (without extension) — in Markdown front matter as `image:` / `imageAlt:`, and in `site.ts` for the gallery and owner photo. They're resized and converted to WebP at build time, so drop in full-size JPGs. The current photos were generated in Canva as stand-ins; replace them with real job photos as you get them (keep the same file names and nothing else needs to change).
+
+To pull files from a URL into the repo without a local checkout, run the **Import assets** workflow in GitHub → Actions with a JSON manifest like `[{"url":"https://…/photo.jpg","path":"src/assets/photos/town-ambler.jpg"}]`.
+
+### Design notes
+
+- Colors, type and buttons are tokens in `src/styles/global.css` (`@theme`). Yellow is an accent (buttons, rules, highlights), navy is the dark color, white is the page.
+- The moving backgrounds (drifting shingle pattern, sunlight glow, shore waves, fade-in on scroll) are CSS animations controlled by `src/scripts/motion.ts`. They only run while on screen, animate only transform/opacity, and switch off entirely for visitors with "reduce motion" turned on.
+
 ---
 
 ## Deploy to Vercel
@@ -210,7 +225,9 @@ uncle-joes-roofing/
 │  ├─ lib/schema.ts           ← JSON-LD builders
 │  ├─ pages/                  ← routes (one file per URL pattern)
 │  ├─ assets/brand/           ← web-ready logos (optimized at build)
-│  └─ styles/global.css       ← colors, fonts, buttons
+│  ├─ assets/photos/          ← site photos, referenced by file name
+│  ├─ scripts/motion.ts       ← turns the background animations on/off as you scroll
+│  └─ styles/global.css       ← colors, fonts, buttons, animations
 ├─ public/                    ← favicons, robots.txt, og/ images
 ├─ scripts/                   ← placeholder checker, image generators
 └─ brand-originals/           ← original logo files

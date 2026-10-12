@@ -16,14 +16,14 @@ const d = page.data;
 <Layout title={d.title} description={d.description} noindex>
   <section class="section">
     <div class="container-site max-w-2xl text-center">
-      <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-ink bg-shutter text-ink">
+      <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-navy bg-shutter text-navy shadow-sign-sm">
         <Icon name="check" class="h-8 w-8" />
       </div>
       <h1 class="heading-lg mt-6">{d.h1}</h1>
       <p class="mt-4 text-lg text-ink-soft">{d.intro}</p>
       <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
         <CallButton location={`${id}_page`} variant="dark" />
-        <a href="/our-story/" class="btn btn-outline">Read our story</a>
+        <a href="/what-to-expect/" class="btn btn-outline">What happens next</a>
       </div>
     </div>
   </section>

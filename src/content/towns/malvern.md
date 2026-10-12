@@ -3,6 +3,8 @@ title: "Roofing Contractor in Malvern, PA | Roof Replacement & Repair"
 description: "Roof replacement, repair and free inspections in Malvern, PA and the Great Valley — historic homes in the borough and newer neighborhoods around it."
 h1: "Roofing Contractor in Malvern, PA"
 ogImage: "/og/malvern.png"
+image: "town-malvern"
+imageAlt: "Homes along a tree-lined street in Malvern, PA"
 name: "Malvern"
 order: 3
 summary: "Historic homes in the borough and newer neighborhoods in the Great Valley."

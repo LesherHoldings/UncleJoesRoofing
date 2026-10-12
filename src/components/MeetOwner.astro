@@ -1,0 +1,44 @@
+---
+/** "Meet the owner" — name, photo and bio come from src/config/site.ts → owner. */
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import Checklist from './Checklist.astro';
+import { owner, site } from '../config/site';
+import { photo } from '../lib/photos';
+
+const img = photo(owner.photo);
+---
+<section class="section" aria-labelledby="owner-heading">
+  <div class="container-site grid items-center gap-10 lg:grid-cols-[minmax(0,22rem)_1fr] lg:gap-16">
+    <figure class="mx-auto w-full max-w-xs lg:max-w-none">
+      <div class="relative">
+        <span aria-hidden="true" class="absolute -top-3 -left-3 h-full w-full rounded-2xl bg-shutter"></span>
+        {img ? (
+          <Image src={img} alt={`${owner.name}, ${owner.role}`} widths={[400, 800]} sizes="(min-width: 1024px) 352px, 320px" class="relative aspect-[4/5] w-full rounded-2xl border-2 border-navy object-cover" loading="lazy" />
+        ) : (
+          <div class="relative flex aspect-[4/5] w-full flex-col items-center justify-center gap-3 rounded-2xl border-2 border-navy bg-navy text-white" aria-hidden="true">
+            <Icon name="anchor" class="h-14 w-14 text-shutter" />
+            <span class="text-xs font-bold tracking-[0.2em] uppercase">Photo coming soon</span>
+          </div>
+        )}
+      </div>
+      <figcaption class="mt-5">
+        <span class="block font-display text-2xl font-bold text-navy">{owner.name}</span>
+        <span class="block text-sm font-semibold tracking-wide text-navy-text uppercase">{owner.role}</span>
+      </figcaption>
+    </figure>
+    <div>
+      <p class="kicker">Meet the owner</p>
+      <h2 id="owner-heading" class="heading-lg">The uncle you're calling</h2>
+      <p class="mt-4 text-lg leading-relaxed text-ink-soft">{owner.blurb}</p>
+      <p class="mt-4 text-lg leading-relaxed text-ink-soft">
+        "Owner-led" isn't a slogan here. The same person who inspects your roof writes the quote, is on site when the crew shows up, and walks the finished job with you. No hand-off to a salesperson. No call center.
+      </p>
+      <Checklist class="mt-6" items={[
+        'One person accountable from first visit to final walkthrough',
+        `PA registered home improvement contractor ${site.hicNumber}`,
+        `Based in ${site.address.city}, working in the towns around it`,
+      ]} />
+    </div>
+  </div>
+</section>

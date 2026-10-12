@@ -54,19 +54,25 @@ if (breadcrumbs?.length) {
     <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" type="image/png" href="/favicon-32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="theme-color" content="#111111" />
+    <meta name="theme-color" content="#0f2a4a" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Lets CSS know JS is available (the scroll-reveal only hides content when it can reveal it) -->
+    <script is:inline>document.documentElement.classList.add('js');</script>
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <Analytics />
   </head>
   <body class="flex min-h-screen flex-col">
-    <a href="#main" class="sr-only z-50 rounded bg-white px-4 py-2 text-ink focus:not-sr-only focus:fixed focus:top-3 focus:left-3">Skip to content</a>
+    <a href="#main" class="sr-only z-50 rounded bg-white px-4 py-2 text-navy focus:not-sr-only focus:fixed focus:top-3 focus:left-3">Skip to content</a>
     <Header />
     <main id="main" class="flex-1">
       <slot />
     </main>
     <Footer />
     <MobileCallBar />
+    <script>
+      import '../scripts/motion.ts';
+    </script>
   </body>
 </html>

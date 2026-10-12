@@ -1,0 +1,54 @@
+# Downloads files from URLs and commits them to the repo.
+# Used to bring Canva-generated images into the site (the dev sandbox can't reach Canva's CDN).
+# Run it from the Actions tab or via the API with a JSON manifest:
+#   [{"url": "https://...", "path": "src/assets/photos/hero.jpg"}, ...]
+name: Import assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      manifest:
+        description: 'JSON array of {"url": "...", "path": "relative/path/in/repo"}'
+        required: true
+        type: string
+      message:
+        description: Commit message
+        required: false
+        default: Import generated images
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download files
+        env:
+          MANIFEST: ${{ inputs.manifest }}
+        run: |
+          set -euo pipefail
+          echo "$MANIFEST" | jq -c '.[]' | while read -r item; do
+            url=$(echo "$item" | jq -r .url)
+            path=$(echo "$item" | jq -r .path)
+            case "$path" in
+              /*|*..*) echo "refusing path: $path"; exit 1;;
+            esac
+            mkdir -p "$(dirname "$path")"
+            curl -fsSL --retry 3 --retry-delay 2 -o "$path" "$url"
+            echo "$path: $(file -b "$path" | cut -c1-60) ($(stat -c%s "$path") bytes)"
+          done
+
+      - name: Commit and push
+        env:
+          MESSAGE: ${{ inputs.message }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "Nothing to commit"; exit 0; fi
+          git commit -m "$MESSAGE"
+          git push

@@ -19,9 +19,11 @@ interface Props {
   imageAlt?: string;
   /** Show the book / call buttons */
   ctas?: boolean;
+  /** Adds a small "request a call back" link that jumps to #request (the lead form on the page) */
+  requestLink?: boolean;
   location?: string;
 }
-const { h1, intro, kicker, breadcrumbs, image, imageAlt = '', ctas = true, location = 'page_hero' } = Astro.props;
+const { h1, intro, kicker, breadcrumbs, image, imageAlt = '', ctas = true, requestLink = false, location = 'page_hero' } = Astro.props;
 const img = photo(image);
 ---
 {img ? (
@@ -49,6 +51,7 @@ const img = photo(image);
             <CallButton location={location} variant="outline-light" />
           </div>
         )}
+        {requestLink && <p class="mt-4 text-base"><a href="#request" class="link">Or request a call back &darr;</a></p>}
         <slot />
       </div>
     </div>
@@ -67,6 +70,7 @@ const img = photo(image);
             <CallButton location={location} variant="outline" />
           </div>
         )}
+        {requestLink && <p class="mt-4 text-base"><a href="#request" class="link">Or request a call back &darr;</a></p>}
         <slot />
       </div>
     </div>

@@ -1,15 +1,18 @@
 ---
 import Icon from './Icon.astro';
 import { telHref, bookHref } from '../config/site';
+const onBookPage = Astro.url.pathname === bookHref;
 ---
 <!-- Sticky bottom bar on phones: the two things most visitors want. -->
 <div class="fixed inset-x-0 bottom-0 z-50 border-t-2 border-shutter bg-navy p-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] md:hidden">
-  <div class="grid grid-cols-2 gap-2">
+  <div class:list={["grid gap-2", onBookPage ? "grid-cols-1" : "grid-cols-2"]}>
     <a href={telHref} data-call-location="mobile_call_bar" class="btn btn-outline-light min-h-12 px-2">
       <Icon name="phone" class="h-5 w-5" /> Call Now
     </a>
-    <a href={bookHref} class="btn btn-yellow-dark min-h-12 px-2">
-      <Icon name="calendar" class="h-5 w-5" /> Book Inspection
-    </a>
+    {!onBookPage && (
+      <a href={bookHref} class="btn btn-yellow-dark min-h-12 px-2">
+        <Icon name="calendar" class="h-5 w-5" /> Book Inspection
+      </a>
+    )}
   </div>
 </div>

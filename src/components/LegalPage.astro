@@ -26,7 +26,7 @@ const crumbs = [{ name: label, path }];
         <span class="block">{site.address.street}</span>
         <span class="block">{site.address.city}, {site.address.region} {site.address.postalCode}</span>
         <span class="mt-3 block">Phone: <a href={telHref} data-call-location={`${id}_page`} class="link">{site.phone.display}</a></span>
-        <span class="block">Email: <a href={`mailto:${site.email}`} class="link">{site.email}</a></span>
+        {!site.email.includes('PENDING') && <span class="block">Email: <a href={`mailto:${site.email}`} class="link">{site.email}</a></span>}
         <span class="mt-3 block text-sm text-muted">PA Home Improvement Contractor Registration: {site.hicNumber}</span>
       </address>
     </div>

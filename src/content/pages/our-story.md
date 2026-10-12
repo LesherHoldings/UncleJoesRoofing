@@ -20,4 +20,6 @@ Everybody needs an uncle who knows roofs. The one you call when you want a strai
 
 That's us. We're a roofing-only company based in Blue Bell, working in Conshohocken, Malvern, Paoli and the towns around them. We're owner-led, we work with local crews, and we price our work fairly. No storm-chasing. No pressure. Just good roofs, done right, for our neighbors.
 
+One note on the fine print: on paperwork you'll see Fortress Siding. That's the company Uncle Joe's Roofing operates under — same owner, same office. We gave the roofing work its own name because that's all it does.
+
 So if you've got a roof question, call your uncle.

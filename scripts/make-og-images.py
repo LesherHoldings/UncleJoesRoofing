@@ -64,7 +64,11 @@ def make(name, headline, sub):
         if len(lines) <= 3 or size <= 56:
             break
         size -= 6
-    sub_font = ImageFont.truetype(str(SLAB_SEMI), 36)
+    sub_size = 36
+    sub_font = ImageFont.truetype(str(SLAB_SEMI), sub_size)
+    while d.textlength(sub, font=sub_font) > maxw and sub_size > 22:
+        sub_size -= 2
+        sub_font = ImageFont.truetype(str(SLAB_SEMI), sub_size)
     line_h = int(size * 1.08)
     block = len(lines) * line_h + 30 + 44
     y = (560 - block) // 2

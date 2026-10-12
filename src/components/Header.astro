@@ -26,14 +26,14 @@ const towns = serviceAreas.map((t) => t.split('-').map((w) => w[0].toUpperCase()
       <Image src={logo} alt={`${site.name} — ${site.tagline}`} height={52} widths={[160, 320]} sizes="(min-width: 1280px) 181px, 154px" class="h-11 w-auto xl:h-[52px]" loading="eager" fetchpriority="high" />
     </a>
 
-    <nav aria-label="Main" class="hidden xl:block">
+    <nav aria-label="Main" class="hidden lg:block">
       <ul class="flex items-center gap-0.5">
         {nav.map((item) => (
           <li>
             <a
               href={item.href}
               class:list={[
-                'rounded px-2.5 py-2 text-[0.95rem] font-semibold whitespace-nowrap text-navy no-underline hover:bg-navy-mist',
+                'rounded px-2 py-2 text-[0.9rem] font-semibold whitespace-nowrap text-navy no-underline hover:bg-navy-mist xl:px-2.5 xl:text-[0.95rem]',
                 isActive(item.href) && 'underline decoration-shutter-dark decoration-[3px] underline-offset-8',
               ]}
               aria-current={isActive(item.href) ? 'page' : undefined}
@@ -44,21 +44,22 @@ const towns = serviceAreas.map((t) => t.split('-').map((w) => w[0].toUpperCase()
     </nav>
 
     <div class="flex items-center gap-2">
-      <a href={bookHref} class="btn btn-primary hidden min-h-11 px-4 py-2 text-sm whitespace-nowrap md:inline-flex">Book a Free Inspection</a>
+      <a href={bookHref} class="btn btn-primary hidden min-h-11 px-3 py-2 text-sm whitespace-nowrap md:inline-flex xl:px-4"><span class="xl:hidden">Book Inspection</span><span class="hidden xl:inline">Book a Free Inspection</span></a>
       <button
         type="button"
-        class="inline-flex h-11 w-11 items-center justify-center rounded-md border-2 border-navy text-navy xl:hidden"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-md border-2 border-navy text-navy lg:hidden"
         aria-expanded="false"
         aria-controls="mobile-menu"
         data-menu-toggle
       >
         <span class="sr-only">Menu</span>
-        <Icon name="menu" class="h-6 w-6" />
+        <Icon name="menu" class="h-6 w-6" data-icon-open />
+        <Icon name="close" class="hidden h-6 w-6" data-icon-close />
       </button>
     </div>
   </div>
 
-  <nav id="mobile-menu" aria-label="Mobile" class="hidden border-t border-line bg-white xl:hidden" data-menu>
+  <nav id="mobile-menu" aria-label="Mobile" class="hidden max-h-[calc(100dvh-7rem)] overflow-y-auto border-t border-line bg-white lg:hidden" data-menu>
     <ul class="container-site py-2">
       {nav.map((item) => (
         <li>
@@ -80,6 +81,8 @@ const towns = serviceAreas.map((t) => t.split('-').map((w) => w[0].toUpperCase()
     const setOpen = (open: boolean) => {
       toggle.setAttribute('aria-expanded', String(open));
       menu.classList.toggle('hidden', !open);
+      toggle.querySelector('[data-icon-open]')?.classList.toggle('hidden', open);
+      toggle.querySelector('[data-icon-close]')?.classList.toggle('hidden', !open);
     };
     toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
     document.addEventListener('keydown', (e) => {

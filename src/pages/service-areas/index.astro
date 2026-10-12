@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import PageHero from '../../components/PageHero.astro';
 import TownGrid from '../../components/TownGrid.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import CallButton from '../../components/CallButton.astro';
 import { nearbyTowns } from '../../config/site';
 
 const page = (await getEntry('pages', 'service-areas'))!;
@@ -27,6 +28,7 @@ const crumbs = [{ name: 'Service Areas', path: '/service-areas/' }];
           <p class="mt-2 text-ink-soft">
             If you're in Montgomery or Chester County and don't see your town, call and ask. We'll tell you honestly whether we can do a good job for you.
           </p>
+          <CallButton location="service_areas_not_listed" variant="dark" class="mt-4" />
         </div>
       </div>
     </div>

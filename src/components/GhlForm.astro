@@ -23,6 +23,7 @@ const src = `https://api.leadconnectorhq.com/widget/form/${id}`;
   <p class="kicker">Free inspection</p>
   <h2 class="text-2xl sm:text-3xl">{heading}</h2>
   {text && <p class="mt-1 text-sm text-muted">{text}</p>}
+  <p class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm font-semibold text-navy"><span>PA registered contractor {site.hicNumber}</span><span>No pressure, no "today only" pricing</span></p>
 
   <div class="relative mt-4" style={`min-height:${height}px`}>
     <p class="absolute inset-x-0 top-8 text-center text-sm text-muted" aria-hidden="true">Loading form…</p>
@@ -44,10 +45,10 @@ const src = `https://api.leadconnectorhq.com/widget/form/${id}`;
       data-form-id={id}
       data-cookie-consent="true"
       data-cookie-consent-provider="auto"
-      title={name}
+      title="Request a free roof inspection"
     ></iframe>
     <noscript>
-      <iframe src={src} title={name} style={`width:100%;height:${height}px;border:none`}></iframe>
+      <iframe src={src} title="Request a free roof inspection" style={`width:100%;height:${height}px;border:none`}></iframe>
     </noscript>
   </div>
 

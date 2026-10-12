@@ -30,7 +30,7 @@ const isRepair = entry.id === 'roof-repair';
 const schema = [serviceSchema(d.cardTitle, d.description, path), ...(d.faqs.length ? [faqSchema(d.faqs)] : [])];
 ---
 <Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={[{ name: d.cardTitle, path }]} schema={schema}>
-  <PageHero h1={d.h1} intro={d.intro} kicker={d.cardTitle} breadcrumbs={[{ name: d.cardTitle, path }]} image={d.image} imageAlt={d.imageAlt} ctas={!isInspection} location={`${entry.id}_hero`} />
+  <PageHero h1={d.h1} intro={d.intro} kicker={d.cardTitle} breadcrumbs={[{ name: d.cardTitle, path }]} image={d.image} imageAlt={d.imageAlt} ctas={!isInspection} requestLink={!isInspection} location={`${entry.id}_hero`} />
 
   <section class="section">
     <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,26rem)]">

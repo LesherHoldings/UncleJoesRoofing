@@ -16,7 +16,7 @@ const d = page.data;
 const crumbs = [{ name: 'Pricing & Warranties', path: '/pricing-and-warranties/' }];
 ---
 <Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={d.faqs.length ? [faqSchema(d.faqs)] : []}>
-  <PageHero h1={d.h1} intro={d.intro} kicker="Plain talk" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} location="pricing_hero" />
+  <PageHero h1={d.h1} intro={d.intro} kicker="Plain talk" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location="pricing_hero" />
   <section class="section">
     <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,24rem)]">
       <div>

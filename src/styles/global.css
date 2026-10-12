@@ -194,5 +194,16 @@
   }
 
   .card-lift { @apply transition-[transform,box-shadow,border-color] duration-200; }
+
+  /* Print: the guides are meant to be printed and compared line by line */
+  @media print {
+    header, footer, nav, .waves, [data-motion] img, iframe, .btn, aside#request, .bg-shingles::before, .bg-glow::after { display: none !important; }
+    .on-dark, .on-dark * { background: #fff !important; color: #111 !important; }
+    html.js .reveal { opacity: 1 !important; transform: none !important; }
+    details { break-inside: avoid; }
+    details > summary span[aria-hidden] { display: none; }
+    details:not([open]) > *:not(summary) { display: block; }
+    a[href^='http']::after { content: ' (' attr(href) ')'; font-size: 0.85em; }
+  }
   .card-lift:hover, .card-lift:focus-within { transform: translateY(-3px); box-shadow: var(--shadow-sign); border-color: var(--color-navy); }
 }

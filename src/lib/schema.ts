@@ -9,6 +9,9 @@ const towns: { name: string; county: string }[] = [
 ];
 const townNames = [...towns.map((t) => t.name), ...nearbyTowns];
 
+/** True for config values that still carry a [… — PENDING] placeholder; those are kept out of structured data. */
+const pending = (v: string) => /PENDING|PLACEHOLDER/.test(v);
+
 /** RoofingContractor JSON-LD, built entirely from src/config/site.ts. */
 export function businessSchema() {
   return {
@@ -22,10 +25,10 @@ export function businessSchema() {
     logo: `${site.url}/icon-512.png`,
     image: `${site.url}/og/default.png`,
     telephone: site.phone.e164,
-    email: site.email,
+    ...(pending(site.email) ? {} : { email: site.email }),
     address: {
       '@type': 'PostalAddress',
-      streetAddress: site.address.street,
+      ...(pending(site.address.street) ? {} : { streetAddress: site.address.street }),
       addressLocality: site.address.city,
       addressRegion: site.address.region,
       postalCode: site.address.postalCode,
@@ -42,12 +45,13 @@ export function businessSchema() {
       { '@type': 'AdministrativeArea', name: 'Montgomery County, PA' },
       { '@type': 'AdministrativeArea', name: 'Chester County, PA' },
     ],
-    openingHoursSpecification: site.hours.map((h) => ({
+    // Hours are published only once the stand-in labels are replaced (see README → Placeholders).
+    ...(site.hours.some((h) => pending(h.label)) ? {} : { openingHoursSpecification: site.hours.map((h) => ({
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: h.schemaDays,
       opens: h.opens,
       closes: h.closes,
-    })),
+    })) }),
     priceRange: '$$',
     knowsAbout: ['Roof replacement', 'Roof repair', 'Roof inspection', 'Asphalt shingle roofing', 'Solar-ready roofing'],
     sameAs: Object.values(site.social).filter(Boolean),

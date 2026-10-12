@@ -25,7 +25,7 @@ const steps = [
 ];
 ---
 <Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={d.faqs.length ? [faqSchema(d.faqs)] : []}>
-  <PageHero h1={d.h1} intro={d.intro} kicker="Install day" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} location="expect_hero" />
+  <PageHero h1={d.h1} intro={d.intro} kicker="Install day" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location="expect_hero" />
 
   <nav aria-label="On this page" class="border-b border-line bg-white">
     <ol class="container-site flex flex-wrap gap-x-6 gap-y-1 py-3 text-sm font-semibold">
@@ -46,7 +46,7 @@ const steps = [
           <Content />
         </div>
       </div>
-      <aside class="space-y-6 lg:sticky lg:top-28 lg:self-start">
+      <aside id="request" class="scroll-mt-24 space-y-6 lg:sticky lg:top-28 lg:self-start">
         <div class="on-dark overflow-hidden rounded-xl border-2 border-navy">
           {tarp && <Image src={tarp} alt="A blue tarp secured over a damaged section of roof after a storm" widths={[400, 800]} sizes="(min-width: 1024px) 384px, 100vw" class="aspect-[3/2] w-full object-cover" loading="lazy" />}
           <div class="p-5">

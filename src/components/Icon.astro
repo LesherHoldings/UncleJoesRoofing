@@ -4,8 +4,9 @@ interface Props {
   name: 'replace' | 'repair' | 'inspect' | 'solar' | 'phone' | 'check' | 'pin' | 'clock' | 'mail' | 'menu' | 'close' | 'arrow' | 'calendar' | 'shield' | 'camera' | 'anchor' | 'dollar' | 'alert';
   class?: string;
   label?: string;
+  [key: `data-${string}`]: string | boolean | undefined;
 }
-const { name, class: className = 'h-6 w-6', label } = Astro.props;
+const { name, class: className = 'h-6 w-6', label, ...rest } = Astro.props;
 const paths: Record<Props['name'], string> = {
   replace: 'M3 11.5 12 4l9 7.5M5.5 10v9.5h13V10M9.5 19.5v-5h5v5',
   repair: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z',
@@ -38,4 +39,5 @@ const paths: Record<Props['name'], string> = {
   aria-hidden={label ? undefined : 'true'}
   role={label ? 'img' : undefined}
   aria-label={label}
+  {...rest}
 ><path d={paths[name]} /></svg>

@@ -17,8 +17,8 @@ export const site = {
   url: 'https://unclejoesroofing.com',
 
   // ---------------------------------------------------------------- PLACEHOLDERS
-  /** Signs the Our Story page. */
-  ownerName: '[OWNER NAME — PENDING]',
+  /** Signs the Our Story page and the "Meet the owner" section. */
+  ownerName: 'Joe Lesher',
   phone: {
     /** As shown on the site. Must match Google Business Profile exactly. */
     display: '610-651-3778',
@@ -127,12 +127,20 @@ export const gallery: { before: string; after: string; caption: string; town: st
   { before: '', after: '', caption: '[JOB PHOTO — PENDING] Roof replacement', town: 'Paoli' },
 ];
 
-/** "Meet the owner" section. Add a real photo key (src/assets/photos/) and a short, true bio. */
+/** "Meet the owner" section (home page and Our Story). Keep the bio in the owner's own words and only true facts. */
 export const owner = {
   name: site.ownerName,
   role: 'Owner, Uncle Joe\'s Roofing',
-  photo: '',
-  blurb: '[OWNER BIO — PENDING] Two or three plain sentences: how long you have been roofing, where you grew up, why you started Uncle Joe\'s.',
+  /** Photo key from src/assets/photos/ */
+  photo: 'owner-joe',
+  photoAlt: 'Joe Lesher, owner of Uncle Joe\'s Roofing, standing in front of a brick two-story home',
+  /** Short paragraphs, first person. */
+  blurb: [
+    "I'm an Army veteran who served in Iraq, and I've spent more than ten years in home improvement, including six years owning and running my own roofing company. I've seen this trade done right and done wrong. Uncle Joe's exists to do it right: honest pricing, clean job sites, and a roof built to protect your family for decades.",
+    'My family and I make our home here in the Conshohocken area, and these are our neighbors. When you need a roof done right, call your uncle.',
+  ],
+  /** Quick facts shown as a checklist. */
+  facts: ['U.S. Army veteran — served in Iraq', 'More than ten years in home improvement', 'Six years owning and running a roofing company'],
 };
 
 export const telHref = `tel:${site.phone.e164}`;

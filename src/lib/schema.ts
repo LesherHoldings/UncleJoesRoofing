@@ -52,6 +52,7 @@ export function businessSchema() {
       opens: h.opens,
       closes: h.closes,
     })) }),
+    ...(pending(site.ownerName) ? {} : { founder: { '@type': 'Person', name: site.ownerName, jobTitle: 'Owner' } }),
     priceRange: '$$',
     knowsAbout: ['Roof replacement', 'Roof repair', 'Roof inspection', 'Asphalt shingle roofing', 'Solar-ready roofing'],
     sameAs: Object.values(site.social).filter(Boolean),

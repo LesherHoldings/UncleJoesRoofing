@@ -80,12 +80,11 @@ Every placeholder is in **`src/config/site.ts`**, and nowhere else. `npm run che
 | 10 | `[WARRANTY TERMS — PENDING]` | `warranty` | Roof Replacement page | Manufacturer and workmanship warranty terms |
 | 11 | `[HOURS — PENDING]` | `hours` | Footer, contact page, structured data | The 8–5 / 9–1 times are stand-ins. **Match Google Business Profile** |
 | 12 | `[EMAIL — PENDING]` | `email` | Contact page, structured data | |
-| 13 | `[OWNER NAME — PENDING]` | `ownerName` | Signs the Our Story page; "Meet the owner" on the home and story pages | |
-| 14 | `[OWNER BIO — PENDING]` | `owner.blurb` / `owner.photo` | "Meet the owner" section | Two or three true sentences. `owner.photo` is a file name (without extension) from `src/assets/photos/`; empty shows a "photo coming soon" tile |
-| 15 | `[JOB PHOTO — PENDING]` | `gallery` | "Our work" before & after on the home and story pages | Only real jobs you have the right to show. Drop photos in `src/assets/photos/`, set `before`/`after` to the file names, fix the caption and town |
+| 13 | `[JOB PHOTO — PENDING]` | `gallery` | "Our work" before & after on the home and story pages | Only real jobs you have the right to show. Drop photos in `src/assets/photos/`, set `before`/`after` to the file names, fix the caption and town |
 | — | Map coordinates | `geo` | Structured data | Currently empty (left out of the structured data). Add your Google Business Profile pin |
 | — | Legal name | `legalName` | Structured data, footer | Confirm the exact registered name (e.g. "Fortress Siding LLC") |
 | — | Review / social links | `reviewsUrl`, `social` | Reviews button, structured data | Optional. Empty values are hidden |
+| — | Owner name, photo, bio, facts | `ownerName`, `owner` | "Meet the owner" (home, Our Story), story signature, structured data | Filled in. Photo is `src/assets/photos/owner-joe.jpg`; bio paragraphs and facts are in the owner's own words |
 
 The site never invents reviews, review counts, years in business, job counts, certifications or awards. Keep it that way: only add claims you can back up.
 

@@ -25,7 +25,7 @@ const shutters = photo('shutter-detail');
         {house && (
           <figure class="mb-10">
             <Image src={house} alt={d.imageAlt ?? ''} widths={[640, 960, 1280]} sizes="(min-width: 1024px) 42rem, 100vw" class="aspect-[3/2] w-full rounded-2xl border-2 border-navy object-cover shadow-sign" loading="eager" />
-            <figcaption class="mt-3 text-sm text-muted">The kind of place Uncle Joe kept: small, plain, and known for its shutters.</figcaption>
+            <figcaption class="mt-3 text-sm text-muted">Yellow shutters, white anchors: the look folks knew as "the Uncle Joe house."</figcaption>
           </figure>
         )}
         <div class="prose prose-xl prose-site max-w-none">
@@ -40,7 +40,7 @@ const shutters = photo('shutter-detail');
               <span aria-hidden="true" class="absolute -top-3 -right-3 h-full w-full rounded-2xl bg-shutter"></span>
               <Image src={shutters} alt="A yellow wooden shutter with a white anchor cut into it" widths={[400, 800]} sizes="(min-width: 1024px) 352px, 90vw" class="relative aspect-[4/5] w-full rounded-2xl border-2 border-navy object-cover" loading="lazy" />
             </div>
-            <figcaption class="mt-3 text-sm text-muted">The shutters: yellow, with a white anchor cut into each one.</figcaption>
+            <figcaption class="mt-3 text-sm text-muted">The anchor in our logo comes from those shutters. So does the yellow.</figcaption>
           </figure>
         )}
         <Image src={logo} alt={`${site.name} logo: an anchor with a roofline, and the words "Call your uncle."`} width={352} widths={[320, 640]} sizes="(min-width: 1024px) 352px, 90vw" class="mx-auto h-auto w-full max-w-xs" loading="lazy" />

@@ -1,6 +1,6 @@
 ---
 title: "Roofer in Conshohocken, Blue Bell & Malvern PA | Uncle Joe's"
-description: "Owner-led roofing company in Blue Bell, PA. Shingle roof replacement, roof repair and free inspections for Conshohocken, Malvern, Paoli and the Main Line."
+description: "Veteran-owned roofing company in Blue Bell, PA. Shingle roof replacement, roof repair and free inspections for Conshohocken, Malvern, Paoli and the Main Line."
 h1: "Call Your Uncle."
 ogImage: "/og/default.png"
 image: "hero-colonial"
@@ -15,7 +15,7 @@ whyUs:
   heading: "The roofer you'd trust like family"
   items:
     - title: "Owner-led"
-      text: "The owner is involved in your job from the first visit to the final walkthrough. Not a salesperson you never see again."
+      text: "The owner — an Army veteran with more than ten years in the trade — is on your job from the first visit to the final walkthrough. Not a salesperson you never see again."
     - title: "A fair price"
       text: "One clear, written quote. No inflated \"today only\" discounts, no games."
     - title: "One accountable person"
@@ -26,7 +26,7 @@ whyUs:
       text: "We protect your landscaping, sweep for nails and haul everything away. Every day."
 storyTeaser:
   heading: "Why \"Uncle Joe's\"?"
-  text: "We're named for a real Uncle Joe — a priest with a small house on Long Beach Island that everyone knew by its yellow shutters and the white anchors cut into them. The anchor in our logo comes straight from those shutters. So does the idea: show up, tell the truth, look after people."
+  text: "We're named for a real Uncle Joe — the first Catholic Bishop of Allentown. His house on Long Beach Island, with its yellow shutters and white anchors, was a landmark folks simply called \"the Uncle Joe house.\" It stood for steadiness and welcome, and that's why our logo is an anchor."
 serviceArea:
   heading: "Close to home"
   text: "We work in Conshohocken, Blue Bell, Malvern, Paoli and the towns around them, from King of Prussia and Plymouth Meeting to Wayne and Berwyn. Close enough that we're never far away when you need us."

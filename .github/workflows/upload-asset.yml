@@ -1,0 +1,27 @@
+name: Upload asset to URL
+# Sends a file from this repo to a pre-signed upload URL (PUT) — used to hand photos to
+# services such as Adobe for retouching when a local upload isn't possible.
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: Repo path of the file to send, e.g. src/assets/photos/owner-joe.jpg
+        required: true
+      url:
+        description: Pre-signed PUT URL
+        required: true
+      content_type:
+        description: MIME type
+        required: true
+        default: image/jpeg
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: PUT file
+        run: |
+          code=$(curl -sS -L -o /tmp/resp.txt -w "%{http_code}" -X PUT "${{ inputs.url }}" \
+            -H "Content-Type: ${{ inputs.content_type }}" --data-binary @"${{ inputs.path }}")
+          echo "HTTP $code"; head -c 500 /tmp/resp.txt; echo
+          case "$code" in 2*) ;; *) exit 1 ;; esac

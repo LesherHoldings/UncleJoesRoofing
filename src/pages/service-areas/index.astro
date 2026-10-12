@@ -1,0 +1,27 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import TownGrid from '../../components/TownGrid.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { site } from '../../config/site';
+
+const page = (await getEntry('pages', 'service-areas'))!;
+const d = page.data;
+const crumbs = [{ name: 'Service Areas', path: '/service-areas/' }];
+---
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs}>
+  <PageHero h1={d.h1} intro={d.intro} kicker="Where we work" breadcrumbs={crumbs} location="service_areas_hero" />
+  <section class="section">
+    <div class="container-site">
+      <TownGrid />
+      <div class="mt-12 max-w-2xl rounded-xl border-2 border-line bg-paper p-6">
+        <h2 class="text-2xl">Not on the list?</h2>
+        <p class="mt-2 text-ink-soft">
+          If you're near {site.address.city} but don't see your town, call and ask. We'll tell you honestly whether we can do a good job for you.
+        </p>
+      </div>
+    </div>
+  </section>
+  <CtaBand location="service_areas_cta" />
+</Layout>

@@ -1,0 +1,27 @@
+---
+title: "Roof Financing in Yardley, PA | Uncle Joe's Roofing"
+description: "Roof replacement financing for homeowners in Yardley, Newtown, Lower Makefield and Langhorne, PA. Ask about payment options at your free inspection."
+h1: "Roof Financing in Yardley & Lower Bucks County, PA"
+ogImage: "/og/financing.png"
+intro: "A new roof is a big expense, and it doesn't always come at a convenient time. Financing can spread the cost out so you can get the roof you need now."
+faqs:
+  - q: "Who provides the financing?"
+    a: "Financing is offered through our lending partner, shown on this page. All financing is subject to credit approval."
+  - q: "When do I apply?"
+    a: "Ask us at your free inspection. We'll explain the options and you can decide whether financing makes sense for you."
+  - q: "Do I have to use financing?"
+    a: "Not at all. Many homeowners pay by check or other means. Financing is just an option."
+  - q: "Will checking my options affect my credit?"
+    a: "That depends on the lender and the type of check they run. The financing partner will explain this before you apply."
+---
+
+## How it works
+
+1. **Get your free inspection and quote.** You'll know exactly what your roof needs and what it costs.
+2. **Ask about financing.** We'll walk you through the options available through our financing partner.
+3. **Apply if it makes sense.** The application goes to the lender. They'll tell you what you qualify for.
+4. **Schedule your roof.** Once you're set, we put you on the calendar.
+
+## Plain talk
+
+We don't use financing to push you into a bigger job. Your quote is the same whether you pay up front or finance. Rates, terms and approval are set by the lender, not by us.

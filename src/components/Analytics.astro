@@ -1,0 +1,37 @@
+---
+/**
+ * Google Analytics 4 + conversion tracking.
+ * - Loads gtag only when PUBLIC_GA4_ID is set, and only after the page has loaded (keeps Lighthouse fast).
+ * - Sends `click_to_call` for every tel: link click (with the link's data-call-location).
+ * - /thank-you/ sends `generate_lead` and /thank-you/booked/ sends `book_appointment`
+ *   (GHL form and calendar redirect there after a submission).
+ * Mark all three as Key Events in GA4 → Admin → Events.
+ */
+import { PUBLIC_GA4_ID } from 'astro:env/client';
+const id = PUBLIC_GA4_ID?.trim() ?? '';
+---
+{id && (
+  <script is:inline define:vars={{ id }}>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', id);
+    window.addEventListener('load', function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(id);
+      document.head.appendChild(s);
+    });
+  </script>
+)}
+<script>
+  // Works with or without GA configured: events queue in dataLayer if gtag exists.
+  document.addEventListener('click', (event) => {
+    const link = (event.target as Element | null)?.closest?.('a[href^="tel:"]') as HTMLAnchorElement | null;
+    if (!link || typeof window.gtag !== 'function') return;
+    window.gtag('event', 'click_to_call', {
+      call_location: link.dataset.callLocation ?? 'unknown',
+      page_path: location.pathname,
+    });
+  });
+</script>

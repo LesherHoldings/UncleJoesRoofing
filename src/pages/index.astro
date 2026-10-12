@@ -1,0 +1,118 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import CallButton from '../components/CallButton.astro';
+import ShutterArt from '../components/ShutterArt.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import TownGrid from '../components/TownGrid.astro';
+import Reviews from '../components/Reviews.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Credentials from '../components/Credentials.astro';
+import Icon from '../components/Icon.astro';
+import { bookHref } from '../config/site';
+
+const page = (await getEntry('pages', 'home'))!;
+const { hero, whyUs, storyTeaser, serviceArea, reviews, finalCta } = page.data;
+---
+<Layout title={page.data.title} description={page.data.description} ogImage={page.data.ogImage}>
+  <!-- Hero -->
+  <section class="overflow-hidden border-b border-line">
+    <div class="container-site grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.15fr_1fr] lg:py-20">
+      <div>
+        <p class="kicker">Roofing in Yardley &amp; Lower Bucks County, PA</p>
+        <h1 class="heading-xl">
+          <span class="relative inline-block">
+            {page.data.h1}
+            <span aria-hidden="true" class="absolute -bottom-1 left-0 h-2 w-full bg-shutter sm:h-2.5"></span>
+          </span>
+        </h1>
+        <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft sm:text-xl">{hero?.subheading}</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <CallButton location="home_hero" variant="dark" class="text-lg" />
+          <a href={bookHref} class="btn btn-primary text-lg">Book a free roof inspection</a>
+        </div>
+        <ul class="mt-7 flex flex-col gap-2 text-ink sm:flex-row sm:flex-wrap sm:gap-x-6">
+          {hero?.points.map((p) => (
+            <li class="flex items-center gap-2 font-medium"><Icon name="check" class="h-5 w-5" />{p}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+        <div class="overflow-hidden rounded-2xl border-2 border-ink shadow-[8px_8px_0_0_#111]">
+          <ShutterArt class="block h-auto w-full" />
+        </div>
+        <p class="mt-4 text-center text-sm text-muted">Inspired by the yellow shutters on the original “Uncle Joe house.”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" aria-labelledby="services-heading">
+    <div class="container-site">
+      <p class="kicker">What we do</p>
+      <h2 id="services-heading" class="heading-lg">Roofing, and only roofing</h2>
+      <p class="mt-3 max-w-2xl text-lg text-ink-soft">We focus on one thing and do it well. Need solar down the road? Ask about a <a href="/solar-ready-roofs/" class="font-semibold text-ink underline decoration-shutter-dark decoration-2 underline-offset-4">solar-ready roof</a>.</p>
+      <div class="mt-10"><ServiceCards onlyHome /></div>
+    </div>
+  </section>
+
+  <!-- Why us -->
+  {whyUs && (
+    <section class="section bg-paper" aria-labelledby="why-heading">
+      <div class="container-site">
+        <p class="kicker">Why Uncle Joe's</p>
+        <h2 id="why-heading" class="heading-lg">{whyUs.heading}</h2>
+        <ul class="mt-10 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+          {whyUs.items.map((item, i) => (
+            <li class="border-t-4 border-ink pt-5">
+              <span class="font-display text-sm font-bold tracking-widest text-muted">0{i + 1}</span>
+              <h3 class="mt-1 text-2xl">{item.title}</h3>
+              <p class="mt-2 leading-relaxed text-ink-soft">{item.text}</p>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-10"><Credentials /></div>
+      </div>
+    </section>
+  )}
+
+  <!-- Story teaser -->
+  {storyTeaser && (
+    <section class="section" aria-labelledby="story-heading">
+      <div class="container-site grid items-center gap-10 lg:grid-cols-[auto_1fr]">
+        <div class="mx-auto flex h-40 w-40 items-center justify-center rounded-2xl border-2 border-ink bg-shutter shadow-[6px_6px_0_0_#111] sm:h-48 sm:w-48" aria-hidden="true">
+          <svg viewBox="-34 -40 68 80" class="h-28 w-28 sm:h-32 sm:w-32">
+            <circle cx="0" cy="-26" r="5" fill="none" stroke="#fff" stroke-width="4"/>
+            <path d="M0 -21 V26" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <path d="M-12 -11 H12" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <path d="M-20 8 C-18 20 -9 26 0 28 C9 26 18 20 20 8" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+            <path d="M-24 13 L-20 5 L-14 11 M24 13 L20 5 L14 11" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="max-w-2xl">
+          <p class="kicker">Our story</p>
+          <h2 id="story-heading" class="heading-lg">{storyTeaser.heading}</h2>
+          <p class="mt-4 text-lg leading-relaxed text-ink-soft">{storyTeaser.text}</p>
+          <a href="/our-story/" class="btn btn-outline mt-6">Read our story <Icon name="arrow" class="h-4 w-4" /></a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Service area -->
+  {serviceArea && (
+    <section class="section border-t border-line" aria-labelledby="area-heading">
+      <div class="container-site">
+        <p class="kicker">Service area</p>
+        <h2 id="area-heading" class="heading-lg">{serviceArea.heading}</h2>
+        <p class="mt-3 max-w-2xl text-lg text-ink-soft">{serviceArea.text}</p>
+        <div class="mt-8"><TownGrid /></div>
+        <a href="/service-areas/" class="mt-6 inline-flex items-center gap-1.5 font-semibold text-ink underline decoration-shutter-dark decoration-2 underline-offset-4">All service areas <Icon name="arrow" class="h-4 w-4" /></a>
+      </div>
+    </section>
+  )}
+
+  <Reviews heading={reviews?.heading} text={reviews?.text} />
+
+  <CtaBand heading={finalCta?.heading} text={finalCta?.text} location="home_final_cta" />
+</Layout>

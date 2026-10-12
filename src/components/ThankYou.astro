@@ -1,0 +1,41 @@
+---
+/**
+ * Confirmation page shown after a GHL form submission or calendar booking.
+ * Sends one GA4 conversion event when it loads. Kept out of search and the sitemap.
+ */
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import CallButton from './CallButton.astro';
+import Icon from './Icon.astro';
+
+interface Props { id: 'thank-you' | 'booked'; event: 'generate_lead' | 'book_appointment'; method: string }
+const { id, event, method } = Astro.props;
+const page = (await getEntry('pages', id))!;
+const d = page.data;
+---
+<Layout title={d.title} description={d.description} noindex>
+  <section class="section">
+    <div class="container-site max-w-2xl text-center">
+      <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border-2 border-ink bg-shutter text-ink">
+        <Icon name="check" class="h-8 w-8" />
+      </div>
+      <h1 class="heading-lg mt-6">{d.h1}</h1>
+      <p class="mt-4 text-lg text-ink-soft">{d.intro}</p>
+      <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+        <CallButton location={`${id}_page`} variant="dark" />
+        <a href="/our-story/" class="btn btn-outline">Read our story</a>
+      </div>
+    </div>
+  </section>
+  <script is:inline define:vars={{ event, method }}>
+    // Fire the conversion once per visit, even if the page is refreshed.
+    (function () {
+      var key = 'ujr_conv_' + event;
+      try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, '1'); } catch (e) {}
+      window.dataLayer = window.dataLayer || [];
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', event, { method: method, page_path: location.pathname });
+      }
+    })();
+  </script>
+</Layout>

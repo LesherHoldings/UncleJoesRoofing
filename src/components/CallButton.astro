@@ -1,0 +1,18 @@
+---
+import Icon from './Icon.astro';
+import { site, telHref } from '../config/site';
+
+interface Props {
+  /** Where on the page this button is — sent to GA4 with the click_to_call event. */
+  location: string;
+  variant?: 'primary' | 'dark' | 'outline' | 'outline-light';
+  class?: string;
+  /** Show "Call Your Uncle" instead of the number */
+  label?: string;
+}
+const { location, variant = 'dark', class: className = '', label } = Astro.props;
+---
+<a href={telHref} class:list={['btn', `btn-${variant}`, className]} data-call-location={location}>
+  <Icon name="phone" class="h-5 w-5" />
+  <span>{label ?? `Call ${site.phone.display}`}</span>
+</a>

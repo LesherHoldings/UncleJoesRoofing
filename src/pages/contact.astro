@@ -1,0 +1,59 @@
+---
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import GhlForm from '../components/GhlForm.astro';
+import Icon from '../components/Icon.astro';
+import { site, telHref, fullAddress } from '../config/site';
+
+const page = (await getEntry('pages', 'contact'))!;
+const d = page.data;
+const crumbs = [{ name: 'Contact', path: '/contact/' }];
+const directions = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${site.name}, ${fullAddress}`)}`;
+---
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs}>
+  <PageHero h1={d.h1} intro={d.intro} kicker={site.tagline} breadcrumbs={crumbs} ctas={false} />
+  <section class="section">
+    <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,30rem)]">
+      <div class="space-y-8">
+        <a href={telHref} data-call-location="contact_page" class="group flex items-center gap-4 rounded-xl border-2 border-ink bg-shutter p-5 text-ink no-underline shadow-[6px_6px_0_0_#111]">
+          <span class="flex h-12 w-12 flex-none items-center justify-center rounded-full bg-ink text-white"><Icon name="phone" class="h-6 w-6" /></span>
+          <span>
+            <span class="block text-sm font-bold tracking-[0.15em] uppercase">Call your uncle</span>
+            <span class="block font-display text-2xl font-bold sm:text-3xl">{site.phone.display}</span>
+          </span>
+        </a>
+        <dl class="space-y-6">
+          <div class="flex gap-4">
+            <dt><Icon name="pin" class="h-6 w-6 text-ink" label="Address" /></dt>
+            <dd>
+              <address class="not-italic text-ink">{site.address.street}<br />{site.address.city}, {site.address.region} {site.address.postalCode}</address>
+              <a href={directions} class="mt-1 inline-block font-semibold text-ink underline decoration-shutter-dark decoration-2 underline-offset-4" rel="noopener" target="_blank">Get directions</a>
+            </dd>
+          </div>
+          <div class="flex gap-4">
+            <dt><Icon name="mail" class="h-6 w-6 text-ink" label="Email" /></dt>
+            <dd><a href={`mailto:${site.email}`} class="text-ink underline decoration-shutter-dark decoration-2 underline-offset-4">{site.email}</a></dd>
+          </div>
+          <div class="flex gap-4">
+            <dt><Icon name="clock" class="h-6 w-6 text-ink" label="Hours" /></dt>
+            <dd>
+              <ul class="space-y-1 text-ink">
+                {site.hours.map((h) => <li><span class="font-semibold">{h.days}:</span> {h.label}</li>)}
+              </ul>
+            </dd>
+          </div>
+        </dl>
+        <div class="rounded-xl border-2 border-line bg-paper p-6">
+          <h2 class="text-2xl">Where we work</h2>
+          <p class="mt-2 text-ink-soft">
+            Yardley, Lower Makefield, Newtown, Langhorne and Middletown Township, PA. <a href="/service-areas/" class="font-semibold text-ink underline decoration-shutter-dark decoration-2 underline-offset-4">See all service areas</a>.
+          </p>
+        </div>
+      </div>
+      <div id="request" class="scroll-mt-24">
+        <GhlForm heading="Send us a message" text="We'll get back to you, usually by phone." />
+      </div>
+    </div>
+  </section>
+</Layout>

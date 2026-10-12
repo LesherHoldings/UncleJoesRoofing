@@ -1,0 +1,74 @@
+---
+/** Roof Replacement, Roof Repair, Free Roof Inspection and Solar-Ready Roofs — copy in src/content/services/. */
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import Checklist from '../components/Checklist.astro';
+import GhlForm from '../components/GhlForm.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import TownGrid from '../components/TownGrid.astro';
+import Credentials from '../components/Credentials.astro';
+import { serviceSchema, faqSchema } from '../lib/schema';
+import { site, bookHref } from '../config/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({ params: { service: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const path = `/${entry.id}/`;
+const isInspection = entry.id === 'free-roof-inspection';
+
+const schema = [serviceSchema(d.cardTitle, d.description, path), ...(d.faqs.length ? [faqSchema(d.faqs)] : [])];
+---
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={[{ name: d.cardTitle, path }]} schema={schema}>
+  <PageHero h1={d.h1} intro={d.intro} kicker={d.cardTitle} breadcrumbs={[{ name: d.cardTitle, path }]} ctas={!isInspection} location={`${entry.id}_hero`} />
+
+  <section class="section">
+    <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,26rem)]">
+      <div>
+        {d.highlights.length > 0 && (
+          <div class="rounded-xl border-2 border-line p-6 sm:p-8">
+            <h2 class="text-2xl sm:text-3xl">{isInspection ? 'What we check' : "What's included"}</h2>
+            <Checklist items={d.highlights} class="mt-5" />
+          </div>
+        )}
+        <div class="prose prose-lg prose-site mt-10 max-w-none">
+          <Content />
+        </div>
+        {entry.id === 'roof-replacement' && (
+          <div class="mt-10 rounded-xl border-2 border-line bg-paper p-6">
+            <h2 class="text-2xl">Warranty</h2>
+            <p class="mt-2 text-ink-soft">{site.warranty}</p>
+          </div>
+        )}
+        {!isInspection && <div class="mt-10"><Credentials /></div>}
+      </div>
+
+      <aside id="request" class="scroll-mt-24">
+        {isInspection && (
+          <a href={bookHref} class="btn btn-primary mb-6 w-full text-lg">Pick a time online</a>
+        )}
+        <GhlForm heading={isInspection ? 'Or request a call back' : 'Get a free inspection & quote'} />
+      </aside>
+    </div>
+  </section>
+
+  <Faq faqs={d.faqs} />
+
+  <section class="section border-t border-line bg-paper">
+    <div class="container-site">
+      <h2 class="heading-lg">Serving Yardley and nearby towns</h2>
+      <div class="mt-8"><TownGrid compact /></div>
+      <h2 class="heading-lg mt-16">Other roofing services</h2>
+      <div class="mt-8"><ServiceCards exclude={entry.id} /></div>
+    </div>
+  </section>
+
+  <CtaBand location={`${entry.id}_cta`} />
+</Layout>

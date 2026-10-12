@@ -1,0 +1,33 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+import CallButton from './CallButton.astro';
+import { bookHref } from '../config/site';
+
+interface Props {
+  h1: string;
+  intro?: string;
+  kicker?: string;
+  breadcrumbs: { name: string; path: string }[];
+  /** Show the call / book buttons */
+  ctas?: boolean;
+  location?: string;
+}
+const { h1, intro, kicker, breadcrumbs, ctas = true, location = 'page_hero' } = Astro.props;
+---
+<section class="border-b border-line bg-paper">
+  <div class="container-site py-10 sm:py-14">
+    <Breadcrumbs items={breadcrumbs} />
+    <div class="mt-6 max-w-3xl">
+      {kicker && <p class="kicker">{kicker}</p>}
+      <h1 class="heading-lg sm:text-5xl">{h1}</h1>
+      {intro && <p class="mt-4 text-lg leading-relaxed text-ink-soft sm:text-xl">{intro}</p>}
+      {ctas && (
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+          <a href={bookHref} class="btn btn-primary">Book a Free Roof Inspection</a>
+          <CallButton location={location} variant="outline" />
+        </div>
+      )}
+      <slot />
+    </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Icon from './Icon.astro';
+
+interface Props { onlyHome?: boolean; exclude?: string }
+const { onlyHome = false, exclude } = Astro.props;
+const services = (await getCollection('services'))
+  .filter((s) => (!onlyHome || s.data.showOnHome) && s.id !== exclude)
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<ul class:list={['grid gap-5', services.length === 3 ? 'md:grid-cols-3' : 'sm:grid-cols-2 lg:grid-cols-4']}>
+  {services.map((s) => (
+    <li class="group relative flex flex-col rounded-xl border-2 border-line bg-white p-6 transition hover:border-ink hover:shadow-[6px_6px_0_0_#111]">
+      <span class="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-ink bg-shutter text-ink">
+        <Icon name={s.data.icon} class="h-6 w-6" />
+      </span>
+      <h3 class="mt-5 text-2xl">
+        <a href={`/${s.id}/`} class="no-underline after:absolute after:inset-0 after:content-['']">{s.data.cardTitle}</a>
+      </h3>
+      <p class="mt-2 flex-1 text-ink-soft">{s.data.cardSummary}</p>
+      <span class="mt-5 inline-flex items-center gap-1.5 font-semibold text-ink underline decoration-shutter-dark decoration-2 underline-offset-4" aria-hidden="true">
+        Learn more <Icon name="arrow" class="h-4 w-4 transition-transform group-hover:translate-x-1" />
+      </span>
+    </li>
+  ))}
+</ul>

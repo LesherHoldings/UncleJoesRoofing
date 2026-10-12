@@ -1,0 +1,25 @@
+---
+/**
+ * GoHighLevel booking calendar (used on /book/).
+ *
+ * Conversion tracking: in the GHL calendar settings, set the confirmation to redirect to
+ * https://unclejoesroofing.com/thank-you/booked/ — that page sends the GA4 `book_appointment` event.
+ */
+import { site } from '../config/site';
+const { id } = site.ghl.calendar;
+const src = `https://api.leadconnectorhq.com/widget/booking/${id}`;
+---
+<div class="min-h-[640px]">
+  <iframe
+    src={src}
+    allow="payment"
+    style="width:100%;border:none;overflow:hidden;min-height:640px"
+    scrolling="no"
+    id={`${id}_1791557632107`}
+    title="Book a free roof inspection — Uncle Joe's Roofing calendar"
+  ></iframe>
+</div>
+<script>
+  import { loadGhlEmbedScript } from '../lib/ghl';
+  loadGhlEmbedScript();
+</script>

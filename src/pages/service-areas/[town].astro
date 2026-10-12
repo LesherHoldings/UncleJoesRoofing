@@ -1,0 +1,64 @@
+---
+/** One page per town — copy in src/content/towns/. */
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PageHero from '../../components/PageHero.astro';
+import Checklist from '../../components/Checklist.astro';
+import GhlForm from '../../components/GhlForm.astro';
+import ServiceCards from '../../components/ServiceCards.astro';
+import TownGrid from '../../components/TownGrid.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { faqSchema, serviceSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const towns = await getCollection('towns');
+  return towns.map((entry) => ({ params: { town: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const path = `/service-areas/${entry.id}/`;
+const crumbs = [
+  { name: 'Service Areas', path: '/service-areas/' },
+  { name: `${d.name}, PA`, path },
+];
+const schema = [serviceSchema(`Roofing in ${d.name}, PA`, d.description, path, d.name), ...(d.faqs.length ? [faqSchema(d.faqs)] : [])];
+---
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={schema}>
+  <PageHero h1={d.h1} intro={d.intro} kicker={`Serving ${d.name}`} breadcrumbs={crumbs} location={`town_${entry.id}_hero`}>
+    <ul class="mt-7 flex flex-wrap gap-2" aria-label={`Places we work around ${d.name}`}>
+      {d.landmarks.map((l) => <li class="rounded-full border-2 border-ink bg-white px-3 py-1 text-sm font-semibold text-ink">{l}</li>)}
+    </ul>
+  </PageHero>
+
+  <section class="section">
+    <div class="container-site grid gap-12 lg:grid-cols-[1fr_minmax(0,26rem)]">
+      <div>
+        <div class="rounded-xl border-2 border-line p-6 sm:p-8">
+          <h2 class="text-2xl sm:text-3xl">Homes we work on in {d.name}</h2>
+          <Checklist items={d.housing} class="mt-5" />
+        </div>
+        <div class="prose prose-lg prose-site mt-10 max-w-none">
+          <Content />
+        </div>
+      </div>
+      <aside id="request" class="scroll-mt-24">
+        <GhlForm heading={`Free roof inspection in ${d.name}`} />
+      </aside>
+    </div>
+  </section>
+
+  <section class="section border-t border-line bg-paper">
+    <div class="container-site">
+      <h2 class="heading-lg">Roofing services in {d.name}</h2>
+      <div class="mt-8"><ServiceCards /></div>
+      <h2 class="heading-lg mt-16">Nearby towns we serve</h2>
+      <div class="mt-8"><TownGrid exclude={entry.id} compact /></div>
+    </div>
+  </section>
+
+  <Faq faqs={d.faqs} heading={`Roofing questions from ${d.name}`} />
+  <CtaBand location={`town_${entry.id}_cta`} />
+</Layout>

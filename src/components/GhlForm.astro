@@ -1,0 +1,82 @@
+---
+/**
+ * GoHighLevel lead form ("Unc Joe's Main Site"). Submissions go straight into GHL.
+ *
+ * To keep pages fast, the iframe and GHL's embed script load only when the form
+ * scrolls near the screen. Height is reserved up front so nothing jumps around.
+ *
+ * Conversion tracking: in GHL, set this form's "On submit" action to redirect to
+ * https://unclejoesroofing.com/thank-you/ — that page sends the GA4 `generate_lead` event.
+ */
+import { site, bookHref, telHref } from '../config/site';
+
+interface Props {
+  heading?: string;
+  /** Shown under the heading */
+  text?: string;
+}
+const { heading = 'Request your free roof inspection', text = "Tell us a little about your roof and we'll call you to set a time." } = Astro.props;
+const { id, name, height } = site.ghl.form;
+const src = `https://api.leadconnectorhq.com/widget/form/${id}`;
+---
+<div class="rounded-xl border-2 border-ink bg-white p-5 shadow-[6px_6px_0_0_#111] sm:p-6">
+  <h2 class="text-2xl sm:text-3xl">{heading}</h2>
+  {text && <p class="mt-1 text-sm text-muted">{text}</p>}
+
+  <div class="relative mt-4" style={`min-height:${height}px`}>
+    <p class="absolute inset-x-0 top-8 text-center text-sm text-muted" aria-hidden="true">Loading form…</p>
+    <iframe
+      data-ghl-src={src}
+      class="relative block w-full rounded-[3px] border-0 bg-white"
+      style={`width:100%;height:${height}px;border:none;border-radius:3px`}
+      id={`inline-${id}`}
+      data-layout="{'id':'INLINE'}"
+      data-trigger-type="alwaysShow"
+      data-trigger-value=""
+      data-activation-type="alwaysActivated"
+      data-activation-value=""
+      data-deactivation-type="neverDeactivate"
+      data-deactivation-value=""
+      data-form-name={name}
+      data-height={height}
+      data-layout-iframe-id={`inline-${id}`}
+      data-form-id={id}
+      data-cookie-consent="true"
+      data-cookie-consent-provider="auto"
+      title={name}
+    ></iframe>
+    <noscript>
+      <iframe src={src} title={name} style={`width:100%;height:${height}px;border:none`}></iframe>
+    </noscript>
+  </div>
+
+  <p class="mt-4 border-t border-line pt-4 text-sm text-ink-soft">
+    Rather pick a time yourself? <a href={bookHref} class="font-semibold text-ink underline decoration-shutter-dark decoration-2 underline-offset-4">Book online</a>
+    or <a href={telHref} data-call-location="form_footer" class="font-semibold text-ink underline decoration-shutter-dark decoration-2 underline-offset-4">call {site.phone.display}</a>.
+  </p>
+</div>
+
+<script>
+  import { loadGhlEmbedScript } from '../lib/ghl';
+
+  const frames = document.querySelectorAll<HTMLIFrameElement>('iframe[data-ghl-src]');
+  const start = (frame: HTMLIFrameElement) => {
+    if (frame.src) return;
+    frame.src = frame.dataset.ghlSrc!;
+    loadGhlEmbedScript();
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          start(e.target as HTMLIFrameElement);
+          io.unobserve(e.target);
+        }
+      }),
+      { rootMargin: '800px 0px' },
+    );
+    frames.forEach((f) => io.observe(f));
+  } else {
+    frames.forEach(start);
+  }
+</script>

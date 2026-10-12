@@ -1,0 +1,40 @@
+---
+/** Online booking calendar. discovery.unclejoesroofing.com links here. */
+import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+import GhlCalendar from '../components/GhlCalendar.astro';
+import Checklist from '../components/Checklist.astro';
+import CallButton from '../components/CallButton.astro';
+import { site } from '../config/site';
+
+const page = (await getEntry('pages', 'book'))!;
+const d = page.data;
+const crumbs = [{ name: 'Book an Inspection', path: '/book/' }];
+---
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs}>
+  <PageHero h1={d.h1} intro={d.intro} kicker={site.tagline} breadcrumbs={crumbs} ctas={false} />
+  <section class="py-10 sm:py-14">
+    <div class="container-site grid gap-10 lg:grid-cols-[1fr_20rem]">
+      <div class="rounded-xl border-2 border-ink bg-white p-2 shadow-[6px_6px_0_0_#111] sm:p-4">
+        <GhlCalendar />
+      </div>
+      <aside class="space-y-6 lg:pt-2">
+        <div>
+          <h2 class="text-2xl">What to expect</h2>
+          <Checklist class="mt-4" items={[
+            'We inspect the roof, flashing, vents and gutters',
+            'We show you photos of what we find',
+            'You get a straight answer — repair, replace or leave it alone',
+            'No cost and no pressure',
+          ]} />
+        </div>
+        <div class="rounded-xl border-2 border-line bg-paper p-5">
+          <h2 class="text-xl">Rather talk to someone?</h2>
+          <p class="mt-1 text-sm text-ink-soft">Call and we'll find a time together.</p>
+          <CallButton location="book_page" variant="dark" class="mt-4 w-full" />
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>

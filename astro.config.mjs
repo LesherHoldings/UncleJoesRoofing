@@ -15,8 +15,8 @@ export default defineConfig({
     schema: {
       // GA4 measurement ID (G-XXXXXXXXXX). Empty disables analytics.
       PUBLIC_GA4_ID: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
-      // Google Ads tag (AW-XXXXXXXXX). Empty disables it.
-      PUBLIC_GOOGLE_ADS_ID: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
+      // Google Ads tag for Uncle Joe's Roofing. Set PUBLIC_GOOGLE_ADS_ID='' in the environment to disable it.
+      PUBLIC_GOOGLE_ADS_ID: envField.string({ context: 'client', access: 'public', optional: true, default: 'AW-18508719198' }),
       // Conversion label for the form conversion fired on /thank-you/ (the part after "AW-…/").
       PUBLIC_GOOGLE_ADS_FORM_LABEL: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
       // Conversion label for website call conversions (Google swaps the phone number on the page).

@@ -10,7 +10,7 @@ import TownGrid from '../../components/TownGrid.astro';
 import Faq from '../../components/Faq.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import GuideCards from '../../components/GuideCards.astro';
-import { faqSchema, serviceSchema } from '../../lib/schema';
+import { townServiceNode, ids } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const towns = await getCollection('towns');
@@ -25,9 +25,9 @@ const crumbs = [
   { name: 'Service Areas', path: '/service-areas/' },
   { name: `${d.name}, PA`, path },
 ];
-const schema = [serviceSchema(`Roofing in ${d.name}, PA`, d.description, path, d.name), ...(d.faqs.length ? [faqSchema(d.faqs)] : [])];
+const schema = [townServiceNode(entry.id, d.description)];
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={schema}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={schema} faqs={d.faqs} mainEntityId={ids.townService(entry.id)}>
   <PageHero h1={d.h1} intro={d.intro} kicker={`Serving ${d.name}`} breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location={`town_${entry.id}_hero`}>
     <ul class="mt-7 flex flex-wrap gap-2" aria-label={`Places we work around ${d.name}`}>
       {d.landmarks.map((l) => <li class="tag">{l}</li>)}

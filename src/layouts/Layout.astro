@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import MobileCallBar from '../components/MobileCallBar.astro';
 import Analytics from '../components/Analytics.astro';
 import { site } from '../config/site';
-import { businessSchema, breadcrumbSchema } from '../lib/schema';
+import { pageGraph, type PageType } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -13,19 +13,22 @@ interface Props {
   ogImage?: string;
   /** Breadcrumb trail after "Home". Omit on the home page. */
   breadcrumbs?: { name: string; path: string }[];
-  /** Extra JSON-LD objects for this page (Service, FAQPage, ...) */
+  /** Extra JSON-LD nodes for this page's @graph (a Service, for example). */
   schema?: object[];
+  /** schema.org page type; defaults to WebPage. */
+  pageType?: PageType;
+  /** FAQs shown on the page — also marks the page as an FAQPage. */
+  faqs?: { q: string; a: string }[];
+  /** @id of the node this page is mainly about (e.g. its Service). */
+  mainEntityId?: string;
   noindex?: boolean;
 }
 
-const { title, description, ogImage = '/og/default.png', breadcrumbs, schema = [], noindex = false } = Astro.props;
+const { title, description, ogImage = '/og/default.png', breadcrumbs, schema = [], pageType, faqs, mainEntityId, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, site.url).href;
 const ogUrl = new URL(ogImage, site.url).href;
 
-const jsonLd = [businessSchema(), ...schema];
-if (breadcrumbs?.length) {
-  jsonLd.push(breadcrumbSchema([{ name: 'Home', path: '/' }, ...breadcrumbs]));
-}
+const jsonLd = pageGraph({ path: Astro.url.pathname, title, description, ogImage, type: pageType, faqs, breadcrumbs, mainEntityId, extra: schema });
 ---
 <!doctype html>
 <html lang="en-US">

@@ -7,14 +7,13 @@ import CtaBand from '../components/CtaBand.astro';
 import CallButton from '../components/CallButton.astro';
 import GuideCards from '../components/GuideCards.astro';
 import { site, bookHref } from '../config/site';
-import { faqSchema } from '../lib/schema';
 
 const page = (await getEntry('pages', 'financing'))!;
 const { Content } = await render(page);
 const d = page.data;
 const crumbs = [{ name: 'Financing', path: '/financing/' }];
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={d.faqs.length ? [faqSchema(d.faqs)] : []}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs}>
   <PageHero h1={d.h1} intro={d.intro} kicker="Financing" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} location="financing_hero" />
   <section class="section">
     <div class="container-site grid gap-12 lg:grid-cols-[1fr_22rem]">

@@ -17,7 +17,7 @@ const crumbs = [{ name: 'Our Story', path: '/our-story/' }];
 const house = photo(d.image);
 const shutters = photo('shutter-detail');
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} pageType="AboutPage">
   <PageHero h1={d.h1} intro={d.intro} kicker="Why Uncle Joe's" breadcrumbs={crumbs} ctas={false} />
   <section class="section">
     <div class="container-site grid gap-12 lg:grid-cols-[1fr_22rem] lg:gap-16">

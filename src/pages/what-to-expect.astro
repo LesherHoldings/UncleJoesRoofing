@@ -9,7 +9,6 @@ import GhlForm from '../components/GhlForm.astro';
 import GuideCards from '../components/GuideCards.astro';
 import CallButton from '../components/CallButton.astro';
 import Icon from '../components/Icon.astro';
-import { faqSchema } from '../lib/schema';
 import { photo } from '../lib/photos';
 
 const page = (await getEntry('pages', 'what-to-expect'))!;
@@ -24,7 +23,7 @@ const steps = [
   { n: '!', title: 'Leaking right now?', href: '#leaking-right-now' },
 ];
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} schema={d.faqs.length ? [faqSchema(d.faqs)] : []}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} faqs={d.faqs}>
   <PageHero h1={d.h1} intro={d.intro} kicker="Install day" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} requestLink location="expect_hero" />
 
   <nav aria-label="On this page" class="border-b border-line bg-white">

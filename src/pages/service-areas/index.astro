@@ -11,7 +11,7 @@ const page = (await getEntry('pages', 'service-areas'))!;
 const d = page.data;
 const crumbs = [{ name: 'Service Areas', path: '/service-areas/' }];
 ---
-<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs}>
+<Layout title={d.title} description={d.description} ogImage={d.ogImage} breadcrumbs={crumbs} pageType="CollectionPage">
   <PageHero h1={d.h1} intro={d.intro} kicker="Where we work" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} location="service_areas_hero" />
   <section class="section">
     <div class="container-site">

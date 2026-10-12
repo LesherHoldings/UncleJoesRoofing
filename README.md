@@ -149,7 +149,8 @@ Each thank-you event fires once per visit, so refreshing the page doesn't double
 ## SEO
 
 - Every page has its own title, description, H1 and canonical URL (all set in the Markdown files).
-- RoofingContractor structured data (name, phone, address, hours, service areas, map location) is on every page, built from `src/config/site.ts`. Service pages also have Service data; pages with FAQs have FAQ data; inner pages have breadcrumbs.
+- Structured data: every page carries one JSON-LD `@graph` (built in `src/lib/schema.ts` from `src/config/site.ts`) linking the business (RoofingContractor with offer catalog, free-inspection offer, HIC number, owner), the website, the page (WebPage / AboutPage / ContactPage / FAQPage), its breadcrumb and, on service and town pages, a Service node. Values still marked PENDING are left out automatically. `npm run check:schema` validates the built output and runs as part of `npm run build`.
+- `public/llms.txt` gives AI crawlers a plain-text summary of the business and its pages; keep it in step with the site map.
 - The sitemap is generated automatically at `/sitemap-index.xml` and listed in `public/robots.txt`.
 - Open Graph images (the preview shown when a link is shared) are in `public/og/`, one per page.
 

@@ -34,6 +34,8 @@ PAGES = {
     "west-conshohocken": ("Roofing in West Conshohocken", "West Conshohocken, PA"),
     "plymouth-meeting": ("Roofing in Plymouth Meeting", "Plymouth Meeting, PA"),
     "lafayette-hill": ("Roofing in Lafayette Hill", "Lafayette Hill, PA"),
+    "king-of-prussia": ("Roofing in King of Prussia", "King of Prussia, PA"),
+    "ambler": ("Roofing in Ambler", "Ambler, PA"),
     "what-to-expect": ("What to Expect", "Install day, start to finish"),
 }
 

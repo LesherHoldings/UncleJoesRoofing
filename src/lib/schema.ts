@@ -17,6 +17,8 @@ export const towns: { slug: string; name: string; county: string }[] = [
   { slug: 'west-conshohocken', name: 'West Conshohocken', county: 'Montgomery County' },
   { slug: 'plymouth-meeting', name: 'Plymouth Meeting', county: 'Montgomery County' },
   { slug: 'lafayette-hill', name: 'Lafayette Hill', county: 'Montgomery County' },
+  { slug: 'king-of-prussia', name: 'King of Prussia', county: 'Montgomery County' },
+  { slug: 'ambler', name: 'Ambler', county: 'Montgomery County' },
 ];
 
 /** The four services, in the order they appear on the site. */

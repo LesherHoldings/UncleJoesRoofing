@@ -88,10 +88,10 @@ export const site = {
 } as const;
 
 /** Service-area towns, in display order. Each has a markdown file in src/content/towns/. */
-export const serviceAreas = ['conshohocken', 'blue-bell', 'malvern', 'paoli', 'west-conshohocken', 'plymouth-meeting', 'lafayette-hill'] as const;
+export const serviceAreas = ['conshohocken', 'blue-bell', 'malvern', 'paoli', 'west-conshohocken', 'plymouth-meeting', 'lafayette-hill', 'king-of-prussia', 'ambler'] as const;
 
 /** Nearby towns we also serve (mentioned in copy and schema, no dedicated page). */
-export const nearbyTowns = ['King of Prussia', 'Wayne', 'Berwyn', 'Devon', 'Ambler', 'Exton', 'Gulph Mills', 'Norristown'];
+export const nearbyTowns = ['Wayne', 'Berwyn', 'Devon', 'Exton', 'Gulph Mills', 'Norristown', 'Fort Washington', 'Lansdale'];
 
 /** Where every "Book" button goes. */
 export const bookHref = '/book/';

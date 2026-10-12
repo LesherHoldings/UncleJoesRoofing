@@ -1,5 +1,5 @@
 ---
-title: "Roof Install Day & Emergency Leak Help | Uncle Joe's"
+title: "What to Expect on Roof Install Day | Uncle Joe's Roofing"
 description: "How a roof replacement day goes from tear-off to cleanup, how to get ready, and what to do right now if your roof is leaking in Montgomery or Chester County."
 h1: "What to Expect on Install Day"
 ogImage: "/og/what-to-expect.png"
@@ -70,4 +70,4 @@ You can learn a lot from the ground. After a big wind or hail storm, look for sh
 
 Be careful of anyone who knocks on the door after a storm offering a "free roof." Storm-chasers come and go. We're local, and a [free inspection](/free-roof-inspection/) with photos is the calm way to find out what, if anything, your roof needs.
 
-Ready when you are: [book a free inspection](/book/), or read [how pricing and warranties work](/pricing-and-warranties/) first.
+Ready when you are: [book a free inspection](/book/), read about [roof replacement](/roof-replacement/), or see [how pricing and warranties work](/pricing-and-warranties/) first.

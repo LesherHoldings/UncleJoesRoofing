@@ -69,6 +69,10 @@ Things that commonly void a warranty: installing over old shingles, poor attic v
 
 You get our specific warranty terms in writing with your quote.
 
+## How much is a new roof in PA?
+
+It depends on everything above, which is why we don't put one number on this page. We do publish typical ranges by home type for our part of Montgomery and Chester County: see [what a new roof costs](/roof-replacement-cost/). Then book a free inspection and we'll turn the range into one written price.
+
 ## Paying for it
 
-Want ballpark numbers for our area first? See [what a new roof costs](/roof-replacement-cost/). A roof is one of the bigger bills a house sends you. We offer [financing through our partner](/financing/) so you can spread it out, and the price is the same whether you finance or pay up front. When you're ready, [book a free inspection](/book/) — and if you want to know how install day goes, read [what to expect](/what-to-expect/).
+A roof is one of the bigger bills a house sends you. We offer [financing through our partner](/financing/) so you can spread it out, and the price is the same whether you finance or pay up front. When you're ready, [book a free inspection](/book/) — and if you want to know how install day goes, read [what to expect](/what-to-expect/).

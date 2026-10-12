@@ -15,7 +15,9 @@ const crumbs = [{ name: 'Service Areas', path: '/service-areas/' }];
   <PageHero h1={d.h1} intro={d.intro} kicker="Where we work" breadcrumbs={crumbs} image={d.image} imageAlt={d.imageAlt} location="service_areas_hero" />
   <section class="section">
     <div class="container-site">
-      <TownGrid />
+      <p class="kicker">Towns</p>
+      <h2 class="heading-lg">Towns with their own page</h2>
+      <div class="mt-8"><TownGrid /></div>
       <div class="mt-12 grid gap-6 lg:grid-cols-2">
         <div class="rounded-xl border-2 border-line p-6">
           <h2 class="text-2xl">Nearby towns we also serve</h2>

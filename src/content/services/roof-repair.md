@@ -1,7 +1,7 @@
 ---
-title: "Roof Repair & Leak Repair in Blue Bell, PA | Uncle Joe's"
+title: "Emergency Roof & Leak Repair in Blue Bell, PA | Uncle Joe's"
 description: "Roof leak and shingle repair in Conshohocken, Blue Bell, Malvern, Paoli and nearby towns. Honest diagnosis, fair prices, no upselling. Call your uncle."
-h1: "Roof Leak Repair in Montgomery & Chester County, PA"
+h1: "Roof Leak Repair & Emergency Roof Repair in Montgomery & Chester County, PA"
 ogImage: "/og/roof-repair.png"
 image: "repair-flashing"
 imageAlt: "Roofer replacing flashing around a chimney"
@@ -28,6 +28,10 @@ faqs:
   - q: "Do you handle emergency leaks?"
     a: "Call us. If water is coming in, we'll do what we can to get the roof covered quickly and then plan a proper repair."
 ---
+## Emergency tarping and temporary leak repair
+
+If water is coming in right now, the first job is stopping it, not selling you a roof. We do emergency roof repairs and temporary tarping across Montgomery and Chester County, from Conshohocken and Blue Bell to Malvern and Paoli. Call us, put a bucket under the drip, stay off the roof, and we'll get the roof covered. The permanent fix comes after, once things are dry and we can see what actually happened. Here's [what to do while you wait](/what-to-expect/#leaking-right-now).
+
 
 ## Common repairs we handle
 

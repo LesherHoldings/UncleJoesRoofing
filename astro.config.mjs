@@ -20,7 +20,7 @@ export default defineConfig({
       // Conversion label for the form conversion fired on /thank-you/ (the part after "AW-…/").
       PUBLIC_GOOGLE_ADS_FORM_LABEL: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
       // Conversion label for website call conversions (Google swaps the phone number on the page).
-      PUBLIC_GOOGLE_ADS_CALL_LABEL: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),
+      PUBLIC_GOOGLE_ADS_CALL_LABEL: envField.string({ context: 'client', access: 'public', optional: true, default: 'gP6iCOiOzKIdEN7I0vlE' }),
     },
   },
   integrations: [
